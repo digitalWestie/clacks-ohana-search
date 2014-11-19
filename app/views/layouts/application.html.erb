@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -46,9 +47,10 @@
   </div>
 </footer>
 
+<%= yield :after_footer %>
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <%= javascript_include_tag "ie10-viewport-bug-workaround.js" %>
-
 <%= javascript_tag do %>
   <%= yield :footer_js %>
 <% end %>
