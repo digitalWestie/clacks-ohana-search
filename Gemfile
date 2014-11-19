@@ -46,8 +46,7 @@ end
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+# App config and ENV variables for heroku.
+gem 'figaro', '~> 1.0.0'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem "ohanakapa", "~> 1.0"
