@@ -1,4 +1,10 @@
 Clackskids::Application.routes.draw do
+
+  get 'services'
+  get 'services/:id'
+
+  root to: 'services#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
