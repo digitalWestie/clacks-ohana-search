@@ -49,4 +49,8 @@ gem 'unicorn'
 # App config and ENV variables for heroku.
 gem 'figaro', '~> 1.0.0'
 
-gem "ohanakapa", "~> 1.0"
+gem 'ohanakapa', '~> 1.1.1'
+gem 'faraday-http-cache', '~> 0.4.0'
+
+# Handles logic behind Pagination UI component.
+gem 'kaminari'
