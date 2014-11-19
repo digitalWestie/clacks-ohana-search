@@ -62,55 +62,23 @@
 
     <div id="resultsList" class="">
       <ul id="searchResults">
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <h3>Toddlers' Gym Krackers</h3>
-            <p>Active toddlers 0 -3 years</p>
-            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
-          </a>
-        </li>
+
+        <% if @search.locations.present? %>
+          <% for location in @search.locations %>
+          <% for service in location.services %>
+            <li>
+
+              <h3><a href=""><%= service.name %></a></h3>
+              <p><%= service.description %></p>
+              <address><%= location.name %></address>
+
+            </li>
+          <% end %>
+          <% end %>
+        <% else %>
+          nuttin
+        <% end %>
+
       </ul>
     </div>
 

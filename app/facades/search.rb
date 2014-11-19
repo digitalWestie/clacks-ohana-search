@@ -1,22 +1,21 @@
 class Search
   include AddressFormatHelper
-  attr_reader :services
+  attr_reader :locations
 
-  def initialize(services, response, params)
-    @services = services
+  def initialize(locations, response, params)
+    @locations = locations
     @response = response
     @params = params
   end
 
   def map_data
-    locations = @services.collect {|s| s.availabilities }.flatten
-    locations.map do |location|
+    @locations.map do |location|
       next if location.coordinates.blank?
       hash_for(location)
     end.compact
   end
 
-  def hash_for(service)
+  def hash_for(location)
     {
       latitude: location.latitude,
       longitude: location.longitude,
@@ -31,4 +30,14 @@ class Search
   def results
     Paginator.new(@response, @params).results
   end
+
+=begin
+  def services_map_data
+    locations = @services.collect {|s| s.availabilities }.flatten
+    locations.map do |location|
+      next if location.coordinates.blank?
+      hash_for(location)
+    end.compact
+  end
+=end
 end
