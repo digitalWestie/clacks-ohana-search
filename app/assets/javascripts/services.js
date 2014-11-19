@@ -1,7 +1,5 @@
 $(document).ready(function(){
-  var map = L.map('mapResults').setView([51.505, -0.09], 13);
-
-  // Fixing the height of panels on the Search Page
+    // Fixing the height of panels on the Search Page
   if ($(window).width() > 960) {
     var windowHeight = $(window).height();
     var minusFooterHeader = ($('.navbar-fixed-top').outerHeight() + $('footer').outerHeight());
@@ -13,6 +11,13 @@ $(document).ready(function(){
     var minusHeader = $('.navbar-fixed-top').outerHeight();
     $('#resultsPage').css({height: windowHeight - minusHeader});
   }
+
+  var map = L.map('mapResults').setView([56.11, -3.74], 11);
+
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
 
   $("#yourBudget").slider({});
   $("#childrenAge").slider({});
