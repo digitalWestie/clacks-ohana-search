@@ -1,2 +1,125 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<div id="resultsPage" class="clearfix">
+
+  <ul class="nav nav-tabs visible-xs-* hidden-lg" role="tablist">
+    <li class="active"><a href="#filtersForm" role="tab" data-toggle="tab">Filter</a></li>
+    <li><a href="#resultsList" role="tab" data-toggle="tab">List</a></li>
+    <li><a href="#mapResults" role="tab" data-toggle="tab">Map</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="filtersForm" class="tab-pane active">
+      <form role="form">
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Clear</button>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <div id="searchOrganisation" class="form-group accordion">
+          <label for="organisationName" class="label">Organisation Name</label>
+          <input id="organisationName" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
+        </div>
+        <div id="searchPlace" class="form-group">
+          <label for="townVillage" class="label">Town or villiage</label>
+          <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
+        </div>
+        <div id="selectCategories" class="form-group">
+          <label class="label">Categories</label>
+          <ul class="checkBoxes">
+            <li><label><input type="checkbox" value="">Childcare services</label></li>
+            <li><label><input type="checkbox" value="">For babies</label></li>
+            <li><label><input type="checkbox" value="">Sports clubs</label></li>
+            <li><label><input type="checkbox" value="">Dance classes</label></li>
+            <li><label><input type="checkbox" value="">Drama groups</label></li>
+            <li><label><input type="checkbox" value="">Outdoor activities</label></li>
+            <li><label><input type="checkbox" value="">Swimming lessons</label></li>
+          </ul>
+        </div>
+        <div id="selectBudget" class="form-group">
+          <label for="townVillage" class="label">Budget per session</label><br>
+          <b>&pound;0</b> <input id="yourBudget" type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[0,20]"/> <b>&pound;20</b>
+        </div>
+        <div id="selectDays" class="form-group">
+          <label for="townVillage" class="label">Days</label>
+          <ul class="checkBoxes">
+          <li><label><input type="checkbox" value="">Mon</label></li>
+          <li><label><input type="checkbox" value="">Tue</label></li>
+          <li><label><input type="checkbox" value="">Wed</label></li>
+          <li><label><input type="checkbox" value="">Thu</label></li>
+          <li><label><input type="checkbox" value="">Fri</label></li>
+          <li><label><input type="checkbox" value="">Sat</label></li>
+          <li><label><input type="checkbox" value="">Sun</label></li>
+          </ul>
+        </div>
+        <div id="selectAge" class="form-group">
+          <label for="childrenAge" class="label">Age of children</label><br>
+          <b>0</b> <input id="childrenAge" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="[0,16]"/> <b>16</b>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Clear</button>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="resultsList" class="tab-pane">
+      <ul id="searchResults">
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <h3>Toddlers' Gym Krackers</h3>
+            <p>Active toddlers 0 -3 years</p>
+            <address>Sauchie Hall, Mar Place, Sauchie. FK10 3EA</address>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="mapResults" class="tab-pane"></div>
+
+  </div>
+</div>
+
+<% content_for :after_footer do %>
+  <%= javascript_include_tag "leaflet" %>
+  <%= javascript_include_tag "bootstrap-slider" %>
+<% end %>
