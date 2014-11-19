@@ -12,4 +12,5 @@
  *= require _bootstrap.scss
  *= require _bootstrap-sprockets.scss
  *= require _bootstrap-mincer.scss
+ *= require clacksStyles.css
  */

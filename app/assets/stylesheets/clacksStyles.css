@@ -1,0 +1,167 @@
+/* LAYOUT STYLES *******************/
+body {
+  padding-top: 50px;
+}
+.navbar {
+  border-bottom: 1px solid #000;
+  background: white;
+}
+footer {
+  padding: 20px;
+  border-top: 1px solid black;
+}
+/* HOME STYLES *******************/
+#homePage {
+  text-align: center;
+}
+#homePage #searchForm {
+  background: black;
+  margin-bottom: 2em;
+  padding: 1em 0;
+}
+#homePage #searchForm .form-group {
+  padding-left: 0;
+  padding-right: 0;
+}
+#homePage #searchForm label {
+  font-size: 2em;
+  color: white;
+  margin: 0.5em 0;
+}
+#homePage #searchForm input#searchBox {
+  width: 80%;
+  display: inline;
+}
+#searchLinks {
+  list-style: none;
+}
+#searchLinks li {
+  margin-bottom: 1em;
+}
+#searchLinks li a {
+  display: block;
+  padding: 40px 50px;
+  border: 1px solid #000;
+}
+/* SEARCH RESULTS STYLES *******************/
+#resultsPage,
+.tab-content {
+  position: relative;
+  height: 100%;
+}
+#resultsPage #filtersForm,
+.tab-content #filtersForm {
+  background: black;
+  width: 25%;
+  float: left;
+  height: 100%;
+  overflow: scroll;
+}
+#resultsPage #filtersForm form,
+.tab-content #filtersForm form {
+  margin: 1em;
+  color: white;
+}
+#resultsPage #filtersForm form div.form-group label.label,
+.tab-content #filtersForm form div.form-group label.label {
+  font-size: 1.25em !important;
+  padding: 0.25em 0;
+}
+#resultsPage #filtersForm form div.form-group ul.checkBoxes,
+.tab-content #filtersForm form div.form-group ul.checkBoxes {
+  list-style: none;
+  padding: 0;
+}
+#resultsPage #filtersForm form div.form-group ul.checkBoxes label,
+.tab-content #filtersForm form div.form-group ul.checkBoxes label {
+  font-weight: 300;
+}
+#resultsPage #filtersForm form div.form-group ul.checkBoxes input,
+.tab-content #filtersForm form div.form-group ul.checkBoxes input {
+  margin-right: 0.5em;
+}
+#resultsPage #filtersForm form #selectDays li,
+.tab-content #filtersForm form #selectDays li {
+  display: inline-block;
+}
+#resultsPage #resultsList,
+.tab-content #resultsList {
+  overflow: scroll;
+  border: 1px solid;
+  border-bottom: none;
+  border-top: none;
+  width: 25%;
+  float: left;
+  height: 100%;
+}
+#resultsPage #resultsList ul,
+.tab-content #resultsList ul {
+  list-style: none;
+  padding: 0;
+}
+#resultsPage #resultsList ul li,
+.tab-content #resultsList ul li {
+  border-bottom: 1px solid black;
+  padding: 1em;
+}
+#resultsPage #resultsList ul li h3,
+.tab-content #resultsList ul li h3,
+#resultsPage #resultsList ul li address,
+.tab-content #resultsList ul li address,
+#resultsPage #resultsList ul li p,
+.tab-content #resultsList ul li p {
+  margin: 0;
+}
+#resultsPage #mapResults,
+.tab-content #mapResults {
+  width: 50%;
+  height: 100%;
+}
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) {
+  #homePage input#searchBox {
+    width: 60% !important;
+    display: inline;
+  }
+  #filtersForm,
+  #resultsList,
+  #mapResults {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #filtersForm {
+    width: 100% !important;
+    z-index: 1000;
+    height: 100% !important;
+  }
+  #resultsList {
+    height: 100% !important;
+  }
+  #mapResults {
+    width: 100% !important;
+    z-index: 1000;
+    height: 100% !important;
+  }
+  footer {
+    display: none;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: right;
+  }
+  .tab-content > .tab-pane {
+    display: block !important;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  li#whats-near {
+    display: none;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  
+}
