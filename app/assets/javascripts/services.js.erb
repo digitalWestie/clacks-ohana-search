@@ -1,0 +1,49 @@
+$(document).ready(function(){
+  // Fixing the height of panels on the Search Page
+  if ($(window).width() > 960) {
+    var windowHeight = $(window).height();
+    var minusFooterHeader = ($('.navbar-fixed-top').outerHeight() + $('footer').outerHeight());
+    $('#resultsPage').css({height: windowHeight - minusFooterHeader});
+  }
+
+  if ($(window).width() < 768) {
+    var windowHeight = $(window).height();
+    var minusHeader = $('.navbar-fixed-top').outerHeight();
+    $('#resultsPage').css({height: windowHeight - minusHeader});
+  }
+
+  $("#yourBudget").slider({});
+  $("#childrenAge").slider({});
+});
+
+var initialiseMap = function(){
+  var map = L.map('mapResults').setView([56.11, -3.74], 11);
+  // add an OpenStreetMap tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  return map;
+};
+
+var addLocationsToMap = function(locations, map){
+  var myIcon = L.icon({
+    iconUrl: '<%= asset_path('marker-icon.png') %>',
+    iconRetinaUrl: '<%= asset_path('my-icon@2x.png') %>',
+    iconSize: [25, 41],
+    iconAnchor: [13, 41],
+    popupAnchor: [0, -41],
+    shadowUrl: '<%= asset_path('marker-shadow.png') %>',
+    shadowSize: [41, 41],
+    shadowAnchor: [13, 41]
+  });
+
+  var markers = {};
+  $(locations).each(function(i,l){
+    var m = L.marker([l.latitude, l.longitude], { icon: myIcon }).addTo(map);
+    var p = m.bindPopup('<b>'+l.name+'</b><br>' + '' + '.');//.openPopup();
+    markers[l.slug] = { popup: p, marker: m };
+  });
+
+  return markers;
+};

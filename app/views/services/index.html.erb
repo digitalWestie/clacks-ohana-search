@@ -13,12 +13,16 @@
           <button type="submit" class="btn btn-default">Clear</button>
           <button type="submit" class="btn btn-default">Submit</button>
         </div>
+        <div id="searchKeyword" class="form-group accordion">
+          <label for="keywordSearch" class="label">Keywords</label>
+          <input id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
+        </div>
         <div id="searchOrganisation" class="form-group accordion">
           <label for="organisationName" class="label">Organisation Name</label>
           <input id="organisationName" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
         </div>
         <div id="searchPlace" class="form-group">
-          <label for="townVillage" class="label">Town or villiage</label>
+          <label for="townVillage" class="label">Town or village</label>
           <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
         <div id="selectCategories" class="form-group">
@@ -67,11 +71,14 @@
           <% for location in @search.locations %>
           <% for service in location.services %>
             <li>
-
               <h3><a href=""><%= service.name %></a></h3>
-              <p><%= service.description %></p>
-              <address><%= location.name %></address>
-
+              <p>
+                <%= truncate(service.description, length:140) %>
+                <%= link_to 'More', '#' %>
+              </p>
+              <address style = "color:#888;">
+                <%= location.name %>, <%= full_address_for(location.address) %>
+              </address>
             </li>
           <% end %>
           <% end %>
@@ -87,8 +94,21 @@
   </div>
 </div>
 
+<% content_for :footer do %>
+  <%= asset_path('marker-icon.png') %>
+<% end %>
+
 <% content_for :after_footer do %>
   <%= javascript_include_tag "leaflet" %>
   <%= javascript_include_tag "bootstrap-slider" %>
   <%= javascript_include_tag "services" %>
+<% end %>
+
+<% content_for :footer_js do %>
+  $(document).ready(function(){
+    var map = initialiseMap();
+    var locations = <%= @search.map_data.to_json.html_safe %>;
+    var markers = addLocationsToMap(locations, map);
+    console.log(markers);
+  });
 <% end %>
