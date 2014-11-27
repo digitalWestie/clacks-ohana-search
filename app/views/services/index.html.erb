@@ -7,7 +7,7 @@
   </ul>
 
   <div class="tab-content">
-    <div id="filtersForm" class="">
+    <div id="filtersForm" class="tab-pane">
       <form role="form">
         <div class="form-group">
           <button type="submit" class="btn btn-default">Clear</button>
@@ -64,7 +64,7 @@
       </form>
     </div>
 
-    <div id="resultsList" class="">
+    <div id="resultsList"  class="tab-pane">
       <ul id="searchResults">
 
         <% if @search.locations.present? %>
@@ -89,7 +89,7 @@
       </ul>
     </div>
 
-    <div id="mapResults" class=""></div>
+    <div id="mapResults"  class="tab-pane"></div>
 
   </div>
 </div>

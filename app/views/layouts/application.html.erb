@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
   <%= yield :head %>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -16,7 +19,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top" role="navigation">
+<div class="navbar" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,7 +28,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Clacks Kids</a>
+      <a class="navbar-brand" href="#"><img src="/assets/clacks-kids-logo.png" alt="Clacks Kids" />
+       A better future for every child
+      </a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
