@@ -90,10 +90,19 @@ footer {
       display: inline;
       border-top-right-radius:0em;
       border-bottom-right-radius:0em;
+      border: none;
+      height: 35px;
     }
     button[type=submit] {
       border-top-left-radius:0em;
-      border-bottom-left-radius:0em;    }
+      border-bottom-left-radius:0em;
+      position: relative;
+      left: -2px;
+      top: -2px;
+      border: none;
+      padding: 7px 12px;
+      height: 35px;
+    }
   }
 
   #searchLinks {
@@ -183,6 +192,7 @@ footer {
   width: 50%;
   height: 100%;
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
   #homePage input#searchBox {
