@@ -67,9 +67,9 @@
     <div id="resultsList"  class="tab-pane">
       <ul id="searchResults">
 
-        <% if @search.locations.present? %>
-          <% for location in @search.locations %>
-          <% for service in location.services %>
+        <% if @search.services.present? %>
+          <% for service in @search.services %>
+
             <li>
               <h3><a href=""><%= service.name %></a></h3>
               <p>
@@ -77,10 +77,10 @@
                 <%= link_to 'More', '#' %>
               </p>
               <address style = "color:#888;">
-                <%= location.name %>, <%= full_address_for(location.address) %>
+                <%#= service.name %>, <%#= full_address_for(service.address) %>
               </address>
             </li>
-          <% end %>
+
           <% end %>
         <% else %>
           nuttin

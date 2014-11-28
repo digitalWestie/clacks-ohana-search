@@ -1,17 +1,18 @@
-class Search
+class ServiceSearch
   include AddressFormatHelper
-  attr_reader :locations
+  attr_reader :services
 
-  def initialize(locations, response, params)
-    @locations = locations
+  def initialize(services, response, params)
+    @services = services
     @response = response
     @params = params
   end
 
   def map_data
-    @locations.map do |location|
-      next if location.coordinates.blank?
-      hash_for(location)
+    availabilities = @services.collect {|s| s.availabilities}
+    availabilities.flatten.map do |av|
+      next if av.location.coordinates.blank?
+      hash_for(av.location)
     end.compact
   end
 
@@ -20,7 +21,6 @@ class Search
       latitude: location.latitude,
       longitude: location.longitude,
       name: location.name,
-      org_name: location.organization.name,
       slug: location.slug,
       street_address: street_address_for(location.address),
       city: location.address.city
