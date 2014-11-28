@@ -7,15 +7,15 @@
   </ul>
 
   <div class="tab-content">
-    <div id="filtersForm" class="tab-pane">
-      <form role="form">
+    <div id="filtersForm" class="tab-pane active">
+      <form role="form" action="services" method="get">
         <div class="form-group">
           <button type="submit" class="btn btn-default">Clear</button>
           <button type="submit" class="btn btn-default">Submit</button>
         </div>
         <div id="searchKeyword" class="form-group accordion">
           <label for="keywordSearch" class="label">Keywords</label>
-          <input id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
+          <input name="keyword" id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
         <div id="searchOrganisation" class="form-group accordion">
           <label for="organisationName" class="label">Organisation Name</label>
@@ -23,7 +23,7 @@
         </div>
         <div id="searchPlace" class="form-group">
           <label for="townVillage" class="label">Town or village</label>
-          <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
+          <input name="location" id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
         <div id="selectCategories" class="form-group">
           <label class="label">Categories</label>
@@ -64,7 +64,7 @@
       </form>
     </div>
 
-    <div id="resultsList"  class="tab-pane">
+    <div id="resultsList" style="background-color:white;" class="tab-pane active">
       <ul id="searchResults">
 
         <% if @search.services.present? %>
@@ -89,7 +89,7 @@
       </ul>
     </div>
 
-    <div id="mapResults"  class="tab-pane"></div>
+    <div id="mapResults"  class="tab-pane active"></div>
 
   </div>
 </div>
