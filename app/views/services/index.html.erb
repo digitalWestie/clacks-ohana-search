@@ -1,28 +1,21 @@
 <div id="resultsPage" class="clearfix">
 
-  <ul class="nav nav-tabs visible-xs-* hidden-lg" role="tablist">
-    <li class="active"><a href="#filtersForm" role="tab" data-toggle="tab">Filter</a></li>
-    <li><a href="#resultsList" role="tab" data-toggle="tab">List</a></li>
-    <li><a href="#mapResults" role="tab" data-toggle="tab">Map</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="filtersForm" class="tab-pane">
+    <div id="filtersForm" class="">
       <form role="form">
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">Clear</button>
-          <button type="submit" class="btn btn-default">Submit</button>
+        <div class="double-button-group">
+          <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
+          <button type="submit" id="doSearch" class="button right">Search</button>
         </div>
         <div id="searchKeyword" class="form-group accordion">
-          <label for="keywordSearch" class="label">Keywords</label>
+          <label for="keywordSearch" class="label">Keywords <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </label>
           <input id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
         <div id="searchOrganisation" class="form-group accordion">
-          <label for="organisationName" class="label">Organisation Name</label>
+          <label for="organisationName" class="label">Organisation Name <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
           <input id="organisationName" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
         </div>
         <div id="searchPlace" class="form-group">
-          <label for="townVillage" class="label">Town or village</label>
+          <label for="townVillage" class="label">Town or village <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
           <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
         <div id="selectCategories" class="form-group">
@@ -38,11 +31,11 @@
           </ul>
         </div>
         <div id="selectBudget" class="form-group">
-          <label for="townVillage" class="label">Budget per session</label><br>
+          <label for="townVillage" class="label">Budget per session <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label><br>
           <b>&pound;0</b> <input id="yourBudget" type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[0,20]"/> <b>&pound;20</b>
         </div>
         <div id="selectDays" class="form-group">
-          <label for="townVillage" class="label">Days</label>
+          <label for="townVillage" class="label">Days <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
           <ul class="checkBoxes">
           <li><label><input type="checkbox" value="">Mon</label></li>
           <li><label><input type="checkbox" value="">Tue</label></li>
@@ -54,17 +47,21 @@
           </ul>
         </div>
         <div id="selectAge" class="form-group">
-          <label for="childrenAge" class="label">Age of children</label><br>
+          <label for="childrenAge" class="label">Age of children <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label><br>
           <b>0</b> <input id="childrenAge" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="[0,16]"/> <b>16</b>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">Clear</button>
-          <button type="submit" class="btn btn-default">Submit</button>
+        <div class="double-button-group">
+          <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
+          <button type="submit" id="doSearch" class="button right">Search</button>
         </div>
       </form>
     </div>
 
-    <div id="resultsList"  class="tab-pane">
+    <div id="resultsList" class="">
+      <div class="double-button-group">
+        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
+        <button type="submit" id="showMap" class="button right"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Map of results</button>
+      </div>
       <ul id="searchResults">
 
         <% if @search.locations.present? %>
@@ -89,7 +86,15 @@
       </ul>
     </div>
 
-    <div id="mapResults"  class="tab-pane"></div>
+    <div id="mapPanel"  class="">
+      <div class="double-button-group">
+        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
+        <button type="submit" id="showList" class="button right"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List of results</button>
+      </div>
+
+      <div id="mapResults"></div>
+
+    </div>
 
   </div>
 </div>

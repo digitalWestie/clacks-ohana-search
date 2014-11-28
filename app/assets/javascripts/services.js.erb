@@ -2,18 +2,34 @@ $(document).ready(function(){
   // Fixing the height of panels on the Search Page
   if ($(window).width() > 960) {
     var windowHeight = $(window).height();
-    var minusFooterHeader = ($('.navbar-fixed-top').outerHeight() + $('footer').outerHeight());
+    var minusFooterHeader = ($('.navbar').outerHeight() + $('footer').outerHeight());
     $('#resultsPage').css({height: windowHeight - minusFooterHeader});
-  }
-
-  if ($(window).width() < 768) {
-    var windowHeight = $(window).height();
-    var minusHeader = $('.navbar-fixed-top').outerHeight();
-    $('#resultsPage').css({height: windowHeight - minusHeader});
   }
 
   $("#yourBudget").slider({});
   $("#childrenAge").slider({});
+
+  $('button#filterResults').click(function() {
+    $('#mapPanel').hide();
+    $('#filtersForm').show();
+  });
+
+  $('button#doSearch').click(function() {
+    $('#mapPanel').show();
+    $('#filtersForm').hide();
+  });
+
+  $('button#showList').click(function() {
+    $('#resultsList').show();
+    $('#mapPanel').hide();
+  });
+  $('button#showMap').click(function() {
+    $('#resultsList').hide();
+    $('#mapPanel').show();
+  });
+
+
+
 });
 
 var initialiseMap = function(){
@@ -30,7 +46,7 @@ var addLocationsToMap = function(locations, map){
   var myIcon = L.icon({
     iconUrl: '<%= asset_path('marker-icon.png') %>',
     iconRetinaUrl: '<%= asset_path('my-icon@2x.png') %>',
-    iconSize: [25, 41],
+    iconSize: [35, 45],
     iconAnchor: [13, 41],
     popupAnchor: [0, -41],
     shadowUrl: '<%= asset_path('marker-shadow.png') %>',

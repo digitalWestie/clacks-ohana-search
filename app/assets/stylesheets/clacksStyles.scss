@@ -6,6 +6,7 @@ $light-grey:    #f0f0f0;
 $yellow:        #ffda00;
 $bright-blue:   #428bca;
 $green:         #449d44;
+$orange:        #d45518;
 
 @mixin rounded ($radius: 2px) {
   border-radius: $radius;
@@ -72,12 +73,15 @@ footer {
 
 /* BUTTON STYLES *******************/
 .button {
+ color: black;
+ padding: 0.5em 1em;
+ border: none;
  background: $light-grey;
  @include rounded(2px);
  font-weight: bold;
- -webkit-box-shadow: 0px 5px 0px 0px rgba(200, 200, 200, 0.55);
- -moz-box-shadow:    0px 5px 0px 0px rgba(200, 200, 200, 0.55);
- box-shadow:         0px 5px 0px 0px rgba(200, 200, 200, 0.55);
+ -webkit-box-shadow: 0px 3px 0px 0px rgba(200, 200, 200, 0.55);
+ -moz-box-shadow:    0px 3px 0px 0px rgba(200, 200, 200, 0.55);
+ box-shadow:         0px 3px 0px 0px rgba(200, 200, 200, 0.55);
 }
 
 
@@ -137,7 +141,7 @@ footer {
 }
 #resultsPage #filtersForm,
 .tab-content #filtersForm {
-  background: black;
+  background: $main-blue;
   width: 25%;
   float: left;
   height: 100%;
@@ -148,10 +152,31 @@ footer {
   margin: 1em;
   color: white;
 }
+#resultsPage {
+  .double-button-group {
+     background: $main-blue;
+     padding: 1em;
+     button, a {
+       width: 49%;
+       font-size: 1.25em;
+       color: $main-blue;
+       span.glyphicon {margin-right: 0.25em;}
+
+       &.orange { color: white; background: $orange; box-shadow: #b14714;}
+       &.search { color: $main-blue;}
+       &.clear { color: $orange; }
+       &.right {  float: right; }
+     }
+   }
+}
 #resultsPage #filtersForm form div.form-group label.label,
 .tab-content #filtersForm form div.form-group label.label {
   font-size: 1.25em !important;
-  padding: 0.25em 0;
+  padding: 0.25em 0 0 0;
+  display: block;
+  text-align: left;
+  span.glyphicon { font-size: 0.75em; }
+
 }
 #resultsPage #filtersForm form div.form-group ul.checkBoxes,
 .tab-content #filtersForm form div.form-group ul.checkBoxes {
@@ -172,6 +197,7 @@ footer {
 }
 #resultsPage #resultsList,
 .tab-content #resultsList {
+  background: white;
   overflow: scroll;
   border: 1px solid;
   border-bottom: none;
@@ -198,10 +224,18 @@ footer {
 .tab-content #resultsList ul li p {
   margin: 0;
 }
-#resultsPage #mapResults,
-.tab-content #mapResults {
+#resultsPage #mapPanel,
+.tab-content #mapPanel {
   width: 50%;
   height: 100%;
+  display: block;
+  float: right;
+}
+
+#resultsPage #mapPanel #mapResults{
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -223,15 +257,19 @@ footer {
     width: 100% !important;
     z-index: 1000;
     height: 100% !important;
+    display: none;
   }
   #resultsList {
     height: 100% !important;
+    display: none;
   }
-  #mapResults {
+  #mapResults, #mapPanel {
     width: 100% !important;
     z-index: 1000;
-    height: 100% !important;
+    height: 600px !important;
   }
+  form .double-button-group {padding: 0 0 1em 0 !important;}
+
   footer {
     display: none;
   }
@@ -261,6 +299,19 @@ footer {
   .tab-content > .tab-pane {
     display: block !important;
   }
+  #resultsList {
+    .double-button-group{
+      display: none;
+    }
+  }
+  #mapPanel {
+    .double-button-group {
+      display: none;
+    }
+  }
+  #resultsPage .double-button-group {padding: 1em 0;}
+
+
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
