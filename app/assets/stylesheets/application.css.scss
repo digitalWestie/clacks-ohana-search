@@ -9,10 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require _bootstrap.scss
- *= require _bootstrap-sprockets.scss
  *= require _bootstrap-mincer.scss
  *= require clacksStyles.css
  *= require leaflet.css
  *= require bootstrap-slider.css
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
