@@ -24,7 +24,6 @@ $green:         #449d44;
 
 /* LAYOUT STYLES *******************/
 body {
-  background: url('ck-background-mobile.png') top center #77a441 no-repeat;;
   color: $main-blue;
   font-family: 'Lato', sans-serif;
 }
@@ -59,6 +58,18 @@ footer {
  }
 }
 
+.navbar-nav {
+  li {
+   margin: 1em;
+   a {
+    color: white; font-weight: 600;
+    padding: 0 0 2px 0;
+    &:hover { background: none; border-bottom: 2px solid white; padding: 0;}
+      }
+   }
+ }
+
+
 /* BUTTON STYLES *******************/
 .button {
  background: $light-grey;
@@ -90,10 +101,19 @@ footer {
       display: inline;
       border-top-right-radius:0em;
       border-bottom-right-radius:0em;
+      border: none;
+      height: 35px;
     }
     button[type=submit] {
       border-top-left-radius:0em;
-      border-bottom-left-radius:0em;    }
+      border-bottom-left-radius:0em;
+      position: relative;
+      left: -2px;
+      top: -2px;
+      border: none;
+      padding: 7px 12px;
+      height: 35px;
+    }
   }
 
   #searchLinks {
@@ -183,8 +203,12 @@ footer {
   width: 50%;
   height: 100%;
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
+  body {
+   background: url('ck-background-mobile.png') top center #77a441 no-repeat;;
+  }
   #homePage input#searchBox {
     width: 60% !important;
     display: inline;
@@ -214,8 +238,25 @@ footer {
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  body {
+     background: url('ck-background-desktop.png') top center #77a441 no-repeat;
+     padding-top: 2em;
+  }
   .navbar-nav {
     float: right;
+  }
+  .navbar-brand {
+   position: absolute;
+   width: 100%;
+   margin-bottom: 2em;
+  }
+  .navbar-collapse {
+   position: relative;
+   top: -2em;
+   z-index: 1000;
+  }
+  #homePage {
+   margin-top: 80px;
   }
   .tab-content > .tab-pane {
     display: block !important;
