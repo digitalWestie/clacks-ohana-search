@@ -9,28 +9,28 @@
 
         <div id="searchKeyword" class="form-group accordion">
           <label for="keywordSearch" class="label">Keywords
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by common keywords"></span>
           </label>
           <input name="keyword" id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
 
         <div id="searchOrganisation" class="form-group accordion">
           <label for="organisationName" class="label">Organisation Name
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search by organisation name if a particular service is of interest to you."></span>
           </label>
           <input id="organisationName" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
         </div>
 
         <div id="searchPlace" class="form-group">
           <label for="townVillage" class="label">Town or village
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by town or village."></span>
           </label>
           <input name="location" id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
 
         <div id="selectCategories" class="form-group">
           <label class="label">Categories
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Filter by category if you are looking for a particular type of service."></span>
           </label>
           <a href="#" class="selectAll button small check">All</a>
           <ul class="checkBoxes">
@@ -46,7 +46,7 @@
 
         <div id="selectBudget" class="form-group">
           <label for="townVillage" class="label">Budget per session
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span>
           </label>
           <a href="#" class="selectAll button small">Only free stuff</a>
           <a href="#" class="selectAll button small">Any</a>
@@ -57,7 +57,7 @@
 
         <div id="selectDays" class="form-group">
           <label for="townVillage" class="label">Days
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search services available on certain days."></span>
           </label>
           <a href="#" class="selectAll button small check">Any</a>
           <ul class="checkBoxes">
@@ -73,7 +73,7 @@
 
         <div id="selectAge" class="form-group">
           <label for="childrenAge" class="label">Age of children
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by age group"></span>
           </label>
           <a href="#" class="selectAll button small">All</a>
           <br>
@@ -88,8 +88,8 @@
 
     <div id="resultsList" class="">
       <div class="double-button-group">
-        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
-        <button type="submit" id="showMap" class="button right"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Map of results</button>
+        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span> Narrow results</button>
+        <button type="submit" id="showMap" class="button right"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span> Map of results</button>
       </div>
 
       <ul id="searchResults">
@@ -116,8 +116,8 @@
 
     <div id="mapPanel"  class="">
       <div class="double-button-group">
-        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
-        <button type="submit" id="showList" class="button right"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List of results</button>
+        <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span> Narrow results</button>
+        <button type="submit" id="showList" class="button right"><span class="glyphicon glyphicon-th-list" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span> List of results</button>
       </div>
       <div id="mapResults"></div>
     </div>
