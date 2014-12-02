@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   // Fixing the height of panels on the Search Page
   if ($(window).width() > 960) {
     var windowHeight = $(window).height();
@@ -30,7 +31,17 @@ $(document).ready(function(){
 
 
 
+// Reset the form fields
+
+  $( ".selectAll.check" ).click(function() {
+    $(this).parent('.form-group').find('.CKcheckbox').prop('checked', true);
+    return false;
+  });
+
 });
+
+
+// Initialising the map
 
 var initialiseMap = function(){
   var map = L.map('mapResults').setView([56.11, -3.74], 11);
@@ -41,6 +52,10 @@ var initialiseMap = function(){
 
   return map;
 };
+
+
+
+// Adding locations to the map
 
 var addLocationsToMap = function(locations, map){
   var myIcon = L.icon({
@@ -63,3 +78,5 @@ var addLocationsToMap = function(locations, map){
 
   return markers;
 };
+
+

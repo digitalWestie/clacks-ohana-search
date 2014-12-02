@@ -6,48 +6,77 @@
           <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
           <button type="submit" id="doSearch" class="button right">Search</button>
         </div>
+
         <div id="searchKeyword" class="form-group accordion">
-          <label for="keywordSearch" class="label">Keywords <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> </label>
+          <label for="keywordSearch" class="label">Keywords
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
           <input id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
+
         <div id="searchOrganisation" class="form-group accordion">
-          <label for="organisationName" class="label">Organisation Name <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
+          <label for="organisationName" class="label">Organisation Name
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
           <input id="organisationName" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
         </div>
+
         <div id="searchPlace" class="form-group">
-          <label for="townVillage" class="label">Town or village <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
+          <label for="townVillage" class="label">Town or village
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
           <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
+
         <div id="selectCategories" class="form-group">
-          <label class="label">Categories</label>
+          <label class="label">Categories
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
+          <a href="#" class="selectAll button small check">All</a>
           <ul class="checkBoxes">
-            <li><label><input type="checkbox" value="">Childcare services</label></li>
-            <li><label><input type="checkbox" value="">For babies</label></li>
-            <li><label><input type="checkbox" value="">Sports clubs</label></li>
-            <li><label><input type="checkbox" value="">Dance classes</label></li>
-            <li><label><input type="checkbox" value="">Drama groups</label></li>
-            <li><label><input type="checkbox" value="">Outdoor activities</label></li>
-            <li><label><input type="checkbox" value="">Swimming lessons</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Childcare services</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >For babies</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Sports clubs</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Dance classes</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Drama groups</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Outdoor activities</label></li>
+            <li><label><input type="checkbox" class="CKcheckbox" value="" checked >Swimming lessons</label></li>
           </ul>
         </div>
+
         <div id="selectBudget" class="form-group">
-          <label for="townVillage" class="label">Budget per session <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label><br>
+          <label for="townVillage" class="label">Budget per session
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
+          <a href="#" class="selectAll button small">Only free stuff</a>
+          <a href="#" class="selectAll button small">Any</a>
+
+          <br>
           <b>&pound;0</b> <input id="yourBudget" type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[0,20]"/> <b>&pound;20</b>
         </div>
+
         <div id="selectDays" class="form-group">
-          <label for="townVillage" class="label">Days <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
+          <label for="townVillage" class="label">Days
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
+          <a href="#" class="selectAll button small check">Any</a>
           <ul class="checkBoxes">
-          <li><label><input type="checkbox" value="">Mon</label></li>
-          <li><label><input type="checkbox" value="">Tue</label></li>
-          <li><label><input type="checkbox" value="">Wed</label></li>
-          <li><label><input type="checkbox" value="">Thu</label></li>
-          <li><label><input type="checkbox" value="">Fri</label></li>
-          <li><label><input type="checkbox" value="">Sat</label></li>
-          <li><label><input type="checkbox" value="">Sun</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Mon</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Tue</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Wed</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Thu</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Fri</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Sat</label></li>
+           <li><label><input type="checkbox" class="CKcheckbox" value="">Sun</label></li>
           </ul>
         </div>
+
         <div id="selectAge" class="form-group">
-          <label for="childrenAge" class="label">Age of children <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></label><br>
+          <label for="childrenAge" class="label">Age of children
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+          </label>
+          <a href="#" class="selectAll button small">All</a>
+          <br>
           <b>0</b> <input id="childrenAge" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="[0,16]"/> <b>16</b>
         </div>
         <div class="double-button-group">
@@ -70,8 +99,7 @@
             <li>
               <h3><a href=""><%= service.name %></a></h3>
               <p>
-                <%= truncate(service.description, length:140) %>
-                <%= link_to 'More', '#' %>
+                Category, XX - XX years
               </p>
               <address style = "color:#888;">
                 <%= location.name %>, <%= full_address_for(location.address) %>
@@ -91,7 +119,6 @@
         <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
         <button type="submit" id="showList" class="button right"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List of results</button>
       </div>
-
       <div id="mapResults"></div>
 
     </div>

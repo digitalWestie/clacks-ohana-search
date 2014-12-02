@@ -22,7 +22,6 @@ $orange:        #d45518;
 }
 
 
-
 /* LAYOUT STYLES *******************/
 body {
   color: $main-blue;
@@ -84,6 +83,10 @@ footer {
  box-shadow:         0px 3px 0px 0px rgba(200, 200, 200, 0.55);
 }
 
+.button.small {
+ padding: 0.15em 0.75em;
+}
+
 
 /* HOME STYLES *******************/
 #homePage {
@@ -133,29 +136,56 @@ footer {
     }
    }
 }
-/* SEARCH RESULTS STYLES *******************/
-#resultsPage,
-.tab-content {
-  position: relative;
-  height: 100%;
-}
-#resultsPage #filtersForm,
-.tab-content #filtersForm {
+
+/* SEARCH FORM STYLES *******************/
+#filtersForm {
   background: $main-blue;
   width: 25%;
   float: left;
   height: 100%;
   overflow: scroll;
+
+  form {
+    margin: 1em;
+    color: white;
+
+    label {
+     display: inline-block;
+     font-size: 1.25em !important;
+     padding: 0.25em 0 0 0;
+     text-align: left;
+     span.glyphicon { font-size: 0.75em; }
+     }
+
+    a.selectAll {float: right;}
+
+    ul.checkBoxes {
+     list-style: none;
+     padding: 0;
+     label {
+      font-weight: 300;
+      font-size: 1em !important;
+      input {margin-right: 0.5em;}
+     }
+    }
+    #selectDays li {
+      display: inline-block;
+    }
+
+    .slider.slider-horizontal {
+      width: 85%;
+      height: 20px;
+     }
+   }
 }
-#resultsPage #filtersForm form,
-.tab-content #filtersForm form {
-  margin: 1em;
-  color: white;
-}
+
+
+/* SEARCH RESULTS STYLES *******************/
+
 #resultsPage {
   .double-button-group {
      background: $main-blue;
-     padding: 1em;
+     padding: 0 0 1em 0;
      button, a {
        width: 49%;
        font-size: 1.25em;
@@ -168,64 +198,35 @@ footer {
        &.right {  float: right; }
      }
    }
-}
-#resultsPage #filtersForm form div.form-group label.label,
-.tab-content #filtersForm form div.form-group label.label {
-  font-size: 1.25em !important;
-  padding: 0.25em 0 0 0;
-  display: block;
-  text-align: left;
-  span.glyphicon { font-size: 0.75em; }
+
+  #resultsList {
+    background: white;
+    overflow: scroll;
+    border: 1px solid;
+    border-bottom: none;
+    border-top: none;
+    width: 25%;
+    float: left;
+    height: 100%;
+
+    ul {
+     list-style: none;
+     padding: 0;
+     li {
+       border-bottom: 1px solid black;
+       padding: 1em;
+       h3 {font-size: 21px; color: #0e3e6c;}
+       p {color: $orange;}
+       * {margin: 0;}
+     }
+
+   }
+  }
+
 
 }
-#resultsPage #filtersForm form div.form-group ul.checkBoxes,
-.tab-content #filtersForm form div.form-group ul.checkBoxes {
-  list-style: none;
-  padding: 0;
-}
-#resultsPage #filtersForm form div.form-group ul.checkBoxes label,
-.tab-content #filtersForm form div.form-group ul.checkBoxes label {
-  font-weight: 300;
-}
-#resultsPage #filtersForm form div.form-group ul.checkBoxes input,
-.tab-content #filtersForm form div.form-group ul.checkBoxes input {
-  margin-right: 0.5em;
-}
-#resultsPage #filtersForm form #selectDays li,
-.tab-content #filtersForm form #selectDays li {
-  display: inline-block;
-}
-#resultsPage #resultsList,
-.tab-content #resultsList {
-  background: white;
-  overflow: scroll;
-  border: 1px solid;
-  border-bottom: none;
-  border-top: none;
-  width: 25%;
-  float: left;
-  height: 100%;
-}
-#resultsPage #resultsList ul,
-.tab-content #resultsList ul {
-  list-style: none;
-  padding: 0;
-}
-#resultsPage #resultsList ul li,
-.tab-content #resultsList ul li {
-  border-bottom: 1px solid black;
-  padding: 1em;
-}
-#resultsPage #resultsList ul li h3,
-.tab-content #resultsList ul li h3,
-#resultsPage #resultsList ul li address,
-.tab-content #resultsList ul li address,
-#resultsPage #resultsList ul li p,
-.tab-content #resultsList ul li p {
-  margin: 0;
-}
-#resultsPage #mapPanel,
-.tab-content #mapPanel {
+
+#mapPanel {
   width: 50%;
   height: 100%;
   display: block;
@@ -258,6 +259,10 @@ footer {
     z-index: 1000;
     height: 100% !important;
     display: none;
+    .form-group > label {
+     border-bottom: dotted 1px;
+     span {display: none;}
+    }
   }
   #resultsList {
     height: 100% !important;
@@ -274,24 +279,33 @@ footer {
     display: none;
   }
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   body {
      background: url('ck-background-desktop.png') top center #77a441 no-repeat;
      padding-top: 2em;
   }
-  .navbar-nav {
-    float: right;
-  }
-  .navbar-brand {
-   position: absolute;
-   width: 100%;
-   margin-bottom: 2em;
-  }
-  .navbar-collapse {
-   position: relative;
-   top: -2em;
-   z-index: 1000;
+  .navbar {
+    margin-bottom: 0;
+    .navbar-nav {
+      float: right;
+    }
+    .navbar-header {
+      float: none;
+      position: relative;
+      top: -1em;
+      .navbar-brand {
+       margin: 0 auto;
+       display: inline-block;
+      }
+    }
+    .navbar-collapse {
+      position: absolute;
+      top: -2em;
+      z-index: 1000;
+      right: 0;
+    }
   }
   #homePage {
    margin-top: 80px;
@@ -309,7 +323,6 @@ footer {
       display: none;
     }
   }
-  #resultsPage .double-button-group {padding: 1em 0;}
 
 
 }
