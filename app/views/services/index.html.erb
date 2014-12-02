@@ -97,14 +97,14 @@
         <% if @search.services.present? %>
           <% for service in @search.services %>
 
-            <li>
+            <%= content_tag :li, id: "service-#{service.id}" do %>
               <h3><a href=""><%= service.name %></a></h3>
               <p>
                 <%= categories_for(service) %>
                 <%= age_range_for(service) %>
               </p>
               <%= addresses_for(service) %>
-            </li>
+            <% end %>
 
           <% end %>
         <% else %>

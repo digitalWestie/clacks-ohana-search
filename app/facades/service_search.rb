@@ -9,19 +9,24 @@ class ServiceSearch
   end
 
   def map_data
-    availabilities = @services.collect {|s| s.availabilities}
-    availabilities.flatten.map do |av|
+    locations = @services.collect { |s| locations_for(s) }.flatten
+    locations
+  end
+
+  def locations_for(service)
+    service.availabilities.map do |av|
       next if av.location.coordinates.blank?
-      hash_for(av.location)
+      hash_for(av.location, service.id)
     end.compact
   end
 
-  def hash_for(location)
+  def hash_for(location, service_slug)
     {
       latitude: location.latitude,
       longitude: location.longitude,
       name: location.name,
       slug: location.slug,
+      service: service_slug,
       street_address: street_address_for(location.address),
       city: location.address.city
     }
