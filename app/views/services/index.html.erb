@@ -100,11 +100,10 @@
             <li>
               <h3><a href=""><%= service.name %></a></h3>
               <p>
-                Category, XX - XX years
+                <%= categories_for(service) %>
+                <%= age_range_for(service) %>
               </p>
-              <address style = "color:#888;">
-                <%#= service.name %>, <%#= full_address_for(service.address) %>
-              </address>
+              <%= addresses_for(service) %>
             </li>
 
           <% end %>
@@ -127,7 +126,7 @@
 </div>
 
 <% content_for :footer do %>
-  <%= asset_path('marker-icon.png') %>
+  <%#= asset_path('marker-icon.png') %>
 <% end %>
 
 <% content_for :after_footer do %>
