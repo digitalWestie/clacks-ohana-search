@@ -1,7 +1,7 @@
 <div id="resultsPage" class="clearfix">
 
     <div id="filtersForm" class="">
-      <form role="form">
+      <form role="form" action="services" method="get">
         <div class="double-button-group">
           <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
           <button type="submit" id="doSearch" class="button right">Search</button>
@@ -11,7 +11,7 @@
           <label for="keywordSearch" class="label">Keywords
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
           </label>
-          <input id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
+          <input name="keyword" id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
 
         <div id="searchOrganisation" class="form-group accordion">
@@ -25,7 +25,7 @@
           <label for="townVillage" class="label">Town or village
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
           </label>
-          <input id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
+          <input name="location" id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
 
         <div id="selectCategories" class="form-group">
@@ -91,6 +91,7 @@
         <button type="submit" id="filterResults" class="button orange"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Narrow results</button>
         <button type="submit" id="showMap" class="button right"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Map of results</button>
       </div>
+
       <ul id="searchResults">
 
         <% if @search.services.present? %>
@@ -120,7 +121,6 @@
         <button type="submit" id="showList" class="button right"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List of results</button>
       </div>
       <div id="mapResults"></div>
-
     </div>
 
   </div>
