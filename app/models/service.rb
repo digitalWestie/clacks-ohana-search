@@ -7,7 +7,7 @@ class Service
     Ohanakapa.search('search/services', params)
   end
 
-  #def self.get(id)
-  #  Ohanakapa.location(id)
-  #end
+  def self.get(id)
+    Ohanakapa.get("services/#{id}")
+  end
 end
