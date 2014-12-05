@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
     id = params[:id].split('/').last
     @service = Service.get(id)
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
-    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
+    #@categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
     cache_page(@service.updated_at) if @service.present?
   end
 
