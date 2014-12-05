@@ -58,7 +58,7 @@ var initialiseMap = function(){
 // Adding locations to the map
 
 var addLocationsToMap = function(locations, map){
-  var myIcon = L.icon({
+  var normalIcon = L.icon({
     iconUrl: '<%= asset_path('marker-icon.png') %>',
     iconRetinaUrl: '<%= asset_path('my-icon@2x.png') %>',
     iconSize: [35, 45],
@@ -69,14 +69,23 @@ var addLocationsToMap = function(locations, map){
     shadowAnchor: [13, 41]
   });
 
-  var hoverIcon = L.icon({ iconUrl: '<%= asset_path('layers.png') %>' });
+  var hoverIcon = L.icon({ iconUrl: '<%= asset_path('highlight-icon.png') %>' });
 
   var markers = {};
   $(locations).each(function(i,l){
-    var m = L.marker([l.latitude, l.longitude], { icon: myIcon }).addTo(map);
+    var m = L.marker([l.latitude, l.longitude], { icon: normalIcon }).addTo(map);
     var p = m.bindPopup('<b>'+l.name+'</b><br>' + '' + '.');//.openPopup();
     markers[l.slug] = { popup: p, marker: m, service: l.service };
+    enableIdentifyMarkerFromListItem("li#service-"+l.service, m, hoverIcon, normalIcon);
   });
 
   return markers;
+};
+
+var enableIdentifyMarkerFromListItem = function(li, marker, hoverIcon, normalIcon){
+  $(li).mouseenter(function(){
+    marker.setIcon(hoverIcon);
+  }).mouseleave(function(){
+    marker.setIcon(normalIcon);
+  });
 };
