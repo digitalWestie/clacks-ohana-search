@@ -110,7 +110,7 @@
           <% for service in @search.services %>
 
             <%= content_tag :li, id: "service-#{service.id}" do %>
-              <h3><a href=""><%= service.name %></a></h3>
+              <h3><a href=""><%= link_to service.name, "services/#{service.id}" %></a></h3>
               <p>
                 <%= categories_for(service) %>
                 <%= age_range_for(service) %>
