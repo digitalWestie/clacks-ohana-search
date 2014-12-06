@@ -109,7 +109,15 @@
 
           <% end %>
         <% else %>
-          nuttin
+          <h4>No results were found for the following search.</h4>
+          <%= content_tag(:p, "Keyword(s): #{params[:keyword]}") if params[:keyword].present? %>
+          <%= content_tag(:p, "Organisation name: #{params[:org_name]}") if params[:org_name].present? %>
+          <%= content_tag(:p, "Near: #{params[:location]}") if params[:location].present? %>
+          <p><b>Filtered by</b></p>
+          <% str = pluralize(@selected_categories.size, "category", "categories") + ": #{@selected_categories.to_sentence}" %>
+          <%= content_tag :p, str.downcase if params[:category].present? %>
+          <%= content_tag :p, "Ages #{params[:age_range]}" if params[:age_range].present? %>
+          <%#= content_tag :p, "Ages #{params[:age_range]}" if params[:age_range].present? %>
         <% end %>
 
       </ul>
