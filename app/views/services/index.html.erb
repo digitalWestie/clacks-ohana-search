@@ -11,21 +11,21 @@
           <label for="keywordSearch" class="label">Keywords
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by common keywords"></span>
           </label>
-          <input name="keyword" id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
+          <input name="keyword" value="<%= params[:keyword] %>" id="keywordSearch" type="text" class="form-control" placeholder="eg. support groups">
         </div>
 
         <div id="searchOrganisation" class="form-group accordion">
           <label for="organisationName" class="label">Organisation Name
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search by organisation name if a particular service is of interest to you."></span>
           </label>
-          <input id="organisationName" name="org_name" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
+          <input id="organisationName" value="<%= params[:org_name] %>" name="org_name" type="text" class="form-control" placeholder="eg. ABC Nursery, ">
         </div>
 
         <div id="searchPlace" class="form-group">
           <label for="townVillage" class="label">Town or village
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by town or village."></span>
           </label>
-          <input name="location" id="townVillage" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
+          <input name="location" id="townVillage" value="<%= params[:location] %>" type="text" class="form-control" placeholder="eg Alloa, Coalsnaughton, Tillicoultry">
         </div>
 
         <div id="selectCategories" class="form-group">
