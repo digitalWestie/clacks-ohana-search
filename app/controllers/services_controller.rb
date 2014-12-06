@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
 
   def index
     params.delete(:age_range) if params[:age_range].eql?("0,16")
-    @selected_categories = params[:categories]
+    @selected_categories = params[:category]
     @selected_categories ||= []
 
     services = Service.search(params)
@@ -14,8 +14,6 @@ class ServicesController < ApplicationController
   def show
     id = params[:id].split('/').last
     @service = Service.get(id)
-    # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
-    #@categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
     cache_page(@service.updated_at) if @service.present?
   end
 

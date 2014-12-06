@@ -20,7 +20,7 @@
 
     <% for category in CATEGORIES %>
       <li class="col-md-6 col-sm-6">
-        <%= link_to category, services_path(categories: category), class: "button" %>
+        <%= link_to category, services_path(category: category), class: "button" %>
       </li>
     <% end %>
 

@@ -37,7 +37,7 @@
             <% for category in CATEGORIES %>
               <li>
                 <label>
-                  <%= check_box_tag "categories[]", category, @selected_categories.include?(category), class: "CKcheckbox", id: "category-#{category.parameterize}" %>
+                  <%= check_box_tag "category[]", category, @selected_categories.include?(category), class: "CKcheckbox", id: "category-#{category.parameterize}" %>
                   <%= category %>
                 </label>
               </li>
