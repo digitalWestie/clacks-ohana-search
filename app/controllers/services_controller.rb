@@ -2,6 +2,9 @@ class ServicesController < ApplicationController
   include Cacheable
 
   def index
+    @selected_categories = params[:categories]
+    @selected_categories ||= []
+
     services = Service.search(params)
     @search = ServiceSearch.new(services, Ohanakapa.last_response, params)
     cache_page(services.max_by(&:updated_at).updated_at) if services.present?
