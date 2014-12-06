@@ -62,13 +62,29 @@
           </label>
           <a href="#" class="selectAll button small check">Any</a>
           <ul class="checkBoxes">
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Mon</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Tue</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Wed</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Thu</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Fri</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Sat</label></li>
-           <li><label><input type="checkbox" class="CKcheckbox" value="">Sun</label></li>
+            <li>
+              <label>
+              <%= check_box_tag "weekdays[]", "0", @selected_days.include?("0"), class: "CKcheckbox", id: "weekday_0" %> Mon
+              </label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "1", @selected_days.include?("1"), class: "CKcheckbox", id: "weekday_1" %>Tue</label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "2", @selected_days.include?("2"), class: "CKcheckbox", id: "weekday_2" %>Wed</label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "3", @selected_days.include?("3"), class: "CKcheckbox", id: "weekday_3" %>Thu</label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "4", @selected_days.include?("4"), class: "CKcheckbox", id: "weekday_4" %>Fri</label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "5", @selected_days.include?("5"), class: "CKcheckbox", id: "weekday_5" %>Sat</label>
+            </li>
+            <li><label>
+            <%= check_box_tag "weekdays[]", "6", @selected_days.include?("6"), class: "CKcheckbox", id: "weekday_6" %>Sun</label>
+            </li>
           </ul>
         </div>
 

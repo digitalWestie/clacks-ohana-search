@@ -6,6 +6,9 @@ class ServicesController < ApplicationController
     @selected_categories = params[:category]
     @selected_categories ||= []
 
+    @selected_days = params[:weekdays]
+    @selected_days ||= []
+
     services = Service.search(params)
     @search = ServiceSearch.new(services, Ohanakapa.last_response, params)
     cache_page(services.max_by(&:updated_at).updated_at) if services.present?
