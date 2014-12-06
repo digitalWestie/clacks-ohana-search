@@ -18,30 +18,11 @@
       <a href="" class="button highlight">What's near me?</a>
     </li>
 
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Childcare" class="button">Childcare services</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Babies+%26+Prenatal" class="button">Babies &amp; Prenatal</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Sports" class="button">Sports</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Music+%26+Drama" class="button">Music &amp; Drama</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Clubs" class="button">Clubs</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Learning" class="button">Learning</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Support" class="button">Support</a>
-    </li>
-    <li class="col-md-6 col-sm-6">
-      <a href="services?categories=Health" class="button">Health</a>
-    </li>
+    <% for category in CATEGORIES %>
+      <li class="col-md-6 col-sm-6">
+        <%= link_to category, services_path(categories: category), class: "button" %>
+      </li>
+    <% end %>
 
   </ul>
  </div><!-- /.container -->

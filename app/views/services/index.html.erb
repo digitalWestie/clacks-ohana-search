@@ -29,40 +29,19 @@
         </div>
 
         <div id="selectCategories" class="form-group">
-          <label class="label">Categories
+          <label class="label">Filter by category
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Filter by category if you are looking for a particular type of service."></span>
           </label>
           <a href="#" class="selectAll button small check">All</a>
           <ul class="checkBoxes">
-            <li>
-              <label>
-                <input name="categories[]" type="checkbox" class="CKcheckbox" value="Childcare">Childcare services</label>
-            </li>
-            <li>
-              <label>
-                <input name="categories[]" type="checkbox" class="CKcheckbox" value="Clubs">Clubs</label>
-            </li>
-            <li>
-              <label><input name="categories[]" type="checkbox" class="CKcheckbox" value="Babies &amp; Prenatal">Babies &amp; Prenatal</label>
-            </li>
-            <li>
-              <label><input name="categories[]" type="checkbox" class="CKcheckbox" value="Sports">Sports</label>
-            </li>
-            <li>
-              <label><input name="categories[]" type="checkbox" class="CKcheckbox" value="Support">Support</label>
-            </li>
-            <li>
-              <label>
-                <input name="categories[]" type="checkbox" class="CKcheckbox" value="Music &amp; Drama">Music &amp; Drama
-              </label>
-            </li>
-            <li>
-              <label><input name="categories[]" type="checkbox" class="CKcheckbox" value="Health">Health
-              </label>
-            </li>
-            <li>
-              <label><input name="categories[]" type="checkbox" value="Learning" class="CKcheckbox">Learning</label>
-            </li>
+            <% for category in CATEGORIES %>
+              <li>
+                <label>
+                  <%= check_box_tag "categories[]", category, params[:categories].include?(category), class: "CKcheckbox", id: "category-#{category.parameterize}" %>
+                  <%= category %>
+                </label>
+              </li>
+            <% end %>
           </ul>
         </div>
 
