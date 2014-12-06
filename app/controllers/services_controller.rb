@@ -2,6 +2,7 @@ class ServicesController < ApplicationController
   include Cacheable
 
   def index
+    params.delete(:age_range) if params[:age_range].eql?("0,16")
     @selected_categories = params[:categories]
     @selected_categories ||= []
 
