@@ -1,4 +1,52 @@
-<h1>Services#show</h1>
-<%= @service.name %>
+<h1><%= @service.name %></h1>
 
+<h2><%#= @service.organisation %></h2>
+
+<p><%= @service.description %></p>
+
+<% unless @service.audience.blank? %>
+  <p>Audience: <%= @service.audience %></p>
+<% end %>
+
+<% unless @service.eligibility.blank? %>
+  <p>Eligibility: <%= @service.eligibility %></p>
+<% end %>
+
+<% unless @service.fees.blank? %>
+  <p>Fees: <%= @service.fees %></p>
+<% end %>
+
+<% unless @service.how_to_apply.blank? %>
+  <p>How to apply: <%= @service.how_to_apply %></p>
+<% end %>
+
+<% if age_range_for(@service) %>
+  <p><%= age_range_for(@service) %></p>
+<% end %>
+
+<% unless @service.required_documents.blank? %>
+  <p>Documents required: <%= required_documents.join(", ") %></p>
+<% end %>
+
+<hr/>
+<!-- Available at -->
+<% for availability in @service.availabilities %>
+
+  <h3><%= availability.location.name %></h3>
+  <p><%= availability.location.description %></p>
+  <% unless availability.regular_schedules.blank? %>
+  <ul>
+  <% for schedule in availability.regular_schedules %>
+
+    <li>
+      <%= schedule.weekday %> <%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %>
+    </li>
+
+  <% end %>
+  </ul>
+  <% end %>
+
+<% end %>
+
+<hr/>
 <%= @service.inspect %>
