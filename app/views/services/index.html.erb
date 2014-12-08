@@ -112,6 +112,7 @@
       <ul id="searchResults">
 
         <% if @search.services.present? %>
+          <p><%= page_entries_info @search.results %></p>
           <% for service in @search.services %>
 
             <%= content_tag :li, id: "service-#{service.id}" do %>
@@ -124,6 +125,11 @@
             <% end %>
 
           <% end %>
+          <br/>
+          <p>
+            <%= link_to_previous_page @search.results, "Previous Page", :params => params %>
+            <%= link_to_next_page @search.results, "Next Page", :params => params %></p>
+
         <% else %>
           <h4>No results were found for the following search.</h4>
           <%= content_tag(:p, "Keyword(s): #{params[:keyword]}") if params[:keyword].present? %>
