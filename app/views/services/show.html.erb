@@ -75,13 +75,27 @@
   <h4><%= @service.name %> times</h4>
   <ul>
   <% for schedule in availability.regular_schedules %>
-
     <li>
       <%= schedule.weekday %> <%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %>
     </li>
-
   <% end %>
   </ul>
+  <% end %>
+
+  <% unless availability.location.contacts.blank? %>
+  <h4>Contacts</h4>
+  <% for contact in availability.location.contacts %>
+    <p><%= "#{contact.department} #{contact.title}, #{contact.name}" %></p>
+    <% for phone in contact.phones %>
+      <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+    <% end %>
+  <% end %>
+  <% end %>
+
+  <% unless availability.location.mail_address.blank? %>
+    <h4>Contact Address</h4>
+    <p><%= availability.location.mail_address.attention %></p>
+    <p><%= full_address_for(availability.location.mail_address) %></p>
   <% end %>
 
 <% end %>
