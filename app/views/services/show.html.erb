@@ -1,8 +1,22 @@
-<h1><%= @service.name %></h1>
+<h1><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
 
-<h2><%#= @service.organisation %></h2>
+<h2><%= link_to @service.organization.name, @service.organization.website %></h2>
+
+<!-- :service_areas, :status -->
 
 <p><%= @service.description %></p>
+
+<h3>Contact</h3>
+
+<% unless @service.email.blank? %>
+  <p>Email: <%= @service.email %></p>
+<% end %>
+
+<% unless @service.website.blank? %>
+  <p>Website: <%= link_to @service.website, @service.website %></p>
+<% end %>
+
+<h3>Details</h3>
 
 <% unless @service.audience.blank? %>
   <p>Audience: <%= @service.audience %></p>
@@ -12,29 +26,53 @@
   <p>Eligibility: <%= @service.eligibility %></p>
 <% end %>
 
-<% unless @service.fees.blank? %>
-  <p>Fees: <%= @service.fees %></p>
+<% if age_range_for(@service) %>
+  <p><%= age_range_for(@service) %></p>
+<% end %>
+
+<% unless @service.languages.blank? or @service.languages.size.eql?(1)  %>
+  <p>Languages used: <%= @service.languages.to_sentence %></p>
 <% end %>
 
 <% unless @service.how_to_apply.blank? %>
   <p>How to apply: <%= @service.how_to_apply %></p>
 <% end %>
 
-<% if age_range_for(@service) %>
-  <p><%= age_range_for(@service) %></p>
-<% end %>
-
 <% unless @service.required_documents.blank? %>
   <p>Documents required: <%= required_documents.join(", ") %></p>
 <% end %>
 
+<% unless @service.fees.blank? %>
+  <p>Fees: <%= @service.fees %></p>
+  <p>Payable by: <%= @service.accepted_payments.to_sentence %></p>
+<% end %>
+
+<% unless @service.wait.blank? %>
+  <p>Waiting list: <%= @service.wait %></p>
+<% end %>
+
 <hr/>
-<!-- Available at -->
+
+<h3>Available at</h3>
 <% for availability in @service.availabilities %>
 
-  <h3><%= availability.location.name %></h3>
+  <h4><%= availability.location.name %> <%= "(#{availability.location.alternate_name})" %></h4>
   <p><%= availability.location.description %></p>
+
+  <% unless availability.location.address.blank? %>
+    <p><%= full_address_for(availability.location.address) %></p>
+  <% end %>
+
+  <% unless availability.location.transportation.blank? %>
+    <p><%= availability.location.transportation %></p>
+  <% end %>
+
+  <% for phone in availability.location.phones %>
+    <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+  <% end %>
+
   <% unless availability.regular_schedules.blank? %>
+  <h4><%= @service.name %> times</h4>
   <ul>
   <% for schedule in availability.regular_schedules %>
 
@@ -47,6 +85,3 @@
   <% end %>
 
 <% end %>
-
-<hr/>
-<%= @service.inspect %>
