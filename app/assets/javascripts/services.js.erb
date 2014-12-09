@@ -7,8 +7,8 @@ $(document).ready(function(){
     $('#resultsPage').css({height: windowHeight - minusFooterHeader});
   }
 
-  $("#yourBudget").slider({});
-  $("#childrenAge").slider({});
+  //$("#yourBudget").slider({});
+  var ageSlider = $("#childrenAge").slider({});
 
   $('button#filterResults').click(function() {
     $('#mapPanel').hide();
@@ -24,6 +24,7 @@ $(document).ready(function(){
     $('#resultsList').show();
     $('#mapPanel').hide();
   });
+
   $('button#showMap').click(function() {
     $('#resultsList').hide();
     $('#mapPanel').show();
@@ -35,10 +36,17 @@ $(document).ready(function(){
     return false;
   });
 
+  $('#clearFilter, #clearFilter2').click(function(){
+    $('#keywordSearch').val('');
+    $('#organisationName').val('');
+    $('#townVillage').val('');
+    $('ul#category-filters input[type="checkbox"]').prop('checked', false);
+    $('ul#weekday-filters input[type="checkbox"]').prop('checked', false);
+    ageSlider.slider('setValue', [0,16]);
+    $('#free-and-paid-radio').prop('checked', true);
+  });
+
 });
-
-
-// Initialising the map
 
 var initialiseMap = function(){
   var map = L.map('mapResults').setView([56.11, -3.74], 11);
@@ -46,11 +54,8 @@ var initialiseMap = function(){
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
-
   return map;
 };
-
-
 
 // Adding locations to the map
 // TODO: use marker cluster - https://github.com/Leaflet/Leaflet.markercluster

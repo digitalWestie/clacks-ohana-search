@@ -3,7 +3,7 @@
     <div id="filtersForm" class="">
       <form role="form" action="services" method="get">
         <div class="double-button-group">
-          <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
+          <button type="button" id="clearFilter" class="button clear">Clear filters</button>
           <button type="submit" id="doSearch" class="button right green">Search</button>
         </div>
 
@@ -33,7 +33,7 @@
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Filter by category if you are looking for a particular type of service."></span>
           </label>
           <a href="#" class="selectAll button small check">All</a>
-          <ul class="checkBoxes">
+          <ul class="checkBoxes" id = "category-filters">
             <% for category in CATEGORIES %>
               <li>
                 <label>
@@ -46,14 +46,15 @@
         </div>
 
         <div id="selectBudget" class="form-group">
-          <label for="townVillage" class="label">Budget per session
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span>
+          <label for="townVillage" class="label">Filter by fees
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Do you want to show free"></span>
           </label>
-          <a href="#" class="selectAll button small">Only free stuff</a>
-          <a href="#" class="selectAll button small">Any</a>
-
-          <br>
-          <b>&pound;0</b> <input id="yourBudget" type="text" class="span2" value="" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="[0,20]"/> <b>&pound;20</b>
+          <p>
+          <label style = "margin-right:1em;">All <%= radio_button_tag "is_paid", "", true, id: "free-and-paid-radio" %>
+          </label>
+          <!-- <label style = "margin-right:1em;">Free <%= radio_button_tag "is_paid", true %></label> -->
+          <label>Paid <%= radio_button_tag "is_paid", false %></label>
+          </p>
         </div>
 
         <div id="selectDays" class="form-group">
@@ -61,7 +62,7 @@
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search services available on certain days."></span>
           </label>
           <a href="#" class="selectAll button small check">Any</a>
-          <ul class="checkBoxes">
+          <ul class="checkBoxes" id="weekday-filters">
             <li>
               <label>
               <%= check_box_tag "weekdays[]", "1", @selected_days.include?("1"), class: "CKcheckbox", id: "weekday_1" %> Mon
@@ -96,9 +97,10 @@
           <br>
           <b>0</b><input id="childrenAge" name="age_range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="<%= @selected_ages %>"/> <b>16</b>
         </div>
+
         <div class="double-button-group">
-          <button type="submit" id="clearFilter" class="button clear">Clear filters</button>
-          <button type="submit" id="doSearch" class="button right">Search</button>
+          <button type="button" id="clearFilter2" class="button clear">Clear filters</button>
+          <button type="submit" id="doSearch2" class="button right">Search</button>
         </div>
       </form>
     </div>
