@@ -21,6 +21,7 @@ class ServicesController < ApplicationController
   def show
     id = params[:id].split('/').last
     @service = Service.get(id)
+    @issues = Issue.find_all_by(service_id: id)
     cache_page(@service.updated_at) if @service.present?
   end
 
