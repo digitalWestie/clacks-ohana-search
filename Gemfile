@@ -62,3 +62,6 @@ gem 'memcachier'
 
 # Required for caching in production.
 gem 'kgio'
+
+
+gem 'enumerize'
