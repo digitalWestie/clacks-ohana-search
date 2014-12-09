@@ -50,10 +50,10 @@
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Do you want to show free"></span>
           </label>
           <p>
-          <label style = "margin-right:1em;">All <%= radio_button_tag "is_paid", "", true, id: "free-and-paid-radio" %>
+          <label style = "margin-right:1em;">All <%= radio_button_tag "is_paid", "all", true, id: "free-and-paid-radio" %>
           </label>
           <!-- <label style = "margin-right:1em;">Free <%= radio_button_tag "is_paid", true %></label> -->
-          <label>Paid <%= radio_button_tag "is_paid", false %></label>
+          <label>Paid <%= radio_button_tag "is_paid", true, false %></label>
           </p>
         </div>
 
