@@ -15,12 +15,12 @@
   <ul id="searchLinks" class="col-md-10 col-md-offset-1">
 
     <li id="whats-near" class="col-md-6  col-sm-12">
-      <a href="" class="button highlight">What's near me?</a>
+      <a href="" class="button near">What's near me?</a>
     </li>
 
     <% for category in CATEGORIES %>
       <li class="col-md-6 col-sm-6">
-        <%= link_to category, services_path("category[]" => category), class: "button" %>
+        <%= link_to category, services_path("category[]" => category), class: "button #{category.parameterize}" %>
       </li>
     <% end %>
 
