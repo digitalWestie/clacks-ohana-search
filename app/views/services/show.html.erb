@@ -87,8 +87,8 @@
   <ul>
   <% for schedule in availability.holiday_schedules %>
     <li>
-      <%= Time.parse(schedule.start_date).strftime('%d %b') %> ~
-      <%= Time.parse(schedule.end_date).strftime('%d %b') %>
+      <%= schedule.start_date.strftime('%d %b') %> ~
+      <%= schedule.end_date.strftime('%d %b') %>
     </li>
   <% end %>
   </ul>
