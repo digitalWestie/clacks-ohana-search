@@ -3,8 +3,10 @@ Clackskids::Application.routes.draw do
   get 'welcome' => 'welcome#index'
   get 'about' => 'welcome#about'
   get 'feedback' => 'welcome#feedback'
-  get 'services' => 'services#index'
-  get 'services/:id' => 'services#show'
+
+  resources :services, only: [:index, :show]
+
+  post 'services/:service_id/issues', as: :service_issues
 
   root 'welcome#index'
 
