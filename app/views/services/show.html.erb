@@ -82,6 +82,18 @@
   </ul>
   <% end %>
 
+  <% unless availability.holiday_schedules.blank? %>
+  <h4><%= @service.name %> closed times</h4>
+  <ul>
+  <% for schedule in availability.holiday_schedules %>
+    <li>
+      <%= Time.parse(schedule.start_date).strftime('%d %b') %> ~
+      <%= Time.parse(schedule.end_date).strftime('%d %b') %>
+    </li>
+  <% end %>
+  </ul>
+  <% end %>
+
   <% unless availability.location.contacts.blank? %>
   <h4>Contacts</h4>
   <% for contact in availability.location.contacts %>
