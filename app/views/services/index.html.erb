@@ -174,11 +174,12 @@
   <%= javascript_include_tag "leaflet" %>
   <%= javascript_include_tag "bootstrap-slider" %>
   <%= javascript_include_tag "services" %>
+  <%= javascript_include_tag "mapping" %>
 <% end %>
 
 <% content_for :footer_js do %>
   $(document).ready(function(){
-    var map = initialiseMap();
+    var map = initialiseMap('mapResults');
     var locations = <%= @search.map_data.to_json.html_safe %>;
     var markers = addLocationsToMap(locations, map);
     console.log(markers);
