@@ -20,12 +20,154 @@
     </ul>
   <% end %>
 
-  <section class="col-md-6">
+  <div class="col-md-6">
 
-    <h3>About</h3>
-    <p><%= service.description %></p>
+    <section id="serviceAbout">
 
+      <h3>About</h3>
+      <p><%= service.description %></p>
 
+    </section>
+
+    <section id="serviceContact">
+
+      <h3>Contact</h3>
+
+      <% unless service.email.blank? %>
+        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:<%= service.email %>"><%= service.email %></a></p>
+      <% end %>
+
+      <% unless service.website.blank? %>
+        <p><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= link_to service.website, service.website %></p>
+      <% end %>
+
+    </section>
+
+    <section id="serviceDetails">
+
+      <h3>Details</h3>
+
+      <table>
+
+      <% unless service.audience.blank? %>
+      <tr>
+       <th>Audience:</th>
+       <td><%= service.audience %></td>
+      </tr>
+      <% end %>
+
+      <% unless service.eligibility.blank? %>
+      <tr>
+       <th>Eligibility:</th>
+       <td> <%= service.eligibility %></td>
+      </tr>
+      <% end %>
+
+      <% if age_range_for(service) %>
+      <tr>
+       <th>Age range: </th>
+       <td><%= age_range_for(service) %></td>
+      </tr>
+      <% end %>
+
+      <% unless service.languages.blank? or service.languages.size.eql?(1)  %>
+        <tr>
+         <th>Languages used:</th>
+         <td><%= service.languages.to_sentence %></td>
+        </tr>
+      <% end %>
+
+      <% unless service.how_to_apply.blank? %>
+        <tr>
+          <th>How to apply:</th>
+          <td><%= service.how_to_apply %></td>
+        </tr>
+      <% end %>
+
+      <% unless service.required_documents.blank? %>
+        <tr>
+         <th>Documents required:</th>
+         <td> <%= required_documents.join(", ") %></td>
+        </tr>
+      <% end %>
+
+      <% unless service.fees.blank? %>
+        <tr>
+         <th>Fees:</th>
+         <td><%= service.fees %></td>
+        </tr>
+        <tr>
+         <th>Payable by: </th>
+         <td><%= service.accepted_payments.to_sentence %></td>
+        </tr>
+      <% end %>
+
+      <% unless service.wait.blank? %>
+        <tr>
+         <th>Waiting list:</th>
+         <td><%= service.wait %></td>
+        </tr>
+      <% end %>
+
+      </table>
+
+    </section>
+
+    <section id="serviceSchedule">
+
+    <h3>Service schedule</h3>
+    <% for availability in service.availabilities %>
+
+      <% unless availability.notes.blank? %>
+        <p><%= availability.notes %></p>
+      <% end %>
+
+      <% unless availability.regular_schedules.blank? %>
+      <h4><%= service.name %> times</h4>
+      <ul>
+      <% for schedule in availability.regular_schedules %>
+        <li>
+          <%= schedule.weekday %> <%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %>
+        </li>
+      <% end %>
+      </ul>
+      <% end %>
+
+      <% unless availability.holiday_schedules.blank? %>
+      <h4><%= service.name %> closed times</h4>
+      <ul>
+      <% for schedule in availability.holiday_schedules %>
+        <li>
+          <%= schedule.start_date.strftime('%d %b') %> ~
+          <%= schedule.end_date.strftime('%d %b') %>
+        </li>
+      <% end %>
+      </ul>
+      <% end %>
+
+      <% unless availability.location.contacts.blank? %>
+      <h4>Contacts</h4>
+      <% for contact in availability.location.contacts %>
+        <p><%= "#{contact.department} #{contact.title}, #{contact.name}" %></p>
+        <% for phone in contact.phones %>
+          <p><span class="glyphicon glyphicon-earphone"></span> <%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+        <% end %>
+      <% end %>
+      <% end %>
+
+      <% unless availability.location.mail_address.blank? %>
+        <h4>Contact Address</h4>
+        <p><%= availability.location.mail_address.attention %></p>
+        <p><%= full_address_for(availability.location.mail_address) %></p>
+      <% end %>
+
+    <% end %>
+
+    </div>
+
+  <div class="col-md-6">
+
+   <section id="venueDetails">
     <h3>Available at</h3>
     <% for availability in service.availabilities %>
 
@@ -46,111 +188,12 @@
 
     <% end %>
 
+   </section>
+
     <div id="serviceMap">
 
     </div>
 
-
-
-  </section>
-
-  <section class="col-md-6">
-
-    <h3>Contact</h3>
-
-    <% unless service.email.blank? %>
-      <p>Email: <%= service.email %></p>
-    <% end %>
-
-    <% unless service.website.blank? %>
-      <p>Website: <%= link_to service.website, service.website %></p>
-    <% end %>
-
-
-<h3>Details</h3>
-
-<% unless service.audience.blank? %>
-  <p>Audience: <%= service.audience %></p>
-<% end %>
-
-<% unless service.eligibility.blank? %>
-  <p>Eligibility: <%= service.eligibility %></p>
-<% end %>
-
-<% if age_range_for(service) %>
-  <p><%= age_range_for(service) %></p>
-<% end %>
-
-<% unless service.languages.blank? or service.languages.size.eql?(1)  %>
-  <p>Languages used: <%= service.languages.to_sentence %></p>
-<% end %>
-
-<% unless service.how_to_apply.blank? %>
-  <p>How to apply: <%= service.how_to_apply %></p>
-<% end %>
-
-<% unless service.required_documents.blank? %>
-  <p>Documents required: <%= required_documents.join(", ") %></p>
-<% end %>
-
-<% unless service.fees.blank? %>
-  <p>Fees: <%= service.fees %></p>
-  <p>Payable by: <%= service.accepted_payments.to_sentence %></p>
-<% end %>
-
-<% unless service.wait.blank? %>
-  <p>Waiting list: <%= service.wait %></p>
-<% end %>
-
-<hr/>
-
-<h3>Available at</h3>
-<% for availability in service.availabilities %>
-
-  <% unless availability.notes.blank? %>
-    <p><%= availability.notes %></p>
-  <% end %>
-
-  <% unless availability.regular_schedules.blank? %>
-  <h4><%= service.name %> times</h4>
-  <ul>
-  <% for schedule in availability.regular_schedules %>
-    <li>
-      <%= schedule.weekday %> <%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %>
-    </li>
-  <% end %>
-  </ul>
-  <% end %>
-
-  <% unless availability.holiday_schedules.blank? %>
-  <h4><%= service.name %> closed times</h4>
-  <ul>
-  <% for schedule in availability.holiday_schedules %>
-    <li>
-      <%= schedule.start_date.strftime('%d %b') %> ~
-      <%= schedule.end_date.strftime('%d %b') %>
-    </li>
-  <% end %>
-  </ul>
-  <% end %>
-
-  <% unless availability.location.contacts.blank? %>
-  <h4>Contacts</h4>
-  <% for contact in availability.location.contacts %>
-    <p><%= "#{contact.department} #{contact.title}, #{contact.name}" %></p>
-    <% for phone in contact.phones %>
-      <p><span class="glyphicon glyphicon-earphone"></span> <%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
-    <% end %>
-  <% end %>
-  <% end %>
-
-  <% unless availability.location.mail_address.blank? %>
-    <h4>Contact Address</h4>
-    <p><%= availability.location.mail_address.attention %></p>
-    <p><%= full_address_for(availability.location.mail_address) %></p>
-  <% end %>
-
-<% end %>
 
 
 <div>
@@ -173,7 +216,7 @@
   <% end %>
 </div>
 
-</section>
+</div>
 
 <!-- :status -->
 
