@@ -1,3 +1,4 @@
+<div style = "background-color:white;">
 <h1><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
 
 <h2><%= link_to @service.organization.name, @service.organization.website %></h2>
@@ -111,3 +112,4 @@
   <% end %>
 
 <% end %>
+</div>
