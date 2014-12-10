@@ -20,10 +20,14 @@ class ServicesController < ApplicationController
 
   def show
     id = params[:id].split('/').last
+
     @service = Service.get(id)
+    @search = ServiceSearch.new([@service], Ohanakapa.last_response, params)
+
     @issues = Issue.where(service_id: id)
     @issues = @issues.select {|i| (i.keep_relevant(@service) and i.is_activated) }
     @issue = Issue.new(service_id: id)
+
     cache_page(@service.updated_at) if @service.present?
   end
 
