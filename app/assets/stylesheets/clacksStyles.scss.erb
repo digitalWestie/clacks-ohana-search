@@ -486,8 +486,19 @@ footer {
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+ body.services-index {
+  padding-top: 1.5em;
+
+  a.navbar-brand {
+    float: left !important;
+    margin-left: 1em !important;
+    font-size: 14px !important;
+    img {max-width: 200px !important;}
+  }
+
   li#whats-near {
     display: none;
+  }
   }
 }
 /* Large devices (large desktops, 1200px and up) */
