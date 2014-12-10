@@ -1,11 +1,13 @@
+<% service = @search.services.first %>
+
 <div id="servicePage" class = "container" style = "background-color:white;">
 
   <section class="col-md-12">
 
     <script> document.write('<a href="' + document.referrer + '">Go Back</a>'); </script>
 
-    <h1 class="serviceTitle"><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
-    <h2 class="organisationName"><%= link_to @service.organization.name, @service.organization.website %></h2>
+    <h1 class="serviceTitle"><%= service.name %> <%= "(#{service.alternate_name})" unless service.alternate_name.blank? %></h1>
+    <h2 class="organisationName"><%= link_to service.organization.name, service.organization.website %></h2>
   </section>
 
   <% unless @issues.blank? %>
@@ -21,11 +23,11 @@
   <section class="col-md-6">
 
     <h3>About</h3>
-    <p><%= @service.description %></p>
+    <p><%= service.description %></p>
 
 
     <h3>Available at</h3>
-    <% for availability in @service.availabilities %>
+    <% for availability in service.availabilities %>
 
       <h4><%= availability.location.name %> <%= "(#{availability.location.alternate_name})" %></h4>
       <p><%= availability.location.description %></p>
@@ -56,61 +58,61 @@
 
     <h3>Contact</h3>
 
-    <% unless @service.email.blank? %>
-      <p>Email: <%= @service.email %></p>
+    <% unless service.email.blank? %>
+      <p>Email: <%= service.email %></p>
     <% end %>
 
-    <% unless @service.website.blank? %>
-      <p>Website: <%= link_to @service.website, @service.website %></p>
+    <% unless service.website.blank? %>
+      <p>Website: <%= link_to service.website, service.website %></p>
     <% end %>
 
 
 <h3>Details</h3>
 
-<% unless @service.audience.blank? %>
-  <p>Audience: <%= @service.audience %></p>
+<% unless service.audience.blank? %>
+  <p>Audience: <%= service.audience %></p>
 <% end %>
 
-<% unless @service.eligibility.blank? %>
-  <p>Eligibility: <%= @service.eligibility %></p>
+<% unless service.eligibility.blank? %>
+  <p>Eligibility: <%= service.eligibility %></p>
 <% end %>
 
-<% if age_range_for(@service) %>
-  <p><%= age_range_for(@service) %></p>
+<% if age_range_for(service) %>
+  <p><%= age_range_for(service) %></p>
 <% end %>
 
-<% unless @service.languages.blank? or @service.languages.size.eql?(1)  %>
-  <p>Languages used: <%= @service.languages.to_sentence %></p>
+<% unless service.languages.blank? or service.languages.size.eql?(1)  %>
+  <p>Languages used: <%= service.languages.to_sentence %></p>
 <% end %>
 
-<% unless @service.how_to_apply.blank? %>
-  <p>How to apply: <%= @service.how_to_apply %></p>
+<% unless service.how_to_apply.blank? %>
+  <p>How to apply: <%= service.how_to_apply %></p>
 <% end %>
 
-<% unless @service.required_documents.blank? %>
+<% unless service.required_documents.blank? %>
   <p>Documents required: <%= required_documents.join(", ") %></p>
 <% end %>
 
-<% unless @service.fees.blank? %>
-  <p>Fees: <%= @service.fees %></p>
-  <p>Payable by: <%= @service.accepted_payments.to_sentence %></p>
+<% unless service.fees.blank? %>
+  <p>Fees: <%= service.fees %></p>
+  <p>Payable by: <%= service.accepted_payments.to_sentence %></p>
 <% end %>
 
-<% unless @service.wait.blank? %>
-  <p>Waiting list: <%= @service.wait %></p>
+<% unless service.wait.blank? %>
+  <p>Waiting list: <%= service.wait %></p>
 <% end %>
 
 <hr/>
 
 <h3>Available at</h3>
-<% for availability in @service.availabilities %>
+<% for availability in service.availabilities %>
 
   <% unless availability.notes.blank? %>
     <p><%= availability.notes %></p>
   <% end %>
 
   <% unless availability.regular_schedules.blank? %>
-  <h4><%= @service.name %> times</h4>
+  <h4><%= service.name %> times</h4>
   <ul>
   <% for schedule in availability.regular_schedules %>
     <li>
@@ -121,7 +123,7 @@
   <% end %>
 
   <% unless availability.holiday_schedules.blank? %>
-  <h4><%= @service.name %> closed times</h4>
+  <h4><%= service.name %> closed times</h4>
   <ul>
   <% for schedule in availability.holiday_schedules %>
     <li>
@@ -153,7 +155,7 @@
 
 <div>
   <h3>Flag an issue</h3>
-  <%= form_for @issue, :url => service_issues_path(@service.id) do |f| %>
+  <%= form_for @issue, :url => service_issues_path(service.id) do |f| %>
     <p>
       <%= f.label :email %><br/>
       <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", style: "width:100%;padding:3px;" %>
@@ -166,14 +168,26 @@
       <%= f.label :description %><br/>
       <%= f.text_area :description, style: "width:100%;" %>
     </p>
-    <%= f.hidden_field :service_timestamp, value: @service.update_at.to_i  %>
+    <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
     <%= f.submit "Save" %>
   <% end %>
 </div>
 
-
-  </section>
+</section>
 
 <!-- :status -->
 
 </div>
+
+<% content_for :after_footer do %>
+  <%= javascript_include_tag "leaflet" %>
+  <%= javascript_include_tag "mapping" %>
+<% end %>
+
+<% content_for :footer_js do %>
+  $(document).ready(function(){
+    var map = initialiseMap('serviceMap');
+    var locations = <%= @search.map_data.to_json.html_safe %>;
+    var markers = addLocationsToMap(locations, map);
+  });
+<% end %>
