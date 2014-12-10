@@ -1,0 +1,11 @@
+<p>Hello,<br/>
+
+You've received this email because you flagged an issue on <%= link_to 'Clackskids', root_url %>.</p>
+
+<p>Service <%= @issue.reason %>: <%= @issue.description %></p>
+
+<p>To confirm the issue please follow <%= link_to 'this link', issue_activation_url(@issue.activation) %>.</p>
+
+<p>If you didn't do this, please ignore this email.</p>
+
+<p>Thanks for your help!</p>

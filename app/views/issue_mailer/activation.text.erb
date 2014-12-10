@@ -1,0 +1,11 @@
+Hello,
+
+You've received this email because you flagged an issue on clackskids.
+
+Service <%= @issue.reason %>: <%= @issue.description %>
+
+To confirm the issue please follow this link: <%= issue_activation_url(@issue.activation) %>
+
+If you didn't do this, please ignore this email.
+
+Thanks for your help!
