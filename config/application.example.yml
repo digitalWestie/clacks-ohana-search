@@ -81,12 +81,14 @@ development:
   DEFAULT_PER_PAGE: '5'
   MAX_PER_PAGE: '10'
   LANG: en_GB.UTF-8
+  DAYS_TO_EXPIRE: 1
 
 production:
   TZ: 'Europe/London'
   DEFAULT_PER_PAGE: '10'
   MAX_PER_PAGE: '10'
   LANG: en_GB.UTF-8
+  DAYS_TO_EXPIRE: 14
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
 # See config/environments/production.rb for more details.
@@ -100,6 +102,7 @@ test:
   DEFAULT_PER_PAGE: '30'
   MAX_PER_PAGE: '50'
   LANG: en_GB.UTF-8
+  DAYS_TO_EXPIRE: 1
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~
 #DOMAIN_NAME: lvh.me
