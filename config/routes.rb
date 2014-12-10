@@ -7,6 +7,7 @@ Clackskids::Application.routes.draw do
   resources :services, only: [:index, :show]
 
   post 'services/:service_id/issues' => 'issues#create', as: :service_issues
+  get 'issues/:activation' => 'issues#activate', as: :activate_issue
 
   root 'welcome#index'
 

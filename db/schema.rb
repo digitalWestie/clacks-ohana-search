@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210000528) do
+ActiveRecord::Schema.define(version: 20141210015652) do
 
   create_table "issues", force: true do |t|
     t.string   "reason"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20141210000528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+    t.string   "activation"
+    t.boolean  "is_activated",      default: false
   end
 
 end

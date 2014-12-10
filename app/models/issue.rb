@@ -6,8 +6,9 @@ class Issue < ActiveRecord::Base
   extend Enumerize
   enumerize :reason, in: [:outdated, :innacurate]
 
+  after_create :set_activation
+
   def keep_relevant(service)
-    binding.pry
     if self.still_relevant?(service)
       return true
     else
@@ -18,6 +19,12 @@ class Issue < ActiveRecord::Base
 
   def still_relevant?(service)
     service.update_at.to_i.to_s.eql?(self.service_timestamp)
+  end
+
+  private
+
+  def set_activation
+    self.update_attribute(:activation, SecureRandom.uuid)
   end
 
 end
