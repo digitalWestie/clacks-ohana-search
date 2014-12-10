@@ -102,6 +102,10 @@
     <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
   <% end %>
 
+  <% unless availability.notes.blank? %>
+    <p><%= availability.notes %></p>
+  <% end %>
+
   <% unless availability.regular_schedules.blank? %>
   <h4><%= @service.name %> times</h4>
   <ul>
