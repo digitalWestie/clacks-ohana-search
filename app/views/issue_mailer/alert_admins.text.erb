@@ -1,0 +1,9 @@
+Hello,
+
+You've received this email because someone flagged an issue on <%= link_to 'Clackskids', root_url %>.
+
+<%= link_to @service.name, service_url(@service.id) %> was flagged as <%= @issue.reason %>
+
+Description: <%= @issue.description %>
+
+To resolve the issue please <%= link_to 'edit the entry', ENV['OHANA_API_URL'] %>.
