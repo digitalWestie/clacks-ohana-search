@@ -182,7 +182,10 @@
 <% content_for :footer_js do %>
   $(document).ready(function(){
     var map = initialiseMap('serviceMap');
-    var locations = <%= @search.map_data.to_json.html_safe %>;
-    var markers = addLocationsToMap(locations, map);
+    <% unless service.availabilities.blank? %>
+      var locations = <%= @search.map_data.to_json.html_safe %>;
+      var markers = addLocationsToMap(locations, map);
+      map.panTo(markers[Object.keys(markers)[0]].marker.getLatLng());
+    <% end %>
   });
 <% end %>
