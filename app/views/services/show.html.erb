@@ -28,7 +28,7 @@
   <p>This entry has been marked as: </p>
   <ul>
     <% for issue in @issues %>
-      <li><%= "#{issue.reason.capitalize} #{time_ago_in_words(issue.created_at)} ago." %></li>
+      <li><%= "#{issue.reason.capitalize} #{time_ago_in_words(issue.updated_at)} ago." %></li>
     <% end %>
   </ul>
 <% end %>
