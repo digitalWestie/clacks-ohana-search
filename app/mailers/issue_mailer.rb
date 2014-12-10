@@ -7,6 +7,6 @@ class IssueMailer < ActionMailer::Base
   end
 
   def alert_admins(issue, service)
-    mail :to => service.organisation.admin_emails, :bcc => ENV['SITE_ADMIN'], :subject => "Issue flagged with service: #{service.name} on Clackskids"
+    mail :to => service.organisation.issue_emails, :bcc => ENV['SITE_ADMIN'], :subject => "Issue flagged with service: #{service.name} on Clackskids"
   end
 end
