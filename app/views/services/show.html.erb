@@ -179,11 +179,6 @@
 
 </div>
 
-<% content_for :after_footer do %>
-  <%= javascript_include_tag "leaflet" %>
-  <%= javascript_include_tag "mapping" %>
-<% end %>
-
 <% content_for :footer_js do %>
   $(document).ready(function(){
     var map = initialiseMap('serviceMap');

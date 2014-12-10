@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap.js
 //= require tooltips.js
+//= require leaflet.js
+//= require leaflet.markercluster.js
+//= require mapping.js
 //= require_tree ./bootstrap
