@@ -1,5 +1,7 @@
 class ServiceSearch
   include AddressFormatHelper
+  include Rails.application.routes.url_helpers
+
   attr_reader :services
 
   def initialize(services, response, params)
@@ -16,17 +18,19 @@ class ServiceSearch
   def locations_for(service)
     service.availabilities.map do |av|
       next if av.location.coordinates.blank?
-      hash_for(av.location, service.id)
+      hash_for(av.location, service)
     end.compact
   end
 
-  def hash_for(location, service_slug)
+  def hash_for(location, service)
     {
       latitude: location.latitude,
       longitude: location.longitude,
       name: location.name,
       slug: location.slug,
-      service: service_slug,
+      service: service.id,
+      service_name: service.name,
+      service_path: service_path(service.id),
       street_address: street_address_for(location.address),
       city: location.address.city
     }

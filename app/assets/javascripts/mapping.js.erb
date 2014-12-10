@@ -33,7 +33,8 @@ var addLocationsToMap = function(locations, map){
 
   $(locations).each(function(i,l){
     var m = L.marker([l.latitude, l.longitude], { icon: normalIcon });//.addTo(map);
-    var p = m.bindPopup('<b>'+l.name+'</b><br>' + '' + '.');//.openPopup();
+    var popup_content = '<a href="' + l.service_path + '">'+l.service_name+'</a> at '+l.name;
+    var p = m.bindPopup(popup_content);//.openPopup();
     markers[l.slug] = { popup: p, marker: m, service: l.service };
     enableIdentifyMarkerFromListItem("li#service-"+l.service, m, hoverIcon, normalIcon);
     markerGroup.addLayer(m);
