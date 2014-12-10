@@ -1,6 +1,9 @@
-<div class = "container" style = "background-color:white;">
+<div id="servicePage" class = "container" style = "background-color:white;">
 
   <section class="col-md-12">
+
+    <script> document.write('<a href="' + document.referrer + '">Go Back</a>'); </script>
+
     <h1 class="serviceTitle"><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
     <h2 class="organisationName"><%= link_to @service.organization.name, @service.organization.website %></h2>
   </section>

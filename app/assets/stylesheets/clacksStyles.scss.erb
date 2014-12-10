@@ -226,7 +226,9 @@ footer {
        font-size: 1.25em;
        color: $main-blue;
        span.glyphicon {margin-right: 0.25em;}
-     }
+       display: inline-block;
+       text-align: center;
+       }
    }
 
   #resultsList {
@@ -287,6 +289,15 @@ footer {
 }
 
 
+/* SEARCH RESULTS STYLES *******************/
+
+#servicePage {
+ p {
+  word-wrap: break-word;
+ }
+}
+
+
 /* FEEDBACK PAGE *******************/
 
 #feedbackPage {
@@ -298,7 +309,7 @@ footer {
  }
 }
 
-/* FEEDBACK PAGE *******************/
+/* ABOUT PAGE *******************/
 
 #aboutPage {
  margin-top: 80px;
@@ -406,7 +417,9 @@ footer {
     z-index: 1000;
     height: 100% !important;
     display: none;
-  .double-button-group {padding: 0 0 1em 0 !important;}
+  .double-button-group {
+    padding: 0 0 1em 0 !important;
+    }
   }
   #resultsList {
     height: 100% !important;

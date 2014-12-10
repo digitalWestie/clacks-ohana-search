@@ -1,9 +1,11 @@
+
+
 <div id="resultsPage" class="clearfix">
 
     <div id="filtersForm" class="">
       <form role="form" action="services" method="get">
         <div class="double-button-group">
-          <button type="button" id="clearFilter" class="button clear">Clear filters</button>
+          <a href="/services" rel="button" id="clearFilter" class="button clear">Clear filters</a>
           <button type="submit" id="doSearch" class="button right green">Search</button>
         </div>
 
@@ -99,7 +101,7 @@
         </div>
 
         <div class="double-button-group">
-          <button type="button" id="clearFilter2" class="button clear">Clear filters</button>
+          <a href="/services" rel="button" id="clearFilter2" class="button clear">Clear filters</a>
           <button type="submit" id="doSearch2" class="button right green">Search</button>
         </div>
       </form>
@@ -131,8 +133,8 @@
              </ul>
 
              <div id="pagResults" class="clearfix">
-               <a href="" class="button blue">Previous</a>
-               <a href="" class="button blue more">More</a>
+            <%= link_to_previous_page @search.results, "Previous", :params => params, class: "button blue" %>
+            <%= link_to_next_page @search.results, "More", :params => params, class: "button blue more" %>
              </div>
 
 
