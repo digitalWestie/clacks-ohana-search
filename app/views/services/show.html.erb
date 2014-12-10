@@ -158,7 +158,7 @@
   <%= form_for @issue, :url => service_issues_path(service.id) do |f| %>
     <p>
       <%= f.label :email %><br/>
-      <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", style: "width:100%;padding:3px;" %>
+      <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", class: 'form-control' %>
     </p>
     <p>
       <%= f.label :reason %>
@@ -166,7 +166,7 @@
     </p>
     <p>
       <%= f.label :description %><br/>
-      <%= f.text_area :description, style: "width:100%;" %>
+      <%= f.text_area :description, class: 'form-control' %>
     </p>
     <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
     <%= f.submit "Save" %>
