@@ -33,6 +33,7 @@ body {
  .navbar-collapse {
   background: $main-blue;
   width: 100%;
+  z-index: 1000;
  }
 
 }
@@ -429,8 +430,6 @@ footer {
   body {
    background: url('<%= asset_path('ck-background-mobile.png') %>') top center #77a441 no-repeat;
 
-   padding-top: 7em;
-
    .button { padding: 0.5em; }
 
   .navbar-toggle {
@@ -451,6 +450,10 @@ footer {
   #homePage {
       #searchLinks a {
       font-size: 1.75em;
+      }
+
+      #searchForm label {
+       font-size: 1.8em !important;
       }
 
     input#searchBox {
@@ -504,7 +507,6 @@ footer {
 
   body {
      background: url('<%= asset_path('ck-background-desktop.png') %>') top center #77a441 no-repeat;
-     padding-top: 6em;
   }
   .navbar {
     margin-bottom: 0;
