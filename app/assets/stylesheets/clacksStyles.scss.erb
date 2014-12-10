@@ -60,11 +60,15 @@ footer {
 
 .navbar-nav {
   li {
-   margin: 1em;
+   margin: 2em 0.25em;
    a {
     color: white; font-weight: 600;
-    padding: 0 0 2px 0;
-    &:hover { background: none; border-bottom: 2px solid white; padding: 0;}
+    font-size: 1.25em;
+    padding: 0.25em 0.5em;
+    border: 3px solid transparent;
+     @include rounded(10px);
+
+    &:hover { background: $main-blue; border: 3px white solid;}
       }
    }
  }
@@ -440,6 +444,17 @@ footer {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+ body.services-index {
+  padding-top: 1.5em;
+
+  a.navbar-brand {
+    float: left !important;
+    margin-left: 1em !important;
+    font-size: 14px !important;
+    img {max-width: 200px !important;}
+  }
+ }
+
   body {
      background: url('<%= asset_path('ck-background-desktop.png') %>') top center #77a441 no-repeat;
      padding-top: 2em;
@@ -486,20 +501,12 @@ footer {
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
- body.services-index {
-  padding-top: 1.5em;
 
-  a.navbar-brand {
-    float: left !important;
-    margin-left: 1em !important;
-    font-size: 14px !important;
-    img {max-width: 200px !important;}
-  }
 
   li#whats-near {
     display: none;
   }
-  }
+
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
