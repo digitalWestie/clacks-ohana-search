@@ -1,10 +1,10 @@
 <% service = @search.services.first %>
 
-<div id="servicePage" class = "container" style = "background-color:white;">
+<div id="servicePage" class = "container">
 
-  <section class="col-md-12">
+  <section id="serviceHeader" class="col-md-12">
 
-    <script> document.write('<a href="' + document.referrer + '">Go Back</a>'); </script>
+    <script> document.write('<a href="' + document.referrer + '" class="backButton" >&laquo; Back to search</a>'); </script>
 
     <h1 class="serviceTitle"><%= service.name %> <%= "(#{service.alternate_name})" unless service.alternate_name.blank? %></h1>
     <h2 class="organisationName"><%= service.organization.website.blank? ? service.organization.name : link_to(service.organization.name, service.organization.website) %></h2>
@@ -139,7 +139,7 @@
   <% for contact in availability.location.contacts %>
     <p><%= "#{contact.department} #{contact.title}, #{contact.name}" %></p>
     <% for phone in contact.phones %>
-      <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+      <p><span class="glyphicon glyphicon-earphone"></span> <%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
     <% end %>
   <% end %>
   <% end %>
@@ -169,7 +169,7 @@
       <%= f.text_area :description, class: 'form-control' %>
     </p>
     <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
-    <%= f.submit "Save" %>
+    <%= f.submit "Save", class: 'button orange' %>
   <% end %>
 </div>
 

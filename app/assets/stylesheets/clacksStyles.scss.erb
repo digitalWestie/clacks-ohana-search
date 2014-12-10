@@ -1,7 +1,8 @@
 
 $main-blue:     #336699;
 $light-blue:    #81a7cc;
-$dark-grey:     #dbdbdb;
+$dark-grey:     #666666;
+$medium-grey:   #dbdbdb;
 $light-grey:    #f0f0f0;
 $yellow:        #ffda00;
 $bright-blue:   #428bca;
@@ -29,6 +30,11 @@ body {
 }
 .navbar {
 
+ .navbar-collapse {
+  background: $main-blue;
+  width: 100%;
+ }
+
 }
 footer {
   padding: 20px;
@@ -42,7 +48,8 @@ footer {
    position: absolute;
    right: 0;
    float: none;
-   .icon-bar { background: white;}
+   .title {float: right; font-weight: 700; margin-left: 30px; color: white; text-transform: uppercase;}
+   .icon-bar { background: white; position: relative; top: 3px;}
  }
  .navbar-brand {
   float: none;
@@ -59,6 +66,8 @@ footer {
 }
 
 .navbar-nav {
+  text-align: center;
+
   li {
    margin: 2em 0.25em;
    a {
@@ -68,8 +77,6 @@ footer {
     border: 3px solid transparent;
      @include rounded(10px);
 
-    &:hover { background: $main-blue; border: 3px white solid;}
-    &:active { background: $orange; border: 3px white solid;}
       }
    }
  }
@@ -108,6 +115,11 @@ footer {
  padding: 0.15em 0.75em;
 }
 
+.backButton {
+ display: block;
+ margin: 1em 0;
+}
+
 
 /* HOME STYLES *******************/
 #homePage {
@@ -115,14 +127,11 @@ footer {
   #searchForm {
     text-align: center;
     margin: 3em 0 2em 0;
-    .form-group {
-      padding-left: 0;
-      padding-right: 0;
-    }
+
     label {
       font-size: 2em;
       color: white;
-      margin: 0.75em 0 0.15em 0;
+      margin: 0.5em 0 0.15em 0;
     }
     input#searchBox {
       width: 80%;
@@ -130,17 +139,21 @@ footer {
       border-top-right-radius:0em;
       border-bottom-right-radius:0em;
       border: none;
-      height: 35px;
+      height: 45px;
+      @include box-sized();
+      font-size: 1.5em;
     }
     button[type=submit] {
       border-top-left-radius:0em;
       border-bottom-left-radius:0em;
       position: relative;
       left: -2px;
-      top: -2px;
+      top: -5px;
       border: none;
       padding: 7px 12px;
-      height: 35px;
+      height: 45px;
+      width: 10%;
+      @include box-sized();
     }
   }
 
@@ -297,9 +310,19 @@ footer {
 /* SEARCH RESULTS STYLES *******************/
 
 #servicePage {
- p {
-  word-wrap: break-word;
+ padding-bottom: 2em;
+ background: white;
+
+ #serviceHeader {
+
+  h1 { font-weight: 600; color: $main-blue; }
+  h2 { margin-top: 0; color: $dark-grey; }
+
+  border-bottom: $light-grey 3px solid;
+
  }
+
+  p { word-wrap: break-word; }
 
  #serviceMap {
   height: 300px;
@@ -404,16 +427,35 @@ footer {
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
   body {
-   background: url('<%= asset_path('ck-background-mobile.png') %>') top center #77a441 no-repeat;;
+   background: url('<%= asset_path('ck-background-mobile.png') %>') top center #77a441 no-repeat;
 
-    .navbar-collapse {
-      border-top: none;
-      box-shadow: none;
+   padding-top: 7em;
+
+   .button { padding: 0.5em; }
+
+  .navbar-toggle {
+     top: 1.5em;
+    .title { display: none; }
+    .icon-bar { background: white; position: relative; top: 0px !important;}
+  }
+
+  .navbar-collapse {
+    border-top: none;
+    box-shadow: none;
+    top: 5em;
+    position: absolute;
+    font-size: 1.5em;
+    max-height: 999px;
+  }
+
+  #homePage {
+      #searchLinks a {
+      font-size: 1.75em;
+      }
+
+    input#searchBox {
+      display: inline;
     }
-
-  #homePage input#searchBox {
-    width: 60% !important;
-    display: inline;
   }
   #filtersForm,
   #resultsList,
@@ -450,11 +492,11 @@ footer {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
  body.services-index {
-  padding-top: 1.5em;
 
   a.navbar-brand {
     float: left !important;
     margin-left: 1em !important;
+    margin-top: 5px !important;
     font-size: 14px !important;
     img {max-width: 200px !important;}
   }
@@ -462,17 +504,19 @@ footer {
 
   body {
      background: url('<%= asset_path('ck-background-desktop.png') %>') top center #77a441 no-repeat;
-     padding-top: 2em;
+     padding-top: 6em;
   }
   .navbar {
     margin-bottom: 0;
     .navbar-nav {
-      float: right;
+     font-size: 2em;
+     a {display: inline-block;}
     }
+
     .navbar-header {
       float: none;
       position: relative;
-      top: -1em;
+
       .navbar-brand {
        margin: 0 auto;
        display: inline-block;
@@ -480,11 +524,12 @@ footer {
     }
     .navbar-collapse {
       position: absolute;
-      top: -2em;
+      top: 6em;
       z-index: 1000;
       right: 0;
       border-top: none;
       box-shadow: none;
+      max-height: 900px;
     }
   }
   #homePage {
