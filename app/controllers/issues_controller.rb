@@ -16,7 +16,7 @@ class IssuesController < ApplicationController
     issue = Issue.find_by(activation: params[:activation])
     if issue and issue.update_attributes(is_activated: true, activation: Time.now.to_i)
       #send issue email
-      notice = "Your issue has been noted and our admins contacted, thank for your help!"
+      notice = "Your issue has been noted and our admins contacted, thank you for your help!"
     else
       notice = "Your issue couldn't be handled, please try again!"
     end
