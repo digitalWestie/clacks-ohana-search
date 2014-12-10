@@ -4,7 +4,7 @@ You've received this email because you flagged an issue on <%= link_to 'Clackski
 
 <p>Service <%= @issue.reason %>: <%= @issue.description %></p>
 
-<p>To confirm the issue please follow <%= link_to 'this link', issue_activation_url(@issue.activation) %>.</p>
+<p>To confirm the issue please follow <%= link_to 'this link', activate_issue_url(@issue.activation) %>.</p>
 
 <p>If you didn't do this, please ignore this email.</p>
 
