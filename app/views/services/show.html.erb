@@ -24,7 +24,13 @@
 <h2><%= link_to @service.organization.name, @service.organization.website %></h2>
 
 <% unless @issues.blank? %>
-  <p>This entry has been marked as: <%= @issues.collect { |i| i.reason }.uniq.to_sentence %> </p>
+  <h3>Issues!</h3>
+  <p>This entry has been marked as: </p>
+  <ul>
+    <% for issue in @issues %>
+      <li><%= "#{issue.reason.capitalize} #{time_ago_in_words(issue.created_at)} ago." %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <!-- :status -->
