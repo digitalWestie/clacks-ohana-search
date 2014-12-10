@@ -18,7 +18,7 @@ class Issue < ActiveRecord::Base
   end
 
   def still_relevant?(service)
-    service.update_at.to_i.to_s.eql?(self.service_timestamp)
+    service.updated_at.to_i.to_s.eql?(self.service_timestamp)
   end
 
   private
