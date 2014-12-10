@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209231333) do
+ActiveRecord::Schema.define(version: 20141210000528) do
 
   create_table "issues", force: true do |t|
     t.string   "reason"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20141209231333) do
     t.string   "service_timestamp"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
 end
