@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:reason, :description, :service_timestamp)
+    params.require(:issue).permit(:reason, :description, :service_timestamp, :email)
   end
 
 end
