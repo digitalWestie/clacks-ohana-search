@@ -7,7 +7,7 @@
     <script> document.write('<a href="' + document.referrer + '">Go Back</a>'); </script>
 
     <h1 class="serviceTitle"><%= service.name %> <%= "(#{service.alternate_name})" unless service.alternate_name.blank? %></h1>
-    <h2 class="organisationName"><%= link_to service.organization.name, service.organization.website %></h2>
+    <h2 class="organisationName"><%= service.organization.website.blank? ? service.organization.name : link_to(service.organization.name, service.organization.website) %></h2>
   </section>
 
   <% unless @issues.blank? %>

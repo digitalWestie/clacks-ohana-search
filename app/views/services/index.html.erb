@@ -182,6 +182,5 @@
     var map = initialiseMap('mapResults');
     var locations = <%= @search.map_data.to_json.html_safe %>;
     var markers = addLocationsToMap(locations, map);
-    console.log(markers);
   });
 <% end %>
