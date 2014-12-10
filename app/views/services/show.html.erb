@@ -1,51 +1,66 @@
 <div class = "container" style = "background-color:white;">
 
-<div style = "float:right;margin:1em;" class="col-md-3 ">
-  <h3>Flag an issue</h3>
-  <%= form_for @issue, :url => service_issues_path(@service.id) do |f| %>
-    <p>
-      <%= f.label :email %><br/>
-      <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", style: "width:100%;padding:3px;" %>
-    </p>
-    <p>
-      <%= f.label :reason %>
-      <%= f.select :reason, Issue.reason.options, {}, class: 'form-control' %>
-    </p>
-    <p>
-      <%= f.label :description %><br/>
-      <%= f.text_area :description, style: "width:100%;" %>
-    </p>
-    <%= f.hidden_field :service_timestamp, value: @service.update_at.to_i  %>
-    <%= f.submit "Save" %>
+  <section class="col-md-12">
+    <h1 class="serviceTitle"><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
+    <h2 class="organisationName"><%= link_to @service.organization.name, @service.organization.website %></h2>
+  </section>
+
+  <% unless @issues.blank? %>
+    <h3>Issues!</h3>
+    <p>This entry has been marked as: </p>
+    <ul>
+      <% for issue in @issues %>
+        <li><%= "#{issue.reason.capitalize} #{time_ago_in_words(issue.updated_at)} ago." %></li>
+      <% end %>
+    </ul>
   <% end %>
-</div>
 
-<h1><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
-<h2><%= link_to @service.organization.name, @service.organization.website %></h2>
+  <section class="col-md-6">
 
-<% unless @issues.blank? %>
-  <h3>Issues!</h3>
-  <p>This entry has been marked as: </p>
-  <ul>
-    <% for issue in @issues %>
-      <li><%= "#{issue.reason.capitalize} #{time_ago_in_words(issue.updated_at)} ago." %></li>
+    <h3>About</h3>
+    <p><%= @service.description %></p>
+
+
+    <h3>Available at</h3>
+    <% for availability in @service.availabilities %>
+
+      <h4><%= availability.location.name %> <%= "(#{availability.location.alternate_name})" %></h4>
+      <p><%= availability.location.description %></p>
+
+      <% unless availability.location.transportation.blank? %>
+        <p><%= availability.location.transportation %></p>
+      <% end %>
+
+      <% for phone in availability.location.phones %>
+        <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+      <% end %>
+
+      <% unless availability.location.address.blank? %>
+        <p><%= full_address_for(availability.location.address) %></p>
+      <% end %>
+
     <% end %>
-  </ul>
-<% end %>
 
-<!-- :status -->
-<section>
-<p><%= @service.description %></p>
+    <div id="serviceMap">
 
-<h3>Contact</h3>
+    </div>
 
-<% unless @service.email.blank? %>
-  <p>Email: <%= @service.email %></p>
-<% end %>
 
-<% unless @service.website.blank? %>
-  <p>Website: <%= link_to @service.website, @service.website %></p>
-<% end %>
+
+  </section>
+
+  <section class="col-md-6">
+
+    <h3>Contact</h3>
+
+    <% unless @service.email.blank? %>
+      <p>Email: <%= @service.email %></p>
+    <% end %>
+
+    <% unless @service.website.blank? %>
+      <p>Website: <%= link_to @service.website, @service.website %></p>
+    <% end %>
+
 
 <h3>Details</h3>
 
@@ -86,21 +101,6 @@
 
 <h3>Available at</h3>
 <% for availability in @service.availabilities %>
-
-  <h4><%= availability.location.name %> <%= "(#{availability.location.alternate_name})" %></h4>
-  <p><%= availability.location.description %></p>
-
-  <% unless availability.location.address.blank? %>
-    <p><%= full_address_for(availability.location.address) %></p>
-  <% end %>
-
-  <% unless availability.location.transportation.blank? %>
-    <p><%= availability.location.transportation %></p>
-  <% end %>
-
-  <% for phone in availability.location.phones %>
-    <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
-  <% end %>
 
   <% unless availability.notes.blank? %>
     <p><%= availability.notes %></p>
@@ -146,4 +146,31 @@
   <% end %>
 
 <% end %>
+
+
+<div>
+  <h3>Flag an issue</h3>
+  <%= form_for @issue, :url => service_issues_path(@service.id) do |f| %>
+    <p>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", style: "width:100%;padding:3px;" %>
+    </p>
+    <p>
+      <%= f.label :reason %>
+      <%= f.select :reason, Issue.reason.options, {}, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description, style: "width:100%;" %>
+    </p>
+    <%= f.hidden_field :service_timestamp, value: @service.update_at.to_i  %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
+
+
+  </section>
+
+<!-- :status -->
+
 </div>

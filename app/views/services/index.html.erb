@@ -100,7 +100,7 @@
 
         <div class="double-button-group">
           <button type="button" id="clearFilter2" class="button clear">Clear filters</button>
-          <button type="submit" id="doSearch2" class="button right">Search</button>
+          <button type="submit" id="doSearch2" class="button right green">Search</button>
         </div>
       </form>
     </div>
@@ -111,40 +111,46 @@
         <button type="submit" id="showMap" class="button"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" rel="tooltip" title="Enter your tip here"></span> Map of results</button>
       </div>
 
-      <ul id="searchResults">
 
         <% if @search.services.present? %>
-          <p><%= page_entries_info @search.results %></p>
-          <% for service in @search.services %>
+          <div id="entries"><%= page_entries_info @search.results %></div>
 
-            <%= content_tag :li, id: "service-#{service.id}" do %>
-              <h3><a href=""><%= link_to service.name, "services/#{service.id}" %></a></h3>
-              <p>
-                <%= categories_for(service) %>
-                <%= age_range_for(service) %>
-              </p>
-              <%= addresses_for(service) %>
-            <% end %>
+            <ul id="searchResults">
 
-          <% end %>
-          <br/>
-          <p>
-            <%= link_to_previous_page @search.results, "Previous Page", :params => params %>
-            <%= link_to_next_page @search.results, "Next Page", :params => params %></p>
+              <% for service in @search.services %>
+               <%= content_tag :li, id: "service-#{service.id}" do %>
+                 <h3><a href=""><%= link_to service.name, "services/#{service.id}" %></a></h3>
+                 <p>
+                   <%= categories_for(service) %>
+                   <%= age_range_for(service) %>
+                 </p>
+                 <%= addresses_for(service) %>
+              <% end %>
+
+              <% end %>
+             </ul>
+
+             <div id="pagResults" class="clearfix">
+               <a href="" class="button blue">Previous</a>
+               <a href="" class="button blue more">More</a>
+             </div>
+
+
 
         <% else %>
-          <h4>No results were found for the following search.</h4>
-          <%= content_tag(:p, "Keyword(s): #{params[:keyword]}") if params[:keyword].present? %>
-          <%= content_tag(:p, "Organisation name: #{params[:org_name]}") if params[:org_name].present? %>
-          <%= content_tag(:p, "Near: #{params[:location]}") if params[:location].present? %>
-          <p><b>Filtered by</b></p>
-          <% str = pluralize(@selected_categories.size, "category", "categories") + ": #{@selected_categories.to_sentence}" %>
-          <%= content_tag :p, str.downcase if params[:category].present? %>
-          <%= content_tag :p, "Age: #{@selected_ages.join('~')}" unless @selected_ages.eql?([0,16]) %>
-          <%= content_tag :p, "Weekday: #{array_to_weekdays(params[:weekdays]).to_sentence}" if params[:weekdays].present? %>
+          <div id="noResults">
+           <h4>No results were found for the following search.</h4>
+           <%= content_tag(:p, "Keyword(s): #{params[:keyword]}") if params[:keyword].present? %>
+           <%= content_tag(:p, "Organisation name: #{params[:org_name]}") if params[:org_name].present? %>
+           <%= content_tag(:p, "Near: #{params[:location]}") if params[:location].present? %>
+           <p><b>Filtered by</b></p>
+           <% str = pluralize(@selected_categories.size, "category", "categories") + ": #{@selected_categories.to_sentence}" %>
+           <%= content_tag :p, str.downcase if params[:category].present? %>
+           <%= content_tag :p, "Age: #{@selected_ages.join('~')}" unless @selected_ages.eql?([0,16]) %>
+           <%= content_tag :p, "Weekday: #{array_to_weekdays(params[:weekdays]).to_sentence}" if params[:weekdays].present? %>
+          </div>
         <% end %>
 
-      </ul>
     </div>
 
     <div id="mapPanel"  class="">
