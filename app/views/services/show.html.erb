@@ -1,13 +1,34 @@
-<div style = "background-color:white;">
+<div class = "container" style = "background-color:white;">
+
+<div style = "float:right;margin:1em;" class="col-md-3 ">
+  <h3>Flag an issue</h3>
+  <%= form_for @issue, :url => service_issues_path(@service.id) do |f| %>
+    <p>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email, placeholder: "your email e.g. me@myeeamil.com", style: "width:100%;padding:3px;" %>
+    </p>
+    <p>
+      <%= f.label :reason %>
+      <%= f.select :reason, Issue.reason.options, {}, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description, style: "width:100%;" %>
+    </p>
+    <%= f.hidden_field :service_timestamp, value: @service.update_at.to_i  %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
+
 <h1><%= @service.name %> <%= "(#{@service.alternate_name})" unless @service.alternate_name.blank? %></h1>
 <h2><%= link_to @service.organization.name, @service.organization.website %></h2>
 
 <% unless @issues.blank? %>
-  <p>This entry has been marked as: <%= @issues.collect { |i| i.reason }.to_sentence %> </p>
+  <p>This entry has been marked as: <%= @issues.collect { |i| i.reason }.uniq.to_sentence %> </p>
 <% end %>
 
 <!-- :status -->
-
+<section>
 <p><%= @service.description %></p>
 
 <h3>Contact</h3>

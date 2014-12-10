@@ -4,6 +4,7 @@ class IssuesController < ApplicationController
     issue = Issue.new(issue_params)
     issue.service_id = params[:service_id]
     if issue.save
+      #send an email
       notice = "Your issue has been noted."
     else
       notice = "Your issue couldn't be saved, please try again!"
