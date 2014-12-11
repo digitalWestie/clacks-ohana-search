@@ -2,7 +2,7 @@
 $main-blue:     #336699;
 $light-blue:    #81a7cc;
 $dark-grey:     #666666;
-$medium-grey:   #dbdbdb;
+$medium-grey:   #999999;
 $light-grey:    #f0f0f0;
 $yellow:        #ffda00;
 $bright-blue:   #428bca;
@@ -23,6 +23,18 @@ $orange:        #d45518;
 }
 
 
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
 /* LAYOUT STYLES *******************/
 body {
   color: black;
@@ -33,7 +45,7 @@ body {
  .navbar-collapse {
   background: $main-blue;
   width: 100%;
-  z-index: 1000;
+  z-index: 9999;
  }
 
 }
@@ -74,11 +86,16 @@ footer {
    a {
     color: white; font-weight: 600;
     font-size: 1.25em;
-    padding: 0.25em 0.5em;
+    padding: 0.5em;
     border: 3px solid transparent;
      @include rounded(10px);
-
-      }
+     &:hover {background: $orange; border: 3px solid $light-grey;
+     }
+    }
+    &:nth-child(1){a:hover, a:active {background: $orange;@include rotate(5);}}
+    &:nth-child(2){a:hover, a:active {background: desaturate($yellow, 10%); @include rotate(-5);}}
+    &:nth-child(3){a:hover, a:active {background: $green;@include rotate(5);}}
+    &:nth-child(4){a:hover, a:active {background: $main-blue;@include rotate(-5);}}
    }
  }
 
@@ -312,22 +329,55 @@ footer {
 
 #servicePage {
  padding-bottom: 2em;
+ margin-bottom: 2em;
  background: white;
 
  #serviceHeader {
 
-  h1 { font-weight: 600; color: $main-blue; }
+  h1 { font-weight: 600; color: $orange; }
   h2 { margin-top: 0; color: $dark-grey; }
 
   border-bottom: $light-grey 3px solid;
 
  }
 
-  p { word-wrap: break-word; }
+  p, a { word-wrap: break-word; }
+  h3 { color: $green;}
+  h4 {
+    font-weight: 700;
+    span {display: block; color: $medium-grey; font-style: italic; font-weight: 500; letter-spacing: 1px;}
+  }
+  h5 {font-weight: 700;}
+
 
  #serviceMap {
   height: 300px;
+  margin-top: 2em;
  }
+
+ section {
+  padding-bottom: 2em;
+  border-bottom: $light-grey 3px solid;
+
+  span.glyphicon, span.fa {margin-right: 5px;}
+ }
+
+
+ #serviceDetails {
+  tr {
+   &:nth-child(odd) { background: $light-grey;}
+  th {width: 20%; vertical-align: top; padding: 0.5em 0.5em 0.5em 1em;}
+  td {width: 80%;vertical-align: top; padding:  0.5em;}
+  }
+ }
+
+ .serviceClosed {
+  margin-top: 2em;
+  padding: 0.5em 1em;
+  background: $orange;
+  color: white;
+ }
+
 }
 
 
@@ -527,7 +577,6 @@ footer {
     .navbar-collapse {
       position: absolute;
       top: 6em;
-      z-index: 1000;
       right: 0;
       border-top: none;
       box-shadow: none;
