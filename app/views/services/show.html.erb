@@ -182,6 +182,17 @@
       <h4><%= availability.location.name %> <span><%= "(#{availability.location.alternate_name})" %></span></h4>
       <p><%= availability.location.description %></p>
 
+      <% unless availability.location.accessibility.blank? %>
+
+        <p>Accessibility features:</p>
+        <ul>
+          <% for feature in availability.location.accessibility %>
+            <li><%= feature %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
+
       <% unless availability.location.transportation.blank? %>
         <p><span class="fa fa-bus" aria-hidden="true"></span> <%= availability.location.transportation %></p>
       <% end %>
