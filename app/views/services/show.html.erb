@@ -122,8 +122,10 @@
         <p><%= availability.notes %></p>
       <% end %>
 
+      <div class="serviceOpen">
+
       <% unless availability.regular_schedules.blank? %>
-      <h4><%= service.name %> times</h4>
+      <h5><%= service.name %> times</h5>
       <ul>
       <% for schedule in availability.regular_schedules %>
         <li>
@@ -133,17 +135,23 @@
       </ul>
       <% end %>
 
-      <% unless availability.holiday_schedules.blank? %>
-      <h4><%= service.name %> closed times</h4>
-      <ul>
-      <% for schedule in availability.holiday_schedules %>
-        <li>
-          <%= schedule.start_date.strftime('%d %b') %> ~
-          <%= schedule.end_date.strftime('%d %b') %>
-        </li>
-      <% end %>
-      </ul>
-      <% end %>
+      </div>
+
+      <div class="serviceClosed">
+
+        <% unless availability.holiday_schedules.blank? %>
+        <h5><span class="fa fa-exclamation-triangle" aria-hidden="true"></span> This service will be closed on</h5>
+        <ul>
+        <% for schedule in availability.holiday_schedules %>
+          <li>
+            <%= schedule.start_date.strftime('%d %b') %> ~
+            <%= schedule.end_date.strftime('%d %b') %>
+          </li>
+        <% end %>
+        </ul>
+        <% end %>
+
+      </div>
 
       <% unless availability.location.contacts.blank? %>
       <h4>Contacts</h4>
@@ -168,22 +176,22 @@
   <div class="col-md-6">
 
    <section id="venueDetails">
-    <h3>Available at</h3>
+    <h3>You can find this service at</h3>
     <% for availability in service.availabilities %>
 
-      <h4><%= availability.location.name %> <%= "(#{availability.location.alternate_name})" %></h4>
+      <h4><%= availability.location.name %> <span><%= "(#{availability.location.alternate_name})" %></span></h4>
       <p><%= availability.location.description %></p>
 
       <% unless availability.location.transportation.blank? %>
-        <p><%= availability.location.transportation %></p>
+        <p><span class="fa fa-bus" aria-hidden="true"></span> <%= availability.location.transportation %></p>
       <% end %>
 
       <% for phone in availability.location.phones %>
-        <p><%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
+        <p><span class="fa fa-phone-square" aria-hidden="true"></span> <%= "#{phone.department} (#{phone.number_type}):" %> <%= phone.number %> <%= "(#{phone.extension})" if phone.extension %></p>
       <% end %>
 
       <% unless availability.location.address.blank? %>
-        <p><%= full_address_for(availability.location.address) %></p>
+        <p><span class="fa fa-map-marker" aria-hidden="true"></span> <%= full_address_for(availability.location.address) %></p>
       <% end %>
 
     <% end %>

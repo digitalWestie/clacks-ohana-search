@@ -2,7 +2,7 @@
 $main-blue:     #336699;
 $light-blue:    #81a7cc;
 $dark-grey:     #666666;
-$medium-grey:   #dbdbdb;
+$medium-grey:   #999999;
 $light-grey:    #f0f0f0;
 $yellow:        #ffda00;
 $bright-blue:   #428bca;
@@ -33,7 +33,7 @@ body {
  .navbar-collapse {
   background: $main-blue;
   width: 100%;
-  z-index: 1000;
+  z-index: 9999;
  }
 
 }
@@ -312,28 +312,39 @@ footer {
 
 #servicePage {
  padding-bottom: 2em;
+ margin-bottom: 2em;
  background: white;
 
  #serviceHeader {
 
-  h1 { font-weight: 600; color: $main-blue; }
+  h1 { font-weight: 600; color: $orange; }
   h2 { margin-top: 0; color: $dark-grey; }
 
   border-bottom: $light-grey 3px solid;
 
  }
 
-  p { word-wrap: break-word; }
+  p, a { word-wrap: break-word; }
+  h3 { color: $green;}
+  h4 {
+    font-weight: 700;
+    span {display: block; color: $medium-grey; font-style: italic; font-weight: 500; letter-spacing: 1px;}
+  }
+  h5 {font-weight: 700;}
+
 
  #serviceMap {
   height: 300px;
+  margin-top: 2em;
  }
 
- section {padding-bottom: 2em; border-bottom: $light-grey 3px solid; }
+ section {
+  padding-bottom: 2em;
+  border-bottom: $light-grey 3px solid;
 
- #serviceContact {
-  span.glyphicon {margin-right: 5px;}
+  span.glyphicon, span.fa {margin-right: 5px;}
  }
+
 
  #serviceDetails {
   tr {
@@ -341,6 +352,13 @@ footer {
   th {width: 20%; vertical-align: top; padding: 0.5em 0.5em 0.5em 1em;}
   td {width: 80%;vertical-align: top; padding:  0.5em;}
   }
+ }
+
+ .serviceClosed {
+  margin-top: 2em;
+  padding: 0.5em 1em;
+  background: $orange;
+  color: white;
  }
 
 }
@@ -542,7 +560,6 @@ footer {
     .navbar-collapse {
       position: absolute;
       top: 6em;
-      z-index: 1000;
       right: 0;
       border-top: none;
       box-shadow: none;
