@@ -24,4 +24,15 @@ module ServicesHelper
     end
   end
 
+  def result_name_for(service)
+    locations = service.availabilities.collect { |a| a.location }
+    if locations.size.eql?(1)
+      "#{service.name} @ #{locations[0].name}"
+    elsif locations.size > 1
+      "#{service.name} (multiple locations)"
+    else
+      "#{service.name}"
+    end
+  end
+
 end

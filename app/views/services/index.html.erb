@@ -120,15 +120,14 @@
             <ul id="searchResults">
 
               <% for service in @search.services %>
-               <%= content_tag :li, id: "service-#{service.id}" do %>
-                 <h3><a href=""><%= link_to service.name, "services/#{service.id}" %></a></h3>
-                 <p>
-                   <%= categories_for(service) %>
-                   <%= age_range_for(service) %>
-                 </p>
-                 <%= addresses_for(service) %>
-              <% end %>
-
+                <%= content_tag :li, id: "service-#{service.id}" do %>
+                  <h3><%= link_to result_name_for(service) , "services/#{service.id}" %></h3>
+                  <p>
+                    <%= categories_for(service) %>
+                    <%= age_range_for(service) %>
+                  </p>
+                  <%= addresses_for(service) %>
+                <% end %>
               <% end %>
              </ul>
 
