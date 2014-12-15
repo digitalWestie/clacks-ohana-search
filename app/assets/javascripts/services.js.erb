@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // Fixing the height of panels on the Search Page
-  if ($(window).width() > 960) {
+  if ($(window).width() > 768) {
     var windowHeight = $(window).height();
     var minusFooterHeader = ($('.navbar').outerHeight() + $('footer').outerHeight());
     $('#resultsPage').css({height: windowHeight - minusFooterHeader});
