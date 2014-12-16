@@ -4,7 +4,7 @@ class Service
   # @param params [Hash] Search options.
   # @return [Array] Array of services.
   def self.search(params = {})
-    if ENV['APP_CATEGORIES'].blank?
+    unless ENV['APP_CATEGORIES'].blank?
       begin
         ancestry_categories = ENV['APP_CATEGORIES']
         ancestry_categories = JSON.parse(ENV['APP_CATEGORIES']) if ENV['APP_CATEGORIES'].eql?(String)
