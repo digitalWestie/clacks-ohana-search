@@ -9,7 +9,8 @@ module ServicesHelper
   def categories_for(service)
     categories = service.categories.collect {|c| c.name }
     categories = categories + service.keywords
-    categories.delete("Clackskids")
+    categories.delete("Display & Apps")
+    categories.delete(ENV['PREREQUISITE_CATEGORY']) unless ENV['PREREQUISITE_CATEGORY'].blank?
     categories.join(", ")
   end
 

@@ -85,8 +85,7 @@ development:
   DAYS_TO_EXPIRE: '1'
   FROM_ADDRESS: 'example@address.com'
   SITE_ADMIN_EMAIL: 'example@address.com'
-  APP_CATEGORIES:
-    - 'Clackskids'
+  PREREQUISITE_CATEGORY: 'Clackskids'
 
 production:
   TZ: 'Europe/London'
@@ -96,8 +95,7 @@ production:
   DAYS_TO_EXPIRE: '14'
   FROM_ADDRESS: 'example@address.com'
   SITE_ADMIN_EMAIL: 'example@address.com'
-  APP_CATEGORIES:
-    - 'Clackskids'
+  PREREQUISITE_CATEGORY: 'Clackskids'
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
 # See config/environments/production.rb for more details.
@@ -114,8 +112,7 @@ test:
   DAYS_TO_EXPIRE: '1'
   FROM_ADDRESS: 'example@address.com'
   SITE_ADMIN_EMAIL: 'example@address.com'
-  APP_CATEGORIES:
-    - 'Clackskids'
+  PREREQUISITE_CATEGORY: 'Clackskids'
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~
 #DOMAIN_NAME: lvh.me
