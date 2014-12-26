@@ -15,11 +15,12 @@ module ServicesHelper
   end
 
   def addresses_for(service)
-    addresses = service.availabilities.collect { |a| a.location.address }
-    if addresses.size.eql?(1)
-      content_tag(:address, full_address_for(addresses[0]))
-    elsif addresses.size > 1
-      content_tag(:address, "At #{addresses.size} locations.")
+    locations = service.availabilities.collect { |a| a.location }
+    if locations.size.eql?(1)
+      str = content_tag(:p, locations[0].name, class: "location")
+      str += content_tag(:address, full_address_for(locations[0].address)) unless locations[0].address.blank?
+    elsif locations.size > 1
+      content_tag(:address, "At #{locations.size} locations.")
     else
       ""
     end
