@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= modernizr.custom.43744.js
+//= require modernizr.custom.43744.js
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.js
@@ -19,3 +19,21 @@
 //= require leaflet.markercluster.js
 //= require mapping.js
 //= require_tree ./bootstrap
+
+var search_by_position = function(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var lat_lng = latitude + "," + longitude;
+  $('#lat_lng').val(lat_lng);
+  $('#lat_lng').parents('form').submit();
+};
+
+$(document).ready(function(){
+  if (Modernizr.geolocation) {
+    $('#near-me').click(function(){
+      navigator.geolocation.getCurrentPosition(search_by_position);
+    });
+  } else {
+    $('#near-me').hide();
+  }
+});

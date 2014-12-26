@@ -1,9 +1,10 @@
-
-
 <div id="resultsPage" class="clearfix">
 
     <div id="filtersForm" class="">
       <form role="form" action="services" method="get">
+
+        <input type="hidden" id="lat_lng" name="lat_lng"/>
+
         <div class="double-button-group">
           <a href="/services" rel="button" id="clearFilter" class="button clear">Clear filters</a>
           <button type="submit" id="doSearch" class="button right green">Search</button>
@@ -176,6 +177,11 @@
 <% content_for :footer_js do %>
   $(document).ready(function(){
     var map = initialiseMap('mapResults');
+
+    <% unless @lat_lng.blank? %>
+      map.panTo(L.latLng(<%= @lat_lng %>));
+    <% end %>
+
     var locations = <%= @search.map_data.to_json.html_safe %>;
     var markers = addLocationsToMap(locations, map);
   });

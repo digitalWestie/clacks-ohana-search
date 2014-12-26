@@ -3,6 +3,7 @@ class ServicesController < ApplicationController
 
   def index
     params.delete(:age_range) if params[:age_range].eql?("0,16")
+    @lat_lng = params[:lat_lng]
 
     @selected_ages = [0,16]
     @selected_ages = params[:age_range].split(',').collect { |a| a.to_i } if params[:age_range].present?

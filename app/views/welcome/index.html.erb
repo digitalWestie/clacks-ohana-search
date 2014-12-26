@@ -2,11 +2,12 @@
 
  <form id="searchForm" action="services" role="form">
   <div class="container">
-   <div class="form-group col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-     <label class="" for="exampleInputEmail2">What are you looking for?</label>
-     <input type="search" id="searchBox" name="keyword" class="form-control" placeholder="Text input">
+    <div class="form-group col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+      <label class="" for="exampleInputEmail2">What are you looking for?</label>
+      <input type="search" id="searchBox" name="keyword" class="form-control" placeholder="Keywords e.g. 'playgroup'"/>
+      <input type="hidden" id="lat_lng" name="lat_lng"/>
 
-     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
    </div>
   </div><!-- /.container -->
  </form>
@@ -15,7 +16,7 @@
   <ul id="searchLinks" class="col-md-8 col-md-offset-2">
 
     <li id="whats-near" class="col-md-12  col-sm-12">
-      <a href="" class="button near">What's near me?</a>
+      <a href="#homePage" class="button near" id="near-me">What's near me?</a>
     </li>
 
     <% for category in CATEGORIES %>
@@ -27,3 +28,9 @@
   </ul>
  </div><!-- /.container -->
 </div>
+
+<% content_for :footer_js do %>
+  $(document).ready(function(){
+
+  });
+<% end %>
