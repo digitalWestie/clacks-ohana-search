@@ -19,10 +19,10 @@
 
 4. Set a new secret token
 
-  In `config/initializers/secret_token.rb`
+    In `config/initializers/secret_token.rb`
 
-  Replace the alphanumeric token with a new one.
+    Replace the alphanumeric token with a new one.
 
-  `Clackskids::Application.config.secret_key_base = '<my new token>'`
+    `Clackskids::Application.config.secret_key_base = '<my new token>'`
 
-  You can use `rake secret` to generate a new token.
+    You can use `rake secret` to generate a new token.
