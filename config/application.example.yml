@@ -92,7 +92,8 @@ DOMAIN_NAME: herokuapp.com
 
 # CATEGORIES
 # These are the categories that are used to generate the homepage directory and
-# form filter.
+# form filter. Note these must be comma-delimited without
+# spaces e.g. 'Learning,Prenatal & Babies,Music & Drama'
 
 development:
   TZ: 'Europe/London'
@@ -104,24 +105,16 @@ development:
   PREREQUISITE_CATEGORY: 'Clackskids'
   APP_TITLE: 'Clackskids'
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
-  DEFAULT_LAT: 56.11
-  DEFAULT_LNG: -3.74
-  SMTP_PORT: 587
+  DEFAULT_LAT: '56.11'
+  DEFAULT_LNG: '-3.74'
+  SMTP_PORT: '587'
   SMTP_ADDRESS: 'smtp.servername.com'
   SMTP_DOMAIN: 'servername.com'
   SMTP_USER_NAME: 'username'
   SMTP_PASSWORD: 'password'
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
-  CATEGORIES:
-    - 'Childcare'
-    - 'Clubs'
-    - 'Sport'
-    - 'Support'
-    - 'Health'
-    - 'Learning'
-    - 'Prenatal & Babies'
-    - 'Music & Drama'
+  CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
 
 production:
   TZ: 'Europe/London'
@@ -133,24 +126,16 @@ production:
   PREREQUISITE_CATEGORY: 'Clackskids'
   APP_TITLE: 'Clackskids'
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
-  DEFAULT_LAT: 56.11
-  DEFAULT_LNG: -3.74
-  SMTP_PORT: 587
+  DEFAULT_LAT: '56.11'
+  DEFAULT_LNG: '-3.74'
+  SMTP_PORT: '587'
   SMTP_ADDRESS:
   SMTP_DOMAIN:
   SMTP_USER_NAME:
   SMTP_PASSWORD:
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: 'clackskids.herokuapp.com'
-  CATEGORIES:
-    - 'Childcare'
-    - 'Clubs'
-    - 'Sport'
-    - 'Support'
-    - 'Health'
-    - 'Learning'
-    - 'Prenatal & Babies'
-    - 'Music & Drama'
+  CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
 
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
@@ -171,24 +156,16 @@ test:
   PREREQUISITE_CATEGORY: 'Clackskids'
   APP_TITLE: 'Clackskids'
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
-  DEFAULT_LAT: 56.11
-  DEFAULT_LNG: -3.74
-  SMTP_PORT: 587
+  DEFAULT_LAT: '56.11'
+  DEFAULT_LNG: '-3.74'
+  SMTP_PORT: '587'
   SMTP_ADDRESS: 'smtp.servername.com'
   SMTP_DOMAIN: 'servername.com'
   SMTP_USER_NAME: 'username'
   SMTP_PASSWORD: 'password'
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
-  CATEGORIES:
-    - 'Childcare'
-    - 'Clubs'
-    - 'Sport'
-    - 'Support'
-    - 'Health'
-    - 'Learning'
-    - 'Prenatal & Babies'
-    - 'Music & Drama'
+  CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
 
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~

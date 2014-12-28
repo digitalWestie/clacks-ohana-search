@@ -3,7 +3,7 @@ if ENV['CATEGORIES'].blank?
   CATEGORIES = ["Childcare", "Clubs", "Sport", "Support", "Health", "Learning",
     "Prenatal & Babies", "Music & Drama"]
 elsif ENV['CATEGORIES'].class == String
-  CATEGORIES = JSON.parse ENV['CATEGORIES']
+  CATEGORIES = ENV['CATEGORIES'].split(",")
 else
   CATEGORIES = ENV['CATEGORIES']
 end
