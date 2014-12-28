@@ -1,14 +1,12 @@
-=begin
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.servername.com",
-  :port => 587,
-  :domain => "whatever.org",
-  :user_name => "username",
-  :password => "password",
-  :authentication => "plain",
+  :address => ENV['SMTP_ADDRESS'],
+  :port => ENV['SMTP_PORT'],
+  :domain => ENV['SMTP_DOMAIN'],
+  :user_name => ENV['SMTP_USER_NAME'],
+  :password => ENV['SMTP_PASSWORD'],
+  :authentication => ENV['SMTP_AUTHENTICATION'],
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options = {:host => "127.0.0.1:3000"}
-=end
+ActionMailer::Base.default_url_options = {:host => ENV['DEFAULT_HOST'] }

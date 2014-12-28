@@ -83,6 +83,12 @@ DOMAIN_NAME: herokuapp.com
 # DEFAULT LAT AND LNG
 # The default centre point of the map in terms of latitude and longitude.
 
+# SMTP_*** SETTINGS
+# These are required for the application to send emails.
+
+# DEFAULT_HOST
+# This is so the application can generate full urls rather than paths when required.
+
 development:
   TZ: 'Europe/London'
   DEFAULT_PER_PAGE: '10'
@@ -95,6 +101,13 @@ development:
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
   DEFAULT_LAT: 56.11
   DEFAULT_LNG: -3.74
+  SMTP_PORT: 587
+  SMTP_ADDRESS: 'smtp.servername.com'
+  SMTP_DOMAIN: 'servername.com'
+  SMTP_USER_NAME: 'username'
+  SMTP_PASSWORD: 'password'
+  SMTP_AUTHENTICATION: 'plain'
+  DEFAULT_HOST: '127.0.0.1:3000'
 
 production:
   TZ: 'Europe/London'
@@ -108,6 +121,13 @@ production:
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
   DEFAULT_LAT: 56.11
   DEFAULT_LNG: -3.74
+  SMTP_PORT: 587
+  SMTP_ADDRESS:
+  SMTP_DOMAIN:
+  SMTP_USER_NAME:
+  SMTP_PASSWORD:
+  SMTP_AUTHENTICATION: 'plain'
+  DEFAULT_HOST: 'clackskids.herokuapp.com'
 
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
@@ -130,6 +150,14 @@ test:
   APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
   DEFAULT_LAT: 56.11
   DEFAULT_LNG: -3.74
+  SMTP_PORT: 587
+  SMTP_ADDRESS: 'smtp.servername.com'
+  SMTP_DOMAIN: 'servername.com'
+  SMTP_USER_NAME: 'username'
+  SMTP_PASSWORD: 'password'
+  SMTP_AUTHENTICATION: 'plain'
+  DEFAULT_HOST: '127.0.0.1:3000'
+
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~
 #DOMAIN_NAME: lvh.me
