@@ -2,27 +2,27 @@
 
 1. Install gems
 
-`bundle install`
+  `bundle install`
 
 2. Create database
 
-`rake db:create`
-`rake db:migrate`
+  `rake db:create`
+  `rake db:migrate`
 
 3. Setup environment variables
 
-Use `config/application.example.yml` to create an application configuration file called `application.yml` in `config/`. Refer to comments in `application.example.yml` for explanation of the settings.
+  Use `config/application.example.yml` to create an application configuration file called `application.yml` in `config/`. Refer to comments in `application.example.yml` for explanation of the settings.
 
-When hosting on heroku use figaro to push these settings e.g.
+  When hosting on heroku use figaro to push these settings e.g.
 
-`figaro heroku:set -e production`
+  `figaro heroku:set -e production`
 
 4. Set a new secret token
 
-In `config/initializers/secret_token.rb`
+  In `config/initializers/secret_token.rb`
 
-Replace the alphanumeric token with a new one.
+  Replace the alphanumeric token with a new one.
 
-`Clackskids::Application.config.secret_key_base = '<my new token>'`
+  `Clackskids::Application.config.secret_key_base = '<my new token>'`
 
-You can use `rake secret` to generate a new token.
+  You can use `rake secret` to generate a new token.
