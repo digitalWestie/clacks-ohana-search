@@ -6,4 +6,4 @@ Kaminari.configure do |config|
   config.max_per_page = ENV['MAX_PER_PAGE'].to_i
 end
 
-Rails.logger.warn "APP_CATEGORIES is blank. Ignoring by default." if ENV['APP_CATEGORIES'].blank?
+Rails.logger.warn "PREREQUISITE_CATEGORY is blank. Ignoring by default." if ENV['PREREQUISITE_CATEGORY'].blank?
