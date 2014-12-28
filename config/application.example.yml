@@ -83,9 +83,13 @@ development:
   MAX_PER_PAGE: '20'
   LANG: en_GB.UTF-8
   DAYS_TO_EXPIRE: '1'
-  FROM_ADDRESS: 'example@address.com'
-  SITE_ADMIN_EMAIL: 'example@address.com'
+  FROM_ADDRESS: 'giannichan@gmail.com'
+  SITE_ADMIN_EMAIL: 'giannichan@gmail.com'
   PREREQUISITE_CATEGORY: 'Clackskids'
+  APP_TITLE: 'Clackskids'
+  APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
+  DEFAULT_LAT: 56.11
+  DEFAULT_LNG: -3.74
 
 production:
   TZ: 'Europe/London'
@@ -93,9 +97,13 @@ production:
   MAX_PER_PAGE: '50'
   LANG: en_GB.UTF-8
   DAYS_TO_EXPIRE: '14'
-  FROM_ADDRESS: 'example@address.com'
-  SITE_ADMIN_EMAIL: 'example@address.com'
+  FROM_ADDRESS: 'noreply@clacksweb.org.uk'
+  SITE_ADMIN_EMAIL: 'giannichan@gmail.com'
   PREREQUISITE_CATEGORY: 'Clackskids'
+  APP_TITLE: 'Clackskids'
+  APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
+  DEFAULT_LAT: 56.11
+  DEFAULT_LNG: -3.74
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
 # See config/environments/production.rb for more details.
@@ -110,9 +118,13 @@ test:
   MAX_PER_PAGE: '50'
   LANG: en_GB.UTF-8
   DAYS_TO_EXPIRE: '1'
-  FROM_ADDRESS: 'example@address.com'
-  SITE_ADMIN_EMAIL: 'example@address.com'
+  FROM_ADDRESS: 'giannichan@gmail.com'
+  SITE_ADMIN_EMAIL: 'giannichan@gmail.com'
   PREREQUISITE_CATEGORY: 'Clackskids'
+  APP_TITLE: 'Clackskids'
+  APP_DESCRIPTION: 'Clackskids helps you browse childcare and parenting support services in the Clackmannanshire area.'
+  DEFAULT_LAT: 56.11
+  DEFAULT_LNG: -3.74
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~
 #DOMAIN_NAME: lvh.me

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clacks Kids</title>
+  <title><%= ENV['APP_TITLE'] %></title>
+  <meta name="description" content="<%= ENV['APP_DESCRIPTION'] %>">
+
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
