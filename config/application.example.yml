@@ -90,6 +90,10 @@ DOMAIN_NAME: herokuapp.com
 # DEFAULT_HOST
 # This is so the application can generate full urls rather than paths when required.
 
+# CATEGORIES
+# These are the categories that are used to generate the homepage directory and
+# form filter.
+
 development:
   TZ: 'Europe/London'
   DEFAULT_PER_PAGE: '10'
@@ -109,6 +113,15 @@ development:
   SMTP_PASSWORD: 'password'
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
+  CATEGORIES:
+    - 'Childcare'
+    - 'Clubs'
+    - 'Sport'
+    - 'Support'
+    - 'Health'
+    - 'Learning'
+    - 'Prenatal & Babies'
+    - 'Music & Drama'
 
 production:
   TZ: 'Europe/London'
@@ -129,6 +142,15 @@ production:
   SMTP_PASSWORD:
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: 'clackskids.herokuapp.com'
+  CATEGORIES:
+    - 'Childcare'
+    - 'Clubs'
+    - 'Sport'
+    - 'Support'
+    - 'Health'
+    - 'Learning'
+    - 'Prenatal & Babies'
+    - 'Music & Drama'
 
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
@@ -158,6 +180,15 @@ test:
   SMTP_PASSWORD: 'password'
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
+  CATEGORIES:
+    - 'Childcare'
+    - 'Clubs'
+    - 'Sport'
+    - 'Support'
+    - 'Health'
+    - 'Learning'
+    - 'Prenatal & Babies'
+    - 'Music & Drama'
 
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~

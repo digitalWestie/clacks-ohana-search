@@ -1,5 +1,12 @@
-CATEGORIES = ["Childcare", "Clubs", "Sport", "Support", "Health", "Learning",
-  "Prenatal & Babies", "Music & Drama"]
+if ENV['CATEGORIES'].blank?
+  Rails.logger.warn "CATEGORIES is blank. Using Clackskids defaults."
+  CATEGORIES = ["Childcare", "Clubs", "Sport", "Support", "Health", "Learning",
+    "Prenatal & Babies", "Music & Drama"]
+elsif ENV['CATEGORIES'].class == String
+  CATEGORIES = JSON.parse ENV['CATEGORIES']
+else
+  CATEGORIES = ENV['CATEGORIES']
+end
 
 Kaminari.configure do |config|
   config.default_per_page = ENV['DEFAULT_PER_PAGE'].to_i
