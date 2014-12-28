@@ -84,7 +84,8 @@ DOMAIN_NAME: herokuapp.com
 # The default centre point of the map in terms of latitude and longitude.
 
 # SMTP_*** SETTINGS
-# These are required for the application to send emails.
+# These are required for the application to send emails. These are then used
+# in the following initializer: '/config/initializers/setup_mail.rb'
 
 # DEFAULT_HOST
 # This is so the application can generate full urls rather than paths when required.
