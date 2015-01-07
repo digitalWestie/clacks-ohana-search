@@ -1,6 +1,6 @@
 Hello,
 
-You've received this email because someone flagged an issue on <%= link_to 'Clackskids', root_url %>.
+You've received this email because someone flagged an issue on <%= link_to ENV['APP_TITLE'], root_url %>.
 
 <%= link_to @service.name, service_url(@service.id) %> was flagged as <%= @issue.reason %>
 

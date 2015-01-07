@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Clackskids::Application.config.secret_key_base = '7b0acc6ea5b329838310194ee44ecc37e69a8acb140a88bc16674e7275e35940b97360e04347f8df5d29309db424d3abe1e63854f7362ba18b5fd12b6064d3cf'
+ClacksOhanaSearch::Application.config.secret_key_base = '7b0acc6ea5b329838310194ee44ecc37e69a8acb140a88bc16674e7275e35940b97360e04347f8df5d29309db424d3abe1e63854f7362ba18b5fd12b6064d3cf'

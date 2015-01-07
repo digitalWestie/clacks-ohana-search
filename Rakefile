@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Clackskids::Application.load_tasks
+ClacksOhanaSearch::Application.load_tasks

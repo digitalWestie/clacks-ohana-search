@@ -1,4 +1,4 @@
-Clackskids::Application.routes.draw do
+ClacksOhanaSearch::Application.routes.draw do
 
   get 'welcome' => 'welcome#index'
   get 'about' => 'welcome#about'
