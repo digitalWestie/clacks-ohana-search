@@ -126,20 +126,19 @@
 
       <% unless availability.regular_schedules.blank? %>
       <h5><%= service.name %> times</h5>
-      <ul>
+      <table id="serviceOpenTimes">
       <% for schedule in availability.regular_schedules %>
-        <li>
-          <%= schedule.weekday %> <%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %>
-        </li>
+        <tr>
+          <td><%= schedule.weekday %></td> <td><%= schedule.opens_at.strftime('%H:%M') %> ~ <%= schedule.closes_at.strftime('%H:%M') %></td>
+        </tr>
       <% end %>
-      </ul>
+      </table>
       <% end %>
 
       </div>
 
+      <% unless availability.holiday_schedules.blank? %>
       <div class="serviceClosed">
-
-        <% unless availability.holiday_schedules.blank? %>
         <h5><span class="fa fa-exclamation-triangle" aria-hidden="true"></span> This service will be closed on</h5>
         <ul>
         <% for schedule in availability.holiday_schedules %>
@@ -149,9 +148,8 @@
           </li>
         <% end %>
         </ul>
-        <% end %>
-
       </div>
+      <% end %>
 
       <% unless availability.location.contacts.blank? %>
       <h4>Contacts</h4>
@@ -179,7 +177,12 @@
     <h3>Find this service at</h3>
     <% for availability in service.availabilities %>
 
-      <h4><%= availability.location.name %> <span><%= "(#{availability.location.alternate_name})" %></span></h4>
+      <h4><%= availability.location.name %>
+      <% unless availability.location.alternate_name.blank? %>
+      <span><%= "(#{availability.location.alternate_name})" %></span>
+      <% end%>
+      </h4>
+
       <p><%= availability.location.description %></p>
 
       <% unless availability.location.accessibility.blank? %>
@@ -208,12 +211,6 @@
     <% end %>
 
    </section>
-
-    <div id="serviceMap">
-
-    </div>
-
-
 
 <div>
   <h3>Flag an issue</h3>
