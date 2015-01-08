@@ -115,6 +115,7 @@ development:
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
+  USE_AGE_RANGE: true
 
 production:
   TZ: 'Europe/London'
@@ -136,6 +137,7 @@ production:
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: 'clackskids.herokuapp.com'
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
+  USE_AGE_RANGE: true
 
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
@@ -166,6 +168,7 @@ test:
   SMTP_AUTHENTICATION: 'plain'
   DEFAULT_HOST: '127.0.0.1:3000'
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
+  USE_AGE_RANGE: true
 
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~

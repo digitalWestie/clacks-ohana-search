@@ -92,14 +92,16 @@
           </ul>
         </div>
 
-        <div id="selectAge" class="form-group">
-          <label for="childrenAge" class="label">Age of children
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by age group"></span>
-          </label>
-          <a href="#" class="selectAll button small">All</a>
-          <br>
-          <b>0</b><input id="childrenAge" name="age_range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="<%= @selected_ages %>"/> <b>16</b>
-        </div>
+        <% if ENV['USE_AGE_RANGE'].present? %>
+          <div id="selectAge" class="form-group">
+            <label for="childrenAge" class="label">Age range
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search for services by age group"></span>
+            </label>
+            <a href="#" class="selectAll button small">All</a>
+            <br>
+            <b>0</b><input id="childrenAge" name="age_range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="16" data-slider-step="1" data-slider-value="<%= @selected_ages %>"/> <b>16</b>
+          </div>
+        <% end %>
 
         <div class="double-button-group">
           <a href="/services" rel="button" id="clearFilter2" class="button clear">Clear filters</a>
