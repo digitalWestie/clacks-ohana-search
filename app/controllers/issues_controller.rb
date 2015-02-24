@@ -16,7 +16,7 @@ class IssuesController < ApplicationController
     issue = Issue.find_by(activation: params[:activation])
     if issue and issue.update_attributes(is_activated: true, activation: Time.now.to_i)
       service = Service.get(issue.service_id)
-      IssueMailer.activation(issue, service).deliver
+      IssueMailer.alert_admins(issue, service).deliver
       notice = "Your issue has been noted and our admins contacted, thank you for your help!"
     else
       notice = "Your issue couldn't be handled, please try again!"
