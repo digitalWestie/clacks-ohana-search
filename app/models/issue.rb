@@ -9,8 +9,10 @@ class Issue < ActiveRecord::Base
   after_create :set_activation
 
   def keep_relevant(service)
-    if self.still_relevant?(service)
+    if self.still_relevant?(service) and self.is_activated
       return true
+    elsif self.still_relevant?(service) and self.created_at > 2.days.ago
+      return false
     else
       self.destroy
       return false
