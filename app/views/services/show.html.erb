@@ -228,7 +228,7 @@
       <%= f.label :description %><br/>
       <%= f.text_area :description, class: 'form-control' %>
     </p>
-    <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
+    <%= f.hidden_field :service_timestamp, value: service.updated_at.to_i  %>
     <%= f.submit "Save", class: 'button orange' %>
   <% end %>
 </div>
