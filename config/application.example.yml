@@ -117,6 +117,7 @@ development:
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
   USE_AGE_RANGE: true
   STRAPLINE: 'A better future for every child'
+  THEME: 'clacksStyles'
 
 production:
   TZ: 'Europe/London'
@@ -140,6 +141,7 @@ production:
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
   USE_AGE_RANGE: true
   STRAPLINE: 'A better future for every child'
+  THEME: 'clacksStyles'
 
 # If you are using a custom domain name, set CANONICAL_URL to your preferred
 # domain name, such as 'example.org' or 'www.example.org'.
@@ -172,6 +174,7 @@ test:
   CATEGORIES: 'Childcare,Clubs,Sport,Support,Health,Learning,Prenatal & Babies,Music & Drama'
   USE_AGE_RANGE: true
   STRAPLINE: 'A better future for every child'
+  THEME: 'clacksStyles'
 
 #OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
 #OHANA_API_TOKEN: ~
