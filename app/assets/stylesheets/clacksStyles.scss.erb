@@ -41,6 +41,9 @@ $orange:        #d45518;
 div.navbar {
  background: $main-blue;
  margin-bottom: 0;
+
+ a {color: white; }
+
 }
 
 
@@ -56,7 +59,7 @@ div.navbar {
  label { display: block; font-size: 3em; text-align: center; }
  .input-group {padding: 0 15px;}
  .input-group-btn {vertical-align: bottom; margin-right: 15px;
-   button {padding: 0.5em; height: 50px;}
+   button {padding: 0.5em 1.5em;; height: 50px;}
 
   }
  input#searchBox {font-size: 1.5em; padding: 0.5em;  height: 50px;}
@@ -211,20 +214,15 @@ div.navbar {
 
    .button { padding: 0.5em; }
 
+
   .navbar-toggle {
-     top: 1.5em;
-    .title { display: none; }
-    .icon-bar { background: white; position: relative; top: 0px !important;}
+   color: white;
+   padding-right: 0;
+   .title {float: left; position: relative; top: -2px;}
+   .icon-bar {background: white; margin-left: 40px}
+
   }
 
-  .navbar-collapse {
-    border-top: none;
-    box-shadow: none;
-    top: 5em;
-    position: absolute;
-    font-size: 1.5em;
-    max-height: 999px;
-  }
 
   #homePage {
       #searchLinks a {
@@ -282,30 +280,21 @@ div.navbar {
      background-size: cover;
   }
   .navbar {
-    margin-bottom: 0;
-    .navbar-nav {
-     font-size: 2em;
-     a {display: inline-block;}
-    }
+    .navbar-header {display: inline-block;}
+    .navbar-toggle {display: none;}
+    .navbar-collapse {
+      border-top: none;
+      float: right;
+      display: inline-block;
+      visibility: visible;
+      ul li {display: inline-block;
 
-    .navbar-header {
-      float: none;
-      position: relative;
+      a:hover {background: inherit; text-decoration: underline; }
 
-      .navbar-brand {
-       margin: 0 auto;
-       display: inline-block;
+      }
       }
     }
-    .navbar-collapse {
-      position: absolute;
-      top: 6em;
-      right: 0;
-      border-top: none;
-      box-shadow: none;
-      max-height: 900px;
-    }
-  }
+
   #homePage {
    margin-top: 0px;
   }
