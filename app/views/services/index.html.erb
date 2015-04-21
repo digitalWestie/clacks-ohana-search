@@ -35,7 +35,7 @@
           <label class="label">Filter by category
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Filter by category if you are looking for a particular type of service."></span>
           </label>
-          <a href="#" class="selectAll button small check">All</a>
+          <a href="#" class="selectAll button small btn btn-primary check">All</a>
           <ul class="checkBoxes" id = "category-filters">
             <% for category in CATEGORIES %>
               <li>
@@ -48,7 +48,7 @@
           </ul>
         </div>
 
-        <div id="selectBudget" class="form-group">
+        <div id="selectBudget" class="form-group radiobuttons">
           <label for="townVillage" class="label">Filter by fees
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Do you want to show free"></span>
           </label>
@@ -64,7 +64,7 @@
           <label for="townVillage" class="label">Days
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" rel="tooltip" title="Search services available on certain days."></span>
           </label>
-          <a href="#" class="selectAll button small check">Any</a>
+          <a href="#" class="selectAll button btn-primary btn small check">Any</a>
           <ul class="checkBoxes" id="weekday-filters">
             <li>
               <label>
@@ -103,7 +103,7 @@
           </div>
         <% end %>
 
-        <div class="double-button-group">
+        <div class="double-button-group bottom">
           <a href="/services" rel="button" id="clearFilter2" class="button clear btn btn-default">Clear filters</a>
           <button type="submit" id="doSearch2" class="button right green btn btn-success">Search</button>
         </div>
@@ -134,8 +134,8 @@
              </ul>
 
              <div id="pagResults" class="clearfix">
-            <%= link_to_previous_page @search.results, "Previous", :params => params, class: "button blue" %>
-            <%= link_to_next_page @search.results, "More", :params => params, class: "button blue more" %>
+            <%= link_to_previous_page @search.results, "Previous", :params => params, class: "button btn blue btn-primary" %>
+            <%= link_to_next_page @search.results, "More", :params => params, class: "button btn blue btn-primary more" %>
              </div>
 
 

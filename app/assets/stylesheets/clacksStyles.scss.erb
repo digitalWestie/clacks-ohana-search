@@ -40,7 +40,10 @@ $orange:        #d45518;
 
 .button.orange {
  background: $orange;
+ border-color: $orange;
 }
+
+.button.small {padding: 0 0.25em; }
 
 .button.right {float: right;}
 
@@ -120,11 +123,20 @@ div.navbar {
      label {
       font-weight: 300;
       font-size: 1em !important;
-      input {margin-right: 0.5em;}
+      input {margin-right: 0.15em;}
      }
     }
+    .radiobuttons {
+     p label {
+      font-weight: 300;
+      font-size: 1em !important;
+     }
+    }
+
     #selectDays li {
       display: inline-block;
+      margin-right: 0.35em;
+      &:last-child {margin-right :0}
     }
 
     .slider.slider-horizontal {
@@ -146,6 +158,11 @@ div.navbar {
   .double-button-group {
 
      padding: 0 0 1em 0;
+
+     border-bottom: 1px solid $medium-grey;
+
+     &.bottom {border-top: 1px solid $medium-grey; border-bottom: none;}
+
      button, a {
        width: 49%;
        font-size: 1.25em;
@@ -173,6 +190,7 @@ div.navbar {
 
     #entries {
      padding: 1em;
+     background: $light-grey;
     }
 
     #pagResults {
@@ -229,6 +247,8 @@ div.navbar {
 
   .navbar-toggle {
    .icon-bar {background: white;}
+   position: relative;
+   right: -10px;
   }
 
 
@@ -259,6 +279,8 @@ div.navbar {
     display: none;
   .double-button-group {
     padding: 0 0 1em 0 !important;
+    margin-bottom: 1em;
+    &.bottom { padding: 1em 0 0 0!important; margin: 0 !important;}
     }
   }
   #resultsList {
