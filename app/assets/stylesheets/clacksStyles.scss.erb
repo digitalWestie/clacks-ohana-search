@@ -36,6 +36,15 @@ $orange:        #d45518;
 }
 
 
+/* BUTTON STYLES *******************/
+
+.button.orange {
+ background: $orange;
+}
+
+.button.right {float: right;}
+
+
 /* LAYOUT STYLES *******************/
 
 div.navbar {
@@ -79,6 +88,9 @@ div.navbar {
      }
     }
    }
+
+
+
 
 
 /* SEARCH FORM STYLES *******************/
@@ -216,11 +228,7 @@ div.navbar {
 
 
   .navbar-toggle {
-   color: white;
-   padding-right: 0;
-   .title {float: left; position: relative; top: -2px;}
-   .icon-bar {background: white; margin-left: 40px}
-
+   .icon-bar {background: white;}
   }
 
 
@@ -242,6 +250,7 @@ div.navbar {
   #mapResults {
     width: 100% !important;
     height: auto !important;
+
   }
   #filtersForm {
     width: 100% !important;
@@ -261,7 +270,13 @@ div.navbar {
     z-index: 1000;
     height: 600px !important;
   }
-  .double-button-group {padding: 1em !important;}
+  .double-button-group {padding: 1em !important;
+      .button {
+        padding: 0.25em !important;
+        font-size: 1.15em!important;
+        span.glyphicon {margin-right: 0 !important;}
+      }
+   }
 
   footer {
     display: none;
@@ -311,6 +326,8 @@ div.navbar {
       display: none;
     }
   }
+
+
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
