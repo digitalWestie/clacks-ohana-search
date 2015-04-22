@@ -222,7 +222,7 @@
     </p>
     <p>
       <%= f.label :reason %>
-      <%= f.select :reason, Issue.reason.options, {}, class: 'form-control' %>
+      <%= f.select :reason, Issue.reason.options, { include_blank: true }, class: 'form-control' %>
     </p>
     <p>
       <%= f.label :description %><br/>
