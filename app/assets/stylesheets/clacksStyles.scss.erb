@@ -54,6 +54,7 @@ $orange:        #d45518;
 .backButton {
  display: block;
  margin: 1em 0;
+ color: $orange;
 }
 
 
@@ -104,7 +105,9 @@ footer, .footer {
  .input-group {padding: 0 15px; position: relative}
  .input-group-btn {
    position: absolute;
-   right: 65px;
+   width: 55px;
+   right: 15px;
+   display: block;
    z-index: 1000;
 
    button {padding: 0.5em 1.5em;; height: 50px;}
@@ -296,7 +299,7 @@ footer, .footer {
 
 #servicePage {
  padding-bottom: 2em;
- margin-bottom: 2em;
+ margin-bottom: 3em;
  background: white;
  word-break: break-word;
 
@@ -383,17 +386,27 @@ footer, .footer {
 
 
   #homePage {
-      #searchLinks a {
-      font-size: 1.75em;
-      }
-
-      #searchForm label {
-       font-size: 1.8em !important;
-      }
-
-    input#searchBox {
-      display: inline;
+    #searchLinks a {
+     font-size: 1.75em;
     }
+
+    #searchForm {
+     .input-group {
+      padding: 0;
+     }
+     label {
+      font-size: 1.8em !important;
+     }
+    .input-group-btn {
+     right: 0;
+     width: 40px;
+     button {padding: 0.5em 1em;}
+    }
+   }
+
+   input#searchBox {
+     display: inline;
+   }
   }
   #filtersForm,
   #resultsList,
@@ -429,11 +442,16 @@ footer, .footer {
         span.glyphicon {margin-right: 0 !important;}
       }
    }
-
-  footer {
-    display: none;
-  }
  }
+
+footer {
+ text-align: center;
+ .align-right {
+  text-align: center;
+ }
+ .col-sm-6:first-child {padding-bottom: 1em;}
+}
+
 }
 
 /* Small devices (tablets, 768px and up) */
