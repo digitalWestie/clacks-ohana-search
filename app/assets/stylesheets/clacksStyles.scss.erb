@@ -65,8 +65,29 @@ div.navbar {
  margin-bottom: 0;
 
  a {color: white; }
-
 }
+
+footer, .footer {
+
+ background: $main-blue;
+ color: white;
+ padding: 15px 0;
+  a {color: white;}
+ .container {
+  width: 100%;
+  .col-sm-6 {
+  p:last-child {margin-bottom: 0;}
+  .footer-brand {
+    font-size: 19px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    }
+  }
+ }
+}
+
+/* HOMEPAGE STYLES *******************/
+.align-right {text-align: right;}
 
 
 /* HOMEPAGE STYLES *******************/
@@ -302,6 +323,7 @@ div.navbar {
 
  #serviceContact {
   p:last-child {margin-bottom: 0;}
+  a {word-break: break-all;}
  }
 
  .serviceClosed {
