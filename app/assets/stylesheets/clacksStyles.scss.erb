@@ -41,11 +41,21 @@ $orange:        #d45518;
 .button.orange {
  background: $orange;
  border-color: $orange;
+ color: white;
 }
 
-.button.small {padding: 0 0.25em; }
 
 .button.right {float: right;}
+
+.button.small {
+ padding: 0.15em 0.75em;
+}
+
+.backButton {
+ display: block;
+ margin: 1em 0;
+}
+
 
 
 /* LAYOUT STYLES *******************/
@@ -238,6 +248,82 @@ div.navbar {
 
 
 
+/* SERVICE PAGE STYLES *******************/
+
+
+#servicePage {
+ padding-bottom: 2em;
+ margin-bottom: 2em;
+ background: white;
+ word-break: break-word;
+
+ #serviceHeader {
+
+  h1 { font-weight: 600; color: $main-blue; }
+  h2 { margin: 0; color: $dark-grey; font-size: 26px; font-weight: normal; }
+
+  border-bottom: $light-grey 3px solid;
+
+ }
+
+  p, a { word-wrap: break-word; }
+  h3 { color: $main-blue;}
+  h4 {
+    font-weight: 700;
+    span {display: block; color: $medium-grey; font-style: italic; font-weight: 500; letter-spacing: 1px;}
+  }
+  h5 {font-weight: 700;}
+
+  #serviceOpenTimes td {padding: 0 1em 0.25em 0}
+
+
+ #serviceMap {
+  height: 300px;
+  margin-top: 2em;
+ }
+
+ section {
+  padding-bottom: 2em;
+  border-bottom: $light-grey 3px solid;
+
+  &:last-child {border-bottom: none; padding-bottom: 0;}
+
+  span.glyphicon, span.fa {margin-right: 5px;}
+ }
+
+
+ #serviceDetails {
+  tr {
+   &:nth-child(odd) { background: $light-grey;}
+  th {width: 30%; vertical-align: top; padding: 0.5em 0.5em 0.5em 1em;}
+  td {width: 70%;vertical-align: top; padding:  0.5em;}
+  }
+ }
+
+ #serviceContact {
+  p:last-child {margin-bottom: 0;}
+ }
+
+ .serviceClosed {
+  margin-top: 2em;
+  padding: 0.5em 1em;
+  background: $orange;
+  color: white;
+ }
+
+ #flagIssue {
+  background: #eeeeee;
+  padding: 15px;
+  h3 {color: $orange; margin-top: 0}
+  form input.button {float: right;}
+ }
+
+}
+
+
+
+
+
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
   body {
@@ -315,7 +401,12 @@ div.navbar {
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
+
+     &.services-show {
+      background: url('<%= asset_path('clacks/gplaypattern.png') %>')
+     }
   }
+
   .navbar {
     .navbar-header {display: inline-block;}
     .navbar-toggle {display: none;}
@@ -347,6 +438,11 @@ div.navbar {
     .double-button-group {
       display: none;
     }
+  }
+
+  #servicePage {
+   background: white;
+   margin-top: 30px;
   }
 
 

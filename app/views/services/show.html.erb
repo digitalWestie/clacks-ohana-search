@@ -212,7 +212,7 @@
 
    </section>
 
-<div>
+<div id="flagIssue">
   <h3>Flag an issue</h3>
   <p>Do you see something wrong with this listing?</p>
   <%= form_for @issue, :url => service_issues_path(service.id) do |f| %>
@@ -228,8 +228,10 @@
       <%= f.label :description %><br/>
       <%= f.text_area :description, class: 'form-control' %>
     </p>
-    <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
-    <%= f.submit "Save", class: 'button orange' %>
+    <div class="actions clearfix">
+      <%= f.hidden_field :service_timestamp, value: service.update_at.to_i  %>
+      <%= f.submit "Send issue", class: 'btn-default button btn orange' %>
+    </div>
   <% end %>
 </div>
 
