@@ -69,12 +69,12 @@ footer {
   height: auto;
   display: block;
   padding: 0;
-  margin: 0.5em 0 0 0;
+  margin: 2em 0 0 0;
   color: #2c588b;
-  img {
-   margin: 0 auto;
-   max-width: 250px;
-  }
+  width: 319px;
+  height: 78px;
+  background: url('<%= asset_path('clacks-kids-logo.png') %>') no-repeat center;
+  text-indent: -9999px;
  }
 }
 
@@ -142,41 +142,29 @@ footer {
 /* HOME STYLES *******************/
 #homePage {
 
-  #searchForm {
-    text-align: center;
-    margin: 0em 0 2em 0;
+ position: relative;
+ z-index: 1000;
 
-    label {
-      font-size: 2em;
-      color: white;
-      margin: 0.5em 0 0.15em 0;
-    }
-    input#searchBox {
-      width: 80%;
-      display: inline;
-      border-top-right-radius:0em;
-      border-bottom-right-radius:0em;
-      border: none;
-      height: 45px;
-      @include box-sized();
-      font-size: 1.5em;
-    }
-    button[type=submit] {
-      border-top-left-radius:0em;
-      border-bottom-left-radius:0em;
-      position: relative;
-      left: -2px;
-      top: -5px;
-      border: none;
-      padding: 7px 12px;
-      height: 45px;
-      width: 10%;
-      @include box-sized();
-    }
+#searchForm {
+ padding: 0em 15px;
+ label { font-size: 2em; color: white; margin: 0.5em 0 0.15em 0; text-align: center; width: 100%; }
+ .input-group {padding: 0 15px; position: relative}
+ .input-group-btn {
+   position: absolute;
+   width: 55px;
+   right: 15px;
+   display: block;
+   z-index: 1000;
+
+   button {padding: 0.5em 1.5em;; height: 50px;}
+
   }
+ input#searchBox {font-size: 1.5em; padding: 0.5em;  height: 50px; border-radius: 4px;}
+}
 
   #searchLinks {
     list-style: none;
+    padding: 2em 0;
 
     li {
       margin-bottom: 1em;
@@ -484,6 +472,7 @@ footer {
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 767px) {
   body {
+
    background: url('<%= asset_path('ck-background-mobile.png') %>') top center #77a441 no-repeat;
 
    .button { padding: 0.5em; }
@@ -555,18 +544,24 @@ footer {
   a.navbar-brand {
     float: left !important;
     margin-left: 1em !important;
-    margin-top: 5px !important;
+    margin-top: 2em;
     font-size: 14px !important;
     img {max-width: 200px !important;}
   }
  }
 
-  body {
-     background: url('<%= asset_path('ck-background-desktop.png') %>') top center #77a441 no-repeat;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
+  body.welcome-index {
+    background:  #7bbee9;
+    footer {
+     border-top: none;
+     margin-top: -200px;
+     padding-top: 400px;
+     position: relative;
+     width: 100%;
+     height: 700px;
+     background: url('<%= asset_path('ck-background-desktop.png') %>')  #77a441 no-repeat top center;
+    }
+
   }
   .navbar {
     margin-bottom: 0;
@@ -580,7 +575,7 @@ footer {
       position: relative;
 
       .navbar-brand {
-       margin: 0 auto;
+       margin: 1em auto 0;
        display: inline-block;
       }
     }
