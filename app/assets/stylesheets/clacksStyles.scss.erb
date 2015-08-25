@@ -64,12 +64,12 @@ $orange:        #d45518;
 div.navbar {
  background: $main-blue;
  margin-bottom: 0;
-
- a {color: white; }
+ .nav>li>a:hover, .nav>li>a:focus { background-color: transparent; }
+ a, a:active {color: white; }
 }
 
 footer, .footer {
- min-height: 90px;
+ min-height: 70px;
  background: $main-blue;
  color: white;
  padding: 15px 0;
@@ -286,11 +286,12 @@ footer, .footer {
   background: url('<%= asset_path('clacks/gplaypattern.png') %>')
 }
 
-#aboutContent, #feedbackPage {
- background: white;
+#aboutContent, #feedbackContent {
  margin-top: 3em;
  margin-bottom: 3em;
+ background: white;
 }
+
 
 
 
@@ -366,6 +367,8 @@ footer, .footer {
  }
 
 }
+
+.ie9 #serviceDetails {  word-break: break-word; }
 
 
 
@@ -487,6 +490,7 @@ footer {
 
   #homePage {
    margin-top: 0px;
+   margin-bottom: 70px;
   }
   .tab-content > .tab-pane {
     display: block !important;
@@ -503,11 +507,19 @@ footer {
     }
   }
 
-  #servicePage {
+  footer p.copy {margin: 0;}
+
+  body.welcome-index #servicePage {
    background: white;
    margin-top: 30px;
   }
 
+  body.welcome-index .footer,
+  body.welcome-feedback .footer  {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
 
 }
 /* Medium devices (desktops, 992px and up) */

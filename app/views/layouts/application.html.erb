@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>            <html class="ie9"> <![endif]-->
+<!--[if gt IE 10]><!-->   <html>         <!--<![endif]-->
+
 <head>
   <title><%= ENV['APP_TITLE'] %></title>
   <meta name="description" content="<%= ENV['APP_DESCRIPTION'] %>">
@@ -56,11 +59,11 @@
   <div class="container">
 
     <div class="col-sm-6">
-      <p>&copy; Copyright 2015 Clackmannanshire Council</p>
+      <p class="copy">&copy; Copyright 2015 Clackmannanshire Council</p>
       	<p><a class="footer-brand" href="/"><strong>Clackmannanshire</strong> Council</a></p>
     </div>
     <div class="col-sm-6 align-right">
-      	<p>Kilncraigs, Alloa, Clackmannanshire, FK10 1EB<br>Tel: 01259 450000<br>Email: <a href="mailto:customerservice@clacks.gov.uk">customerservice@clacks.gov.uk</a>
+      	<p>Kilncraigs, Alloa, Clackmannanshire, FK10 1EB<br>Tel: 01259 450000 | Email: <a href="mailto:customerservice@clacks.gov.uk">customerservice@clacks.gov.uk</a>
       </p>
     </div>
     <%= yield :footer %>
