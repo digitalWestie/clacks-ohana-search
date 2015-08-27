@@ -18,6 +18,7 @@
 //= require leaflet.js
 //= require leaflet.markercluster.js
 //= require mapping.js
+//= require jquery.placeholder.min.js
 //= require_tree ./bootstrap
 
 var search_by_position = function(position) {
@@ -37,3 +38,5 @@ $(document).ready(function(){
     $('#near-me').hide();
   }
 });
+
+$('input, textarea').placeholder();

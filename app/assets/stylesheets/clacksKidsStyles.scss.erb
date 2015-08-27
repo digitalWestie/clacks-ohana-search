@@ -37,6 +37,7 @@ $orange:        #d45518;
 
 /* LAYOUT STYLES *******************/
 body {
+  background:  #9bcff1;
   color: black;
   font-family: 'Lato', sans-serif;
   font-size: 15px;
@@ -44,7 +45,7 @@ body {
 .navbar {
 
  .navbar-collapse {
-  background: $main-blue;
+  background:  darken( $main-blue, 10% );
   width: 100%;
   z-index: 9999;
  }
@@ -53,7 +54,7 @@ body {
 }
 footer {
   padding: 20px;
-  border-top: 1px solid black;
+  background: url('<%= asset_path('ck-background-mobile.png') %>')  #397509 no-repeat top center;
 
   .container {
    margin-top: 9em;
@@ -67,42 +68,55 @@ footer {
  }
 }
 
+
+
+
+
+
 .navbar {
+
+ background: $main-blue;
+
+  margin-bottom: 0;
 
   .navbar-header {
 
+   position: relative;
+   left: -20px;
+
    text-align: center;
+   padding: 15px 0;
 
    .navbar-toggle {
-     background: $main-blue;
+     background: white;
      position: absolute;
      right: 0;
      float: none;
+     margin-top: 18px;
+     padding: 8px;
      .title {float: right; font-weight: 700; margin-left: 30px; color: white; text-transform: uppercase;}
-     .icon-bar { background: white; position: relative; top: 3px;}
+     .icon-bar { background: $main-blue; position: relative; top: 1px; width: 20px}
     }
 
-    .navbar-brand {
-      float: none;
-      height: auto;
-      display: block;
-      padding: 0;
-      margin: 0 auto;
-      color: #2c588b;
-      width: 319px;
-      height: 78px;
-      background: url('<%= asset_path('clacks-kids-logo.png') %>') no-repeat center;
-      text-indent: -9999px;
-    }
-
+  .navbar-brand {
+    float: none;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+    color: #2c588b;
+    width: 242px;
+    height: 54px;
+    background: url('<%= asset_path('clacks-kids-logo-mobile.png') %>') no-repeat center;
+    text-indent: -9999px;
+   }
   }
 
   .navbar-nav {
-   font-size: 1.25em;
-   a {color: white; padding: 0.25em 0.5em; background: $main-blue; font-weight: bold; @include rounded(5px); border: 3px transparent solid;
-   &:hover, &:focus {text-decoration: none !important; border: 3px white solid; background: $orange !important;}
-   }
+   text-align: center;
+   a {color: white; font-size: 1.25em;}
   }
+
 }
 
 
@@ -124,7 +138,6 @@ footer {
  &.blue { color: white !important; background: $main-blue; box-shadow: #b14714;}
  &.green { color: white !important; background: $green; box-shadow: #b14714;}
  &.search { color: $main-blue;}
- &.right {  float: right; }
 
  &:hover, &:active {
    top: 2px;
@@ -152,21 +165,21 @@ footer {
 
 h1 {
  margin-top:0;
- font-size: 3em;
+ font-size: 2em;
  color: $main-blue;
  width: 100%;
  font-weight: bold;
 }
 
 h2 {
- font-size: 2em;
+ font-size: 1.75em;
  color: $green;
  width: 100%;
  font-weight: bold;
 }
 
 h3 {
- font-size: 1.5em;
+ font-size: 1.3em;
  color: $orange;
  width: 100%;
  font-weight: bold;
@@ -174,14 +187,14 @@ h3 {
 
 
 h4 {
- font-size: 1.25em;
+ font-size: 1.15em;
  color: black;
  width: 100%;
  font-weight: bold;
 }
 
 h5 {
- font-size: 1.15em;
+ font-size: 1.1em;
  color: $main-blue;
  width: 100%;
  font-weight: bold;
@@ -205,7 +218,10 @@ h6 {
 
 #searchForm {
 
-   label { font-size: 3em; color: $main-blue; margin: 0em 0 0.15em 0; text-align: center; width: 100%; }
+   background: $main-blue;
+   padding: 15px 0;
+
+   label { font-size: 3em; color: white; margin: 0em 0 0.15em 0; text-align: center; width: 100%; }
 
    .input-group {padding: 0 15px; position: relative}
 
@@ -219,13 +235,13 @@ h6 {
      button {padding: 0.5em 1.5em;; height: 50px;}
 
     }
-   input#searchBox {font-size: 1.5em; padding: 0.5em;  height: 50px; border-radius: 4px;}
+   input#searchBox {font-size: 1.5em; padding: 0.25em 0.5em;  height: 50px; border-radius: 4px;}
 
 }
 
   #searchLinks {
     list-style: none;
-    padding: 2em 0;
+    padding: 1em 0;
 
     li {
       margin-bottom: 1em;
@@ -379,27 +395,7 @@ h6 {
 .services-index {
 
    .navbar-nav {margin: 15px 0 0 0;}
-
-   footer {
-  .container {
-     width: 100%;
-     margin-top: 0em;
-     padding: 1em 0 0 0;
-     color: white;
-     font-size: 1em;
-
-     .col-sm-6 {
-      width: 50%;
-      text-align: inherit;
-      padding: 0;
-      &.align-right {text-align: right;
-      }
-
-     a {color: white;
-      &:hover {text-decoration: underline;}}
-    }
-   }
-  }
+   footer {display: none;}
 
 }
 
@@ -408,9 +404,12 @@ h6 {
 
 #servicePage {
  padding-bottom: 2em;
+ @include rounded(5px);
  margin-bottom: 2em;
  background: white;
  word-break: break-all;
+ position: relative;
+ z-index: 10;
 
  #serviceHeader {
 
@@ -448,8 +447,8 @@ h6 {
  #serviceDetails {
   tr {
    &:nth-child(odd) { background: $light-grey;}
-  th {width: 20%; vertical-align: top; padding: 0.5em 0.5em 0.5em 1em;}
-  td {width: 80%;vertical-align: top; padding:  0.5em;}
+  th {width: 35%; vertical-align: top; padding: 0.5em 0.25em 0.5em 0.5em;}
+  td {width: 65%;vertical-align: top; padding:  0.5em 0.25em 0.5em 0.25em;}
   }
  }
 
@@ -458,6 +457,7 @@ h6 {
   padding: 0.5em 1em;
   background: $orange;
   color: white;
+  h5 {color: white;}
  }
 
 }
@@ -473,8 +473,10 @@ h6 {
  form {
   text-align: left;
   background: white;
-  @include rounded(10px);
+  @include rounded(5px);
   padding: 2em;
+  input[type=submit] { float: none; width: 100%;}
+
  }
 }
 
@@ -567,8 +569,6 @@ h6 {
 @media (max-width: 767px) {
   body {
 
-   background: url('<%= asset_path('ck-background-mobile.png') %>') top center #77a441 no-repeat;
-
    .button { padding: 0.5em; }
 
   #homePage {
@@ -610,9 +610,10 @@ h6 {
   }
   .double-button-group {padding: 1em !important;}
 
-  footer {
-    display: none;
-  }
+  #serviceDetails {
+   th {width: 20%; vertical-align: top; padding: 0.5em 0.5em 0.5em 1em;}
+   td {width: 80%; vertical-align: top; padding:  0.5em;}
+   }
  }
 }
 
@@ -620,7 +621,6 @@ h6 {
 @media (min-width: 768px) {
 
   body  {
-    background:  #9bcff1;
     footer {
      z-index: 0;
      border-top: none;
@@ -631,10 +631,47 @@ h6 {
      height: 700px;
      background: url('<%= asset_path('ck-background-desktop.png') %>')  #77a441 no-repeat top center;
     }
+
+
+    .navbar {
+     background: transparent;
+     .navbar-header {
+
+       padding: 0 !important;
+       left: 0;
+
+
+     .navbar-brand {
+       float: none;
+       height: auto;
+       display: block;
+       padding: 0;
+       margin: 0 auto  !important;;
+       color: #2c588b;
+       width: 319px !important;
+       height: 78px !important;
+       background: url('<%= asset_path('clacks-kids-logo.png') %>') no-repeat center  !important;
+       text-indent: -9999px;
+     }
+     }
+
+      .navbar-nav {
+        text-align: center;
+        a {padding: 0.25em 0.5em; background: $main-blue; font-weight: bold; @include rounded(5px); border: 3px transparent solid;
+        &:hover, &:focus {text-decoration: none !important; border: 3px white solid; background: $orange !important;}
+        }
+     }
+    }
+  #searchForm {
+    background: transparent !important;
+    label {color: $main-blue !important;}
+
+  }
   }
 
   body.services-index {
     footer {
+     text-align: left;
      border-top: none;
      margin-top: 0;
      padding-top: 0;
@@ -677,11 +714,11 @@ h6 {
 
     a.navbar-brand {
       float: left !important;
-      margin-left: 0.5em;
-      margin-top: 0.5em;
-      width: 200px;
-      height: 49px;
-      background: url('<%= asset_path('clacks-kids-logo-small.png') %>') no-repeat center;
+      margin-left: 0.5em !important;
+      margin-top: 0.5em !important;
+      width: 200px !important;
+      height: 49px !important;
+      background: url('<%= asset_path('clacks-kids-logo-small.png') %>') no-repeat center !important;
     }
 
    .navbar-collapse {
@@ -689,7 +726,34 @@ h6 {
      width: auto;
     }
   }
-  footer {background: transparent;}
+
+  footer {
+   display: block;
+   background: transparent;
+   padding-bottom: 0 !important;
+  .container {
+     width: 100%;
+     margin-top: 0em;
+     padding: 1em 0 0 0;
+     color: white;
+     font-size: 1em;
+
+     .col-sm-6 {
+      width: 50%;
+      text-align: inherit;
+      padding: 0;
+      &.align-right {text-align: right;
+      }
+
+     a {color: white;
+      &:hover {text-decoration: underline;}}
+    }
+   }
+
+
+}
+
+
  }
 
 
