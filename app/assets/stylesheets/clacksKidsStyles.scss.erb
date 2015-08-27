@@ -39,6 +39,7 @@ $orange:        #d45518;
 body {
   color: black;
   font-family: 'Lato', sans-serif;
+  font-size: 15px;
 }
 .navbar {
 
@@ -47,57 +48,64 @@ body {
   width: 100%;
   z-index: 9999;
  }
+ .nav>li>a:hover, .nav>li>a:focus { background-color: transparent; }
 
 }
 footer {
   padding: 20px;
   border-top: 1px solid black;
-}
 
-.navbar-header{
- text-align: center;
- .navbar-toggle {
-   background: $main-blue;
-   position: absolute;
-   right: 0;
-   float: none;
-   .title {float: right; font-weight: 700; margin-left: 30px; color: white; text-transform: uppercase;}
-   .icon-bar { background: white; position: relative; top: 3px;}
- }
- .navbar-brand {
-  float: none;
-  height: auto;
-  display: block;
-  padding: 0;
-  margin: 2em 0 0 0;
-  color: #2c588b;
-  width: 319px;
-  height: 78px;
-  background: url('<%= asset_path('clacks-kids-logo.png') %>') no-repeat center;
-  text-indent: -9999px;
+  .container {
+   margin-top: 9em;
+   color: white;
+   font-size: 1.25em;
+   .col-sm-6 {width: 100%; text-align: center;
+
+   a {color: white;
+    &:hover {text-decoration: underline;}}
+  }
  }
 }
 
-.navbar-nav {
-  text-align: center;
+.navbar {
 
-  li {
-   margin: 2em 0.25em;
-   a {
-    color: white; font-weight: 600;
-    font-size: 1.25em;
-    padding: 0.5em;
-    border: 3px solid transparent;
-     @include rounded(10px);
-     &:hover {background: $orange; border: 3px solid $light-grey;
-     }
+  .navbar-header {
+
+   text-align: center;
+
+   .navbar-toggle {
+     background: $main-blue;
+     position: absolute;
+     right: 0;
+     float: none;
+     .title {float: right; font-weight: 700; margin-left: 30px; color: white; text-transform: uppercase;}
+     .icon-bar { background: white; position: relative; top: 3px;}
     }
-    &:nth-child(1){a:hover, a:active {background: $orange;@include rotate(5);}}
-    &:nth-child(2){a:hover, a:active {background: desaturate($yellow, 10%); @include rotate(-5);}}
-    &:nth-child(3){a:hover, a:active {background: $green;@include rotate(5);}}
-    &:nth-child(4){a:hover, a:active {background: $main-blue;@include rotate(-5);}}
+
+    .navbar-brand {
+      float: none;
+      height: auto;
+      display: block;
+      padding: 0;
+      margin: 0 auto;
+      color: #2c588b;
+      width: 319px;
+      height: 78px;
+      background: url('<%= asset_path('clacks-kids-logo.png') %>') no-repeat center;
+      text-indent: -9999px;
+    }
+
+  }
+
+  .navbar-nav {
+   font-size: 1.25em;
+   a {color: white; padding: 0.25em 0.5em; background: $main-blue; font-weight: bold; @include rounded(5px); border: 3px transparent solid;
+   &:hover, &:focus {text-decoration: none !important; border: 3px white solid; background: $orange !important;}
    }
- }
+  }
+}
+
+
 
 
 /* BUTTON STYLES *******************/
@@ -139,6 +147,56 @@ footer {
 }
 
 
+/* TYPOGRAPHY ********************/
+
+
+h1 {
+ margin-top:0;
+ font-size: 3em;
+ color: $main-blue;
+ width: 100%;
+ font-weight: bold;
+}
+
+h2 {
+ font-size: 2em;
+ color: $green;
+ width: 100%;
+ font-weight: bold;
+}
+
+h3 {
+ font-size: 1.5em;
+ color: $orange;
+ width: 100%;
+ font-weight: bold;
+}
+
+
+h4 {
+ font-size: 1.25em;
+ color: black;
+ width: 100%;
+ font-weight: bold;
+}
+
+h5 {
+ font-size: 1.15em;
+ color: $main-blue;
+ width: 100%;
+ font-weight: bold;
+}
+
+
+h6 {
+ font-size: 1em;
+ color: black;
+ width: 100%;
+ text-transform: uppercase;
+}
+
+
+
 /* HOME STYLES *******************/
 #homePage {
 
@@ -146,20 +204,23 @@ footer {
  z-index: 1000;
 
 #searchForm {
- padding: 0em 15px;
- label { font-size: 2em; color: white; margin: 0.5em 0 0.15em 0; text-align: center; width: 100%; }
- .input-group {padding: 0 15px; position: relative}
- .input-group-btn {
-   position: absolute;
-   width: 55px;
-   right: 15px;
-   display: block;
-   z-index: 1000;
 
-   button {padding: 0.5em 1.5em;; height: 50px;}
+   label { font-size: 3em; color: $main-blue; margin: 0em 0 0.15em 0; text-align: center; width: 100%; }
 
-  }
- input#searchBox {font-size: 1.5em; padding: 0.5em;  height: 50px; border-radius: 4px;}
+   .input-group {padding: 0 15px; position: relative}
+
+   .input-group-btn {
+     position: absolute;
+     width: 55px;
+     right: 15px;
+     display: block;
+     z-index: 1000;
+
+     button {padding: 0.5em 1.5em;; height: 50px;}
+
+    }
+   input#searchBox {font-size: 1.5em; padding: 0.5em;  height: 50px; border-radius: 4px;}
+
 }
 
   #searchLinks {
@@ -169,21 +230,22 @@ footer {
     li {
       margin-bottom: 1em;
      a {
+      text-align: left;
       display: block;
       font-size: 2em;
       padding: 10px 20px 10px 70px;
       color: $main-blue;
       @include rounded(5px);
 
-      &.near {background: url('<%= asset_path('icon-near-me.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.childcare {background: url('<%= asset_path('icon-childcare.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.clubs {background: url('<%= asset_path('icon-clubs.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.sport {background: url('<%= asset_path('icon-sports.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.support {background: url('<%= asset_path('icon-support.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.health {background: url('<%= asset_path('icon-health.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.learning {background: url('<%= asset_path('icon-learning.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.prenatal-babies {background: url('<%= asset_path('icon-babies.png') %>') no-repeat 20px center  #f0f0f0; }
-      &.music-drama {background: url('<%= asset_path('icon-music-drama.png') %>') no-repeat 20px center  #f0f0f0; }
+      &.near {background: url('<%= asset_path('icon-near-me.png') %>') no-repeat 10px center  #ffffff; }
+      &.childcare {background: url('<%= asset_path('icon-childcare.png') %>') no-repeat 10px center  #ffffff; }
+      &.clubs {background: url('<%= asset_path('icon-clubs.png') %>') no-repeat 10px center  #ffffff; }
+      &.sport {background: url('<%= asset_path('icon-sports.png') %>') no-repeat 10px center  #ffffff; }
+      &.support {background: url('<%= asset_path('icon-support.png') %>') no-repeat 10px center  #ffffff; }
+      &.health {background: url('<%= asset_path('icon-health.png') %>') no-repeat 10px center  #ffffff; }
+      &.learning {background: url('<%= asset_path('icon-learning.png') %>') no-repeat 10px center  #ffffff; }
+      &.prenatal-babies {background: url('<%= asset_path('icon-babies.png') %>') no-repeat 10px center  #ffffff; }
+      &.music-drama {background: url('<%= asset_path('icon-music-drama.png') %>') no-repeat 10px center  #ffffff; }
 
       &:hover {text-decoration: none;}
 
@@ -221,11 +283,12 @@ footer {
      label {
       font-weight: 300;
       font-size: 1em !important;
-      input {margin-right: 0.5em;}
+      input {margin-right: 0.25em;}
      }
     }
     #selectDays li {
       display: inline-block;
+      padding-right: 0.25em;
     }
 
     .slider.slider-horizontal {
@@ -298,8 +361,6 @@ footer {
 
    }
   }
-
-
 }
 
 #mapPanel {
@@ -313,6 +374,33 @@ footer {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.services-index {
+
+   .navbar-nav {margin: 15px 0 0 0;}
+
+   footer {
+  .container {
+     width: 100%;
+     margin-top: 0em;
+     padding: 1em 0 0 0;
+     color: white;
+     font-size: 1em;
+
+     .col-sm-6 {
+      width: 50%;
+      text-align: inherit;
+      padding: 0;
+      &.align-right {text-align: right;
+      }
+
+     a {color: white;
+      &:hover {text-decoration: underline;}}
+    }
+   }
+  }
+
 }
 
 
@@ -378,8 +466,12 @@ footer {
 /* FEEDBACK PAGE *******************/
 
 #feedbackPage {
- margin-top: 80px;
+ z-index: 10;
+ text-align: center;
+ position: relative;
+ margin-top: 30px;
  form {
+  text-align: left;
   background: white;
   @include rounded(10px);
   padding: 2em;
@@ -389,7 +481,9 @@ footer {
 /* ABOUT PAGE *******************/
 
 #aboutPage {
- margin-top: 80px;
+ z-index: 10;
+ position: relative;
+ margin-top: 30px;
  #aboutContent {
   background: white;
   @include rounded(10px);
@@ -477,21 +571,6 @@ footer {
 
    .button { padding: 0.5em; }
 
-  .navbar-toggle {
-     top: 1.5em;
-    .title { display: none; }
-    .icon-bar { background: white; position: relative; top: 0px !important;}
-  }
-
-  .navbar-collapse {
-    border-top: none;
-    box-shadow: none;
-    top: 5em;
-    position: absolute;
-    font-size: 1.5em;
-    max-height: 999px;
-  }
-
   #homePage {
       #searchLinks a {
       font-size: 1.75em;
@@ -539,55 +618,81 @@ footer {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
- body.services-index {
 
-  a.navbar-brand {
-    float: left !important;
-    margin-left: 1em !important;
-    margin-top: 2em;
-    font-size: 14px !important;
-    img {max-width: 200px !important;}
-  }
- }
-
-  body.welcome-index {
-    background:  #7bbee9;
+  body  {
+    background:  #9bcff1;
     footer {
+     z-index: 0;
      border-top: none;
-     margin-top: -200px;
+     margin-top: -250px;
      padding-top: 400px;
      position: relative;
      width: 100%;
      height: 700px;
      background: url('<%= asset_path('ck-background-desktop.png') %>')  #77a441 no-repeat top center;
     }
-
   }
-  .navbar {
-    margin-bottom: 0;
-    .navbar-nav {
-     font-size: 2em;
-     a {display: inline-block;}
+
+  body.services-index {
+    footer {
+     border-top: none;
+     margin-top: 0;
+     padding-top: 0;
+     position: relative;
+     width: 100%;
+     height: auto;
+    background: $green !important;
+    border-top: black solid 1px;
     }
+  }
 
-    .navbar-header {
-      float: none;
-      position: relative;
+  .navbar {
+    margin: 20px 0;
+    .navbar-brand {margin: 0 auto;}
+    .navbar-header {}
+    .navbar-toggle {display: none;}
+    .navbar-collapse {
+     text-align: center;
+     box-shadow: none;
+     background: transparent;
+      border-top: none;
+      display: inline-block;
+      visibility: visible;
+      ul li {display: inline-block;
 
-      .navbar-brand {
-       margin: 1em auto 0;
-       display: inline-block;
+      a:hover, a:active {background: none; text-decoration: underline; }
+
+      }
       }
     }
-    .navbar-collapse {
-      position: absolute;
-      top: 6em;
-      right: 0;
-      border-top: none;
-      box-shadow: none;
-      max-height: 900px;
+
+
+
+/* Services Search & Listings */
+ body.services-index {
+  .navbar {
+     margin: 0 0 0.5em 0;
+
+    .navbar-header {float: left}
+
+    a.navbar-brand {
+      float: left !important;
+      margin-left: 0.5em;
+      margin-top: 0.5em;
+      width: 200px;
+      height: 49px;
+      background: url('<%= asset_path('clacks-kids-logo-small.png') %>') no-repeat center;
+    }
+
+   .navbar-collapse {
+     float: right;
+     width: auto;
     }
   }
+  footer {background: transparent;}
+ }
+
+
   #homePage {
    margin-top: 0px;
   }
