@@ -52,26 +52,6 @@ body {
  .nav>li>a:hover, .nav>li>a:focus { background-color: transparent; }
 
 }
-footer {
-  padding: 20px;
-  background: url('<%= asset_path('ck-background-mobile.png') %>')  #397509 no-repeat top center;
-
-  .container {
-   margin-top: 9em;
-   color: white;
-   font-size: 1.25em;
-   .col-sm-6 {width: 100%; text-align: center;
-
-   a {color: white;
-    &:hover {text-decoration: underline;}}
-  }
- }
-}
-
-
-
-
-
 
 .navbar {
 
@@ -395,7 +375,6 @@ h6 {
 .services-index {
 
    .navbar-nav {margin: 15px 0 0 0;}
-   footer {display: none;}
 
 }
 
@@ -615,6 +594,24 @@ h6 {
    td {width: 80%; vertical-align: top; padding:  0.5em;}
    }
  }
+
+ footer {
+  padding: 20px;
+  background: url('<%= asset_path('ck-background-mobile.png') %>')  #397509 no-repeat top center;
+
+  .container {
+   margin-top: 9em;
+   color: white;
+   font-size: 1.25em;
+   .col-sm-6 {width: 100%; text-align: center;
+
+   a {color: white;
+    &:hover {text-decoration: underline;}}
+  }
+ }
+}
+
+
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -628,7 +625,6 @@ h6 {
      padding-top: 400px;
      position: relative;
      width: 100%;
-     height: 700px;
      background: url('<%= asset_path('ck-background-desktop.png') %>')  #77a441 no-repeat top center;
     }
 
@@ -674,10 +670,9 @@ h6 {
      text-align: left;
      border-top: none;
      margin-top: 0;
-     padding-top: 0;
+     padding: 0 1em;
      position: relative;
      width: 100%;
-     height: auto;
     background: $green !important;
     border-top: black solid 1px;
     }
