@@ -374,6 +374,41 @@ footer, .footer {
 .ie9 #serviceDetails {  word-break: break-word; }
 
 
+/* Small phones (up to 480px wide) */
+
+@media (max-width: 480px) {
+
+  #homePage {
+      #searchForm {
+        input#searchBox {
+          font-size: 1.15em;
+          }
+        label {
+         font-size: 1.5em !important
+        }
+       }
+   }
+
+   #resultsPage {
+     .double-button-group {
+       button, a {font-size: 1em !important}
+    }
+   }
+
+   #servicePage {
+     #serviceHeader {
+       h1 {font-size: 2em;}
+       h2 {font-size: 1.25em;}
+     }
+    #serviceDetails {
+      th { width: 40% !important}
+      td { width: 60% !important}
+     }
+    }
+
+   footer .container {  font-size: 1em !important;}
+}
+
 
 
 
@@ -401,7 +436,7 @@ footer, .footer {
       padding: 0;
      }
      label {
-      font-size: 1.8em !important;
+      font-size: 1.8em;
      }
     .input-group-btn {
      right: 0;
@@ -449,6 +484,8 @@ footer, .footer {
       }
    }
  }
+
+ #feedbackContent #feedbackSend {float: none; width: 100%; margin-bottom: 20px;}
 
 footer {
  text-align: center;
