@@ -11,7 +11,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'pg'
 end
 
@@ -62,6 +61,5 @@ gem 'memcachier'
 
 # Required for caching in production.
 gem 'kgio'
-
-
 gem 'enumerize'
+gem 'rails_12factor'

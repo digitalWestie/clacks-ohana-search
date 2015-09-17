@@ -25,7 +25,7 @@
     <section id="serviceAbout">
 
       <h3>About</h3>
-      <p><%= service.description %></p>
+      <p><%= convert_text_with_links(service.description) %></p>
 
     </section>
 
@@ -52,14 +52,14 @@
       <% unless service.audience.blank? %>
       <tr>
        <th>Audience:</th>
-       <td><%= service.audience %></td>
+       <td><%= convert_text_with_links(service.audience) %></td>
       </tr>
       <% end %>
 
       <% unless service.eligibility.blank? %>
       <tr>
        <th>Eligibility:</th>
-       <td> <%= service.eligibility %></td>
+       <td> <%= convert_text_with_links service.eligibility %></td>
       </tr>
       <% end %>
 
@@ -80,7 +80,7 @@
       <% unless service.how_to_apply.blank? %>
         <tr>
           <th>How to apply:</th>
-          <td><%= service.how_to_apply %></td>
+          <td><%= convert_text_with_links service.how_to_apply %></td>
         </tr>
       <% end %>
 

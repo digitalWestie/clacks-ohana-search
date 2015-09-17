@@ -37,4 +37,10 @@ module ServicesHelper
     end
   end
 
+  def convert_text_with_links(text)
+    urls = %r{(?:https?|ftp|mailto)://\S+}i
+    text = text.gsub urls, '<a href="\0">\0</a>'
+    text.html_safe
+  end
+
 end
