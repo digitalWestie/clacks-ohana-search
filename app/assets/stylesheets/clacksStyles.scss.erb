@@ -103,7 +103,7 @@ footer, .footer {
 #searchForm {
  padding: 3em 15px;
  label { display: block; width: 100%; font-size: 3em; text-align: center; }
- .input-group {padding: 0 15px; position: relative}
+ .input-group {padding: 0 15px; position: relative; width: 100%;}
  .input-group-btn {
    position: absolute;
    width: 55px;
@@ -374,15 +374,13 @@ footer, .footer {
 .ie9 #serviceDetails {  word-break: break-word; }
 
 
-/* Small phones (up to 480px wide) */
+/* Small phones (up to 360px wide) */
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
 
   #homePage {
       #searchForm {
-        input#searchBox {
-          font-size: 1.15em;
-          }
+        input#searchBox {font-size: 1.15em; }
         label {
          font-size: 1.5em !important
         }
